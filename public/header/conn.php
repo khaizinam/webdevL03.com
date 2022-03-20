@@ -8,7 +8,7 @@ class DataBase
 
 
     public $link;
-    public $eror;
+    public $error;
     public  function __construct()
     {
         $this->connectDB();
@@ -16,7 +16,7 @@ class DataBase
     public function connectDB(){
             $this->link = new mysqli($this->host,$this->name,$this->pass,$this->database);
             if (!$this->link) {
-                $this->eror = "Connect fail".$this->link->connect_error;
+                $this->error = "Connect fail".$this->link->connect_error;
                 return false;
             }
     }

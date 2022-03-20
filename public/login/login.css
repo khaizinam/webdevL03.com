@@ -78,10 +78,6 @@ body{
     margin-left: 10px;
 }
 
-.form-control.error input{
-    border-bottom: 2px solid var(--error-color);
-}
-
 .btn-submit{
     width: 100%;
     height: 50px;

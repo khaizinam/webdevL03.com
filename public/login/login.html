@@ -9,17 +9,16 @@
     <link rel="stylesheet" href="./login.css">
 </head>
 <body>
-    <form class="login-container" autocomplete="off">
+    <form action="../../php/login.php" method="post" class="login-container" autocomplete="off">
         <h1>Đăng nhập</h1>
-        <div class="form-control error">
-            <input id="username" type="text" placeholder="Username">
-            <small>Tài khoản không tồn tại</small>
+        <div class="form-control">
+            <input name="username" id="username" type="text" placeholder="Username">
             <span></span>
         </div>
 
         <div class="form-control error">
-            <input id="password" type="password" placeholder="Password">
-            <small>Mật khẩu không khớp</small>
+            <input name="password" id="password" type="password" placeholder="Password">
+            <small id="txt">&nbsp;</small>
             <span></span>
         </div>
 
