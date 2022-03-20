@@ -1,11 +1,11 @@
 <?php
-    $url = "../../public/";
+    $url = "../../controller/";
     include "../header/header.php";
     if(!isset($_COOKIE['user'])){
        $name = "Đăng nhập";
        $cookie_name = "user";
        $cookie_value = "John Doe";
-       setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+       setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
     } else {
         $name = $_COOKIE['user'];
     }

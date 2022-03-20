@@ -24,7 +24,7 @@ btnDrop = (e) => {
         }
     }
 }
-const SITE_URL = "http://localhost/git-webL03/webdevL03.com/";
+const SITE_URL = "http://localhost/git-webL03/webdevL03.com/model";
 
 class App {
     constructor() {
@@ -32,7 +32,7 @@ class App {
         this.boot();
     }
     network(add, printProduct) {
-        $.get(SITE_URL + "server/updatePage/show-product.php", {
+        $.get(SITE_URL + "/updatePage/show-product.php", {
                 cate: category
             },
             function(data, status) {
@@ -47,7 +47,7 @@ class App {
     }
 
     popular() {
-        $.get(SITE_URL + "server/updatePage/popular.php", {},
+        $.get(SITE_URL + "/updatePage/popular.php", {},
             function(data, status) {
                 if (status === 'success') {
                     let newdata = JSON.parse(data);
@@ -101,7 +101,7 @@ class App {
             let q = document.getElementById("q").value;
             console.log(q);
             if (q != "") {
-                $.get(SITE_URL + "server/updatePage/search.php", {
+                $.get(SITE_URL + "/updatePage/search.php", {
                         search: q
                     },
                     function(data, status) {
