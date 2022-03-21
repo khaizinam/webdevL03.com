@@ -62,17 +62,17 @@
     <?php
      if(isset($_GET['cate'])){
         if($_GET['cate'] == 'all' ){
-            include "../include/poster.php";
+            include "include/poster.php";
         }
-     }else include "../include/poster.php";
+     }else include "include/poster.php";
     ?>
     <div id="all-page" class="container">
         <?php
         if(isset($_GET['cate'])){
             if($_GET['cate'] == 'all' ){
-                include "../include/title.php";
+                include "include/title.php";
             }
-        }else include "../include/title.php";
+        }else include "include/title.php";
         ?>
         <div class="wrapper-product-list">
             <div id="cate" style="display:none"><?php
