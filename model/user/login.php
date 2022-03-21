@@ -8,6 +8,7 @@
     FROM user 
     WHERE user_name='$username'";
     $result = $db->send($sql);
+    
     if ($result->num_rows>0){
         $row = $result->fetch_assoc();
         if ($password!=$row['password']){

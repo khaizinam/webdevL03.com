@@ -17,7 +17,7 @@
                 <span>ME Shop</span>
             </div>
             <div id="header-1-right">
-                <span>X team</span>
+                <span>Moderm Evolution TEAM</span>
             </div>
         </div>
         <div id="header-2">
