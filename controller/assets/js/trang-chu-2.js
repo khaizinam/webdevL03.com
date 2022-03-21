@@ -60,7 +60,7 @@ class App {
             });
     }
     add(link, img, ctp, s, cost) {
-        let url_img = "../../public/assets/img/trang-chu/";
+        let url_img = "../../controller/assets/img/trang-chu/";
         let parent = document.getElementsByClassName("wrapper-product-list")[0];
         let c = document.createElement("div");
         c.setAttribute("class", "wrapper-product");
