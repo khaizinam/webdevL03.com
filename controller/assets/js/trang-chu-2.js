@@ -114,7 +114,7 @@ class App {
                                 function myFunction(item, index) {
                                     mes +=
                                         `<li>
-                                        <a href="index.php?cate=book">` + item.name + ` | <span style="font-size:12px">id : ` + item.id + `</span></a>
+                                        <a href="../detail/index.php?view=` + item.id + `">` + item.name + ` | <span style="font-size:12px">id : ` + item.id + `</span></a>
                                     </li>`;
                                 }
                                 mes += "</ul>"

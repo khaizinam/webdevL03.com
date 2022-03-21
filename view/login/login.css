@@ -1,0 +1,134 @@
+:root{
+    --main-color: #2691d9;
+    --error-color: #e74c3c;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+body{
+    height: 100vh;
+    background: linear-gradient(120deg, #3ca7ee, #9b408f);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container{
+    width: 350px;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    padding: 30px;
+}
+
+@media screen and (max-width: 576px) {
+    .login-container{
+        width: 90%;
+        max-width: 350px;
+        padding: 30px;
+    }
+}
+
+.login-container h1{
+    text-align: center;
+}
+
+.form-control{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.form-control input{
+    width: 100%;
+    padding-left: 10px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #adadad;
+
+}
+
+.form-control input:focus{
+    background-color: rgb(213, 239, 252);
+}
+
+
+.form-control span{
+    position: absolute;
+    border-bottom: 2px solid var(--main-color);
+    top: 38px;
+    width: 0;
+    left: 0;
+    transition: 0.4s;
+}
+
+.form-control input:focus ~ span{
+    width: 100%;
+}
+
+.form-control.error small{
+    color: var(--error-color);
+    margin-left: 10px;
+}
+
+.btn-submit{
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 18px;
+    background-color: var(--main-color);
+    font-weight: bold;
+    margin: 15px 0 0 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-submit:hover{
+    background-color:#2887c7;
+}
+
+.signup-link{
+    text-align: center;
+    margin: 20px 0;
+}
+
+.signup-link a{
+    color: var(--main-color);
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.signup-link a:hover{
+    text-decoration: underline;
+}
+
+#icons{
+    display: flex;
+    width: 60%;
+    margin: auto;
+    justify-content: space-around;
+}
+
+.icon-item{
+    font-size: 20px;
+    width: 50px;
+    text-align: center;
+    width: 20px;
+    transition: 0.3s;
+}
+
+.icon-item:hover{
+    cursor: pointer;
+    transform: scale3d(1.2,1.2,1.2);
+}

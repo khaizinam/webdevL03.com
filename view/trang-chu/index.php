@@ -22,11 +22,7 @@
         </div>
         <div id="header-2">
             <div id="header-2-top" class="d-flex">
-                <a href="">trợ giúp</a>
-                <a href="">trình theo dõi đơn hàng</a>
-                <a href="">Đăng kí bản tin</a>
                 <a id="user" href=""><?php echo $name ?></a>
-                <a href="">Ngôn ngữ</a>
             </div>
             <div id="header-2-bottom" class="d-flex">
                 <div class="logo">
