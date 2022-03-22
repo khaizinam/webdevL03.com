@@ -1,6 +1,6 @@
 <?php
     $url = "../../controller/";
-    include "../header/header.php";
+    include "include/header.php";
     if(!isset($_COOKIE['user'])){
        $name = "Đăng nhập";
        $cookie_name = "user";

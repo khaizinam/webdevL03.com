@@ -108,6 +108,10 @@ a {
     background-color: white;
     padding: 15px 0px 15px 0px;
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .search-auto-complete a {
