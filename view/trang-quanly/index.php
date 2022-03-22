@@ -1,6 +1,6 @@
 <?php
-    $url = "../../public/";
-    include "../header/header.php";
+    $url = "../../controller/";
+    include "include/header.php";
 ?>
     <header></header>
     <body class="container-md">
