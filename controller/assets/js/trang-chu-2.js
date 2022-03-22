@@ -24,7 +24,7 @@ btnDrop = (e) => {
         }
     }
 }
-const SITE_URL = "http://localhost/git-webL03/webdevL03.com/model";
+const SITE_URL = "http://localhost:8080/webl03/model";
 
 class App {
     constructor() {
