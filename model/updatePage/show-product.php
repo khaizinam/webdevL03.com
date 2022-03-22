@@ -17,7 +17,7 @@
     $sql = $db->send($query);
     while($rows = $sql->fetch_array()){
         array_push($data, array('id' => $rows['ID'],
-        "url" => "index.php?view=".$rows['ID'],
+        "url" => "../detail/index.php?view=".$rows['ID'],
         "img" => $rows['img'].".jpg",
         "c" => $rows['name'],
         "sold" => $rows['ID'],

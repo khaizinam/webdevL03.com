@@ -1,11 +1,11 @@
 <?php
-    $url = "../../public/";
+    $url = "../../controller/";
     include "../header/header.php";
     if(!isset($_COOKIE['user'])){
        $name = "Đăng nhập";
        $cookie_name = "user";
        $cookie_value = "John Doe";
-       setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+       setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
     } else {
         $name = $_COOKIE['user'];
     }
@@ -17,16 +17,12 @@
                 <span>ME Shop</span>
             </div>
             <div id="header-1-right">
-                <span>X team</span>
+                <span>Moderm Evolution TEAM</span>
             </div>
         </div>
         <div id="header-2">
             <div id="header-2-top" class="d-flex">
-                <a href="">trợ giúp</a>
-                <a href="">trình theo dõi đơn hàng</a>
-                <a href="">Đăng kí bản tin</a>
                 <a id="user" href=""><?php echo $name ?></a>
-                <a href="">Ngôn ngữ</a>
             </div>
             <div id="header-2-bottom" class="d-flex">
                 <div class="logo">
@@ -62,17 +58,17 @@
     <?php
      if(isset($_GET['cate'])){
         if($_GET['cate'] == 'all' ){
-            include "../include/poster.php";
+            include "include/poster.php";
         }
-     }else include "../include/poster.php";
+     }else include "include/poster.php";
     ?>
     <div id="all-page" class="container">
         <?php
         if(isset($_GET['cate'])){
             if($_GET['cate'] == 'all' ){
-                include "../include/title.php";
+                include "include/title.php";
             }
-        }else include "../include/title.php";
+        }else include "include/title.php";
         ?>
         <div class="wrapper-product-list">
             <div id="cate" style="display:none"><?php
