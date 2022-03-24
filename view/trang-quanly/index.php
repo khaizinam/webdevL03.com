@@ -179,39 +179,41 @@
 
   
   <!-- Modal -->
-<div class="modal fade" id="add-product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="add-product" tabindex="-1" aria-labelledby="add-product" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Thêm sản phẩm</h5>
+            <h5 class="modal-title" id="add-product">Thêm sản phẩm</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form action="#" method="post">
+            <form action="../../model/processForm/addproduct.php" method="post">
                 <div class="mb-3">
-                    <label for="exampleInputName" class="form-label">Tên sản phẩm</label>
-                    <input type="text" class="form-control" id="exampleInputName">
+                    <label for="name" class="form-label">Tên sản phẩm</label>
+                    <input type="text" class="form-control" name="name" id="name">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputName" class="form-label">Loại</label>
-                    <select class="form-control form-control-sm" name="action">
+                    <label for="type" class="form-label">Loại</label>
+                    <select class="form-control form-control-sm" name="type" id="type">
                         <option value="giay">Giày</option>
                         <option value="ao">Áo</option>
                         <option value="quan">Quần</option>
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPrice" class="form-label">Giá thành</label>
-                    <input type="Number" class="form-control" id="exampleInputPrice">
+                    <label for="price" class="form-label">Giá thành</label>
+                    <input type="number" name="price" class="form-control" id="price">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputImages" class="form-label">Hình ảnh</label>
-                    <input type="file" class="form-control" id="exampleInputImages">
+                    <label for="image" class="form-label">Hình ảnh</label>
+                    <input type="file" class="form-control" id="image">
                 </div>
+                <div class="mb-3">
+                    <label for="detail" class="form-label">Chi tiết</label>
+                    <textarea class="form-control" name="detail" id="detail" maxlength="10000"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Thêm</button>
             </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Thêm</button>
         </div>
       </div>
     </div>
@@ -228,7 +230,7 @@
             <form action="#" method="post">
                 <div class="mb-3">
                     <label for="exampleInputName" class="form-label">Tên sản phẩm</label>
-                    <input type="text" class="form-control" id="exampleInputName" value="ADILETTE COMFORT">
+                    <input type="text" class="form-control" name="name" value="ADILETTE COMFORT">
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputName" class="form-label">Loại</label>
