@@ -1,6 +1,9 @@
 <?php
     $url = "../../controller/";
     include "include/header.php";
+    include "../../config/config.php";
+    include "../../model/header/conn.php";
+    $db = new DataBase();
 ?>
     <header></header>
     <body class="container-md">
@@ -56,102 +59,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="object[]" value="1" >
-                        </div>
-                    </td>
-                    <td class="text-center">1</td>
-                    <td class="text-center">ADILETTE COMFORT</td>
-                    <td class="text-center">Giày</td>
-                    <td class="text-center">850.000đ</td>
-                    <td class="text-center" >25</td>
-                    <td class="text-center">
-                        <a href="" class="btn btn-outline-primary" data-bs-toggle="modal" data-id="1" data-bs-target="#rewrite-product-modal">Sửa</a>
-                        <a href="" class="btn btn-outline-primary" data-bs-toggle="modal" data-id="1" data-bs-target="#delete-product-modal">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="object[]" value="2">
-                        </div>
-                    </td>
-                    <td class="text-center">2</td>
-                    <td class="text-center">ULTRABOOST 22 SHOES</td>
-                    <td class="text-center">Giày</td>
-                    <td class="text-center">4.400.000đ</td>
-                    <td class="text-center">30</td>
-                    <td class="text-center">
-                        <a href="" class="btn btn-outline-primary">Sửa</a>
-                        <a href="" class="btn btn-outline-primary" data-toggle="modal" data-id="1" data-target="#delete-product-modal">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="object[]" value="3">
-                        </div>
-                    </td>
-                    <td class="text-center">3</td>
-                    <td class="text-center">ESSENTIALS FLEECE CAMO-PRINT HOODIE</td>
-                    <td class="text-center">Áo</td>
-                    <td class="text-center">660.000đ</td>
-                    <td class="text-center">20</td>
-                    <td class="text-center">
-                        <a href="" class="btn btn-outline-primary">Sửa</a>
-                        <a href="" class="btn btn-outline-primary" data-toggle="modal" data-id="1" data-target="#delete-product-modal">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="object[]" value="1" >
-                        </div>
-                    </td>
-                    <td class="text-center">4</td>
-                    <td class="text-center">TIRO TRACK PANTS</td>
-                    <td class="text-center">Quần</td>
-                    <td class="text-center">1.200.000đ</td>
-                    <td class="text-center">25</td>
-                    <td class="text-center">
-                        <a href="" class="btn btn-outline-primary">Sửa</a>
-                        <a href="" class="btn btn-outline-primary" data-toggle="modal" data-id="1" data-target="#delete-product-modal">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="object[]" value="2">
-                        </div>
-                    </td>
-                    <td class="text-center">5</td>
-                    <td class="text-center">ESSENTIALS WARM-UP 3-STRIPES TRACK JACKET</td>
-                    <td class="text-center">Áo</td>
-                    <td class="text-center" >1.500.000đ</td>
-                    <td class="text-center">30</td>
-                    <td class="text-center">
-                        <a href="" class="btn btn-outline-primary">Sửa</a>
-                        <a href="" class="btn btn-outline-primary" data-toggle="modal" data-id="1" data-target="#delete-product-modal">Xóa</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="object[]" value="3">
-                        </div>
-                    </td>
-                    <td class="text-center">6</td>
-                    <td class="text-center">CLOUDFOAM PURE 2.0 SHOES</td>
-                    <td class="text-center">Giày</td>
-                    <td class="text-center">1.660.000đ</td>
-                    <td class="text-center">20</td>
-                    <td class="text-center">
-                        <a href="" class="btn btn-outline-primary">Sửa</a>
-                        <a href="" class="btn btn-outline-primary" data-toggle="modal" data-id="1" data-target="#delete-product-modal">Xóa</a>
-                    </td>
-                </tr>
+                <?php include "../../model/processForm/displayproduct.php"; ?> 
             </tbody>
         </table>
     </body>
@@ -176,7 +84,7 @@
     </footer>
 </body>
 </html>
-
+<form id="delete-product-form" method="POST"></form>
   
   <!-- Modal -->
 <div class="modal fade" id="add-product" tabindex="-1" aria-labelledby="add-product" aria-hidden="true">
@@ -270,9 +178,18 @@
             </form>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-danger">Xác nhận</button>
+            <button type="submit" onSubmit="submitDeleteform()" class="btn btn-danger">Xác nhận</button>
             <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" aria-label="Close">Hủy</button>
         </div>
       </div>
     </div>
 </div>
+<script>
+    var id 
+    
+    function deleteProduct() {
+        var form = document.getElementById("delete-product-form")
+        var action = '../../model/processForm/deleteproduct.php?id=' + id +
+        form.setAttribute("action",action);
+    }
+</script>
