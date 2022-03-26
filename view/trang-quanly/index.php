@@ -71,9 +71,9 @@
                     <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+                <li class="page-item"><a class="page-link" href="?page=2">2</a></li>
+                <li class="page-item"><a class="page-link" href="?page=3">3</a></li>
                 <li class="page-item">
                     <a class="page-link" href="#" aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
@@ -178,18 +178,27 @@
             </form>
         </div>
         <div class="modal-footer">
-            <button type="submit" onSubmit="submitDeleteform()" class="btn btn-danger">Xác nhận</button>
+            <button type="button" id='btn-delete-product' class="btn btn-danger">Xác nhận</button>
             <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" aria-label="Close">Hủy</button>
         </div>
       </div>
     </div>
 </div>
 <script>
-    var id 
-    
-    function deleteProduct() {
-        var form = document.getElementById("delete-product-form")
-        var action = '../../model/processForm/deleteproduct.php?id=' + id +
-        form.setAttribute("action",action);
-    }
+    document.addEventListener('DOMContentLoaded',function(){
+        var productID;
+        var deleteForm = document.getElementById('delete-product-form'); 
+        var btnDeleteDish = document.getElementById('btn-delete-product');
+
+        $('#delete-product-modal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget); 
+            productID = button.data('id');
+        });
+
+        btnDeleteDish.onclick = function (){ 
+            deleteForm.action = '../../model/processForm/deleteproduct.php?id='+productID;
+            deleteForm.submit();
+        };
+
+  });
 </script>
