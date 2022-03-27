@@ -7,8 +7,8 @@
         FROM product 
         WHERE name LIKE '%$search%' OR ID LIKE '%$search%'
         ORDER BY ID ASC LIMIT 5"; 
-    $res = $db->select($sql);
-    $count = mysqli_num_rows($res);
+    $res = $db->send($sql);
+    $count = $db->num($sql);
     if($count>0){
         $data = array();
         while($rows = $res->fetch_array()){

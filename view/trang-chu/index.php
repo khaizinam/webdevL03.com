@@ -1,5 +1,6 @@
 <?php
-    $url = "../../controller/";
+    $root2 = "../../";  
+    $url = $root2."controller/";
     include "include/header.php";
     if(!isset($_COOKIE['user'])){
        $name = "Đăng nhập";
@@ -9,6 +10,9 @@
     } else {
         $name = $_COOKIE['user'];
     }
+    include $root2."config/config.php";
+    include $root2."model/header/conn.php";
+    $db = new DataBase();
 ?>
 
     <div id="header">
@@ -71,10 +75,9 @@
         }else include "include/title.php";
         ?>
         <div class="wrapper-product-list">
-            <div id="cate" style="display:none"><?php
-            if(isset($_GET['cate'])) echo $_GET['cate'];
-            else echo 'all';
-            ?></div>
+            <?php  
+                include $root2."model/updatePage/show-product.php";
+            ?>
         </div>
     </div>
     <div id="wr-footer">

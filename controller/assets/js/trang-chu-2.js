@@ -90,7 +90,6 @@ class App {
         }
     }
     boot() {
-        this.network(this.add, this.printProduct);
         this.imgResize();
         this.searchAction();
     }
@@ -142,7 +141,6 @@ class App {
 }
 
 
-var category = document.getElementById("cate").innerHTML;
 var app = new App();
 addEventListener("resize", () => {
     app.imgResize();

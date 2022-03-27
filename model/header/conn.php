@@ -1,4 +1,5 @@
 <?php
+
 class DataBase    
 {
     public $host = HOSTNAME;
@@ -8,39 +9,29 @@ class DataBase
 
 
     public $link;
-    public $eror;
+    public $error;
     public  function __construct()
     {
         $this->connectDB();
     }
     public function connectDB(){
             $this->link = new mysqli($this->host,$this->name,$this->pass,$this->database);
-            if (!$this->link) {
-                $this->eror = "Connect fail".$this->link->connect_error;
-                return false;
-            }
-    }
-    public function select($query){ // select
-        $result = $this->link->query($query) or 
-        die($this->link->error.__LINE__);
-        if($result->num_rows > 0){
-            //co ket qua
-            return $result;
-        }else
-        { 
-            //khong co ket qua
-            return $result;
-        } 
+            if ($this->link -> connect_errno) {
+                echo "Failed to connect to MySQL: ".$this->link -> connect_error;
+                exit();
+              }
     }
     public function send($query){
-        $result = $this->link->query($query) or 
-        die($this->link->error.__LINE__);
+        $result = $this->link->query($query);
         if($result){
             return $result;
-        }else
-        { 
-            return false;
-        } 
+        }else {
+            echo "fail";
+        }
+    }
+    public function num($query){
+        $result = $this->link->query($query);
+        return mysqli_num_rows($result);
     }
 }  
 ?>

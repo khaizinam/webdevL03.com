@@ -1,9 +1,5 @@
 <?php 
-    include "../../config/config.php";
-    include "../header/conn.php";
-    $db = new DataBase();
     $query = "SELECT * FROM product ORDER BY ID DESC";
-    $data =array();
     if(isset($_GET['cate'])){
         if($_GET['cate'] != "all"){
             $cate = $_GET['cate'];
@@ -15,14 +11,24 @@
         }
     }
     $sql = $db->send($query);
-    while($rows = $sql->fetch_array()){
-        array_push($data, array('id' => $rows['ID'],
-        "url" => "../detail/index.php?view=".$rows['ID'],
-        "img" => $rows['img'].".jpg",
-        "c" => $rows['name'],
-        "sold" => $rows['ID'],
-        "cost" =>$rows['price'] ));
-    }
-    $json = json_encode($data);
-    echo $json;
-?>
+    while($rows = $sql->fetch_array()){?>
+        <div class="wrapper-product">
+            <a href="<?php echo '../detail/index.php?view="'.$rows['ID']?>">
+                <div class="img-product">
+                    <img src="../../controller/assets/img/trang-chu/<?php echo $rows['ID'].'.jpg'; ?>" alt="product">
+                </div>
+                <div class="content-product">
+                    <div class="detail-product">
+                        <span><?php echo $rows['name'];?></span>
+                    </div>
+                    <div class="danh-gia">
+                        <span>đã bán :</span><span>150</span>
+                    </div>
+                    <div class="price">
+                        <span><?php echo $rows['price'];?></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    <?php } ?>
+
