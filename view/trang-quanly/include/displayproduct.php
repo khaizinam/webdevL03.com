@@ -1,6 +1,7 @@
 <?php
     $page = 1;
     $paging = 0;
+    $cate = 'all';
     if(isset($_GET['page'])) $page = $_GET['page'];
     $paging = ($page-1)* 7;
     $limit = $paging + 7;

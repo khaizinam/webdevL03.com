@@ -64,42 +64,7 @@
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                     <?php
-                        $query = "SELECT COUNT(ID)
-                                FROM product
-                            ";
-                        if(isset($_GET['cate'])){
-                            $cate = $_GET['cate'];
-                            $query = "SELECT COUNT(product.ID)
-                                FROM product
-                                LEFT JOIN cate 
-                                ON product.ID = cate.productID
-                                WHERE cate.cate = '$cate'
-                            ";
-                        }
-                        $sql = $db->send($query);
-                        $productCount = 0;
-                        while($rows = $sql->fetch_array()){
-                            $productCount = $rows[0];
-                        }
-                        if($page > 1){
-                            // echo"<script>console.log($page)</script>";
-                            $prevpage = $page - 1;
-                            echo '<li class="page-item">';
-                            echo "<a class='page-link' href='?page=$prevpage' aria-label='Previous'>";
-                            echo'<span aria-hidden="true">&laquo;</span></a></li>';
-                        }
-                        for($i = 1; $i <= ceil($productCount/7); $i++){
-                            if($i == $page) echo"<li class='page-item active'><a class='page-link' href='?page=$i'>$i</a></li>";
-                            else echo"<li class='page-item'><a class='page-link' href='?page=$i'>$i</a></li>";
-                        }
-                        if($page < ceil($productCount/7)){ 
-                            // echo"<script>console.log($page)</script>";
-                            $nextpage = $page + 1;
-                            echo '<li class="page-item">';
-                            echo "<a class='page-link' href='?page=$nextpage' aria-label='Next'>";
-                            echo'<span aria-hidden="true">&raquo;</span>
-                            </a></li>';
-                        }
+                        include "./include/paging.php";
                     ?>
                 </ul>
             </nav>
@@ -117,7 +82,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form action="../../model/processForm/addproduct.php" method="post">
+            <form action="../../model/processForm/addproduct.php" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="name" class="form-label">Tên sản phẩm</label>
                     <input type="text" class="form-control" name="name" id="name">
@@ -136,7 +101,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">Hình ảnh</label>
-                    <input type="file" class="form-control" id="image">
+                    <input type="file" class="form-control" id="image" name="image">
                 </div>
                 <div class="mb-3">
                     <label for="detail" class="form-label">Chi tiết</label>
@@ -157,7 +122,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form id="update-form" action="#" method="post">
+            <form id="update-form" action="#" method="post"  enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="updateName" class="form-label">Tên sản phẩm</label>
                     <input type="text" class="form-control" id="updateName" name="name" >
@@ -176,7 +141,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="updateImages" class="form-label">Hình ảnh</label>
-                    <input type="file" class="form-control" id="updateImages">
+                    <input type="file" class="form-control" id="updateImages" name='image'>
                 </div>
                 <div class="mb-3">
                     <label for="updateDetail" class="form-label">Chi tiết</label>
@@ -215,7 +180,7 @@
     document.addEventListener('DOMContentLoaded',function(){
         var productID;
         var deleteForm = document.getElementById('delete-product-form'); 
-        var btnDeleteDish = document.getElementById('btn-delete-product');
+        var btnDeleteProduct = document.getElementById('btn-delete-product');
         var productChecks = $('input[name="objectIDs[]"]');
         var checkboxAll = $('#checkbox-all');
         var checkSubmitButton = $('.btn-check-submit');
@@ -231,7 +196,7 @@
             productID = button.data('id');
         });
 
-        btnDeleteDish.onclick = function (){ 
+        btnDeleteProduct.onclick = function (){ 
             deleteForm.action = '../../model/processForm/deleteproduct.php?id='+productID;
             deleteForm.submit();
         };
