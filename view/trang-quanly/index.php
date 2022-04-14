@@ -51,7 +51,7 @@
                         <th scope="col" class="text-center">Loại</th>
                         <th scope="col" class="text-center">Giá thành</th>
                         <th scope="col" class="text-center">Số lượng tồn kho</th>
-                        <th scope="col" class="text-center" colspan="2">Hành động</th>
+                        <th scope="col" class="text-center" colspan="3">Hành động</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -70,9 +70,7 @@
             </nav>
         </footer>
     </body>
-</html>
-<form id="delete-product-form" method="POST"></form>
-  
+</html> 
   <!-- Modal -->
 <div class="modal fade" id="add-product" tabindex="-1" aria-labelledby="add-product" aria-hidden="true">
     <div class="modal-dialog">
@@ -176,6 +174,25 @@
     </div>
 </div>
 
+<div class="modal fade" id="add-amount-product-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="add-amount-product-modal-title"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <label for="update-amount-value" class="form-label">Số lượng :</label>
+            <input type="number" min="0" id='update-amount-value'>
+        </div>
+        <div class="modal-footer">
+            <button type="button" id='btn-update-amount' class="btn btn-danger">Xác nhận</button>
+            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" aria-label="Close">Hủy</button>
+        </div>
+      </div>
+    </div>
+</div>
+
 <script>
     document.addEventListener('DOMContentLoaded',function(){
         var productID;
@@ -197,9 +214,35 @@
         });
 
         btnDeleteProduct.onclick = function (){ 
-            deleteForm.action = '../../model/processForm/deleteproduct.php?id='+productID;
-            deleteForm.submit();
+            $.ajax({url: `../../model/processForm/deleteproduct.php?id=${productID}`,
+                success: function(result){
+                    location.reload();
+                }
+            });
         };
+
+        $('#add-amount-product-modal').on('show.bs.modal', function (event){
+            var button = $(event.relatedTarget); 
+            productID = button.data('id');
+            const name = $(`#name${productID}`).text();
+            $('#add-amount-product-modal-title').text(`Thêm số lượng sản phẩm cho ${name}`);
+        })
+
+        $('#btn-update-amount').click(function() {
+            if($('#update-amount-value').val() > 0) {
+                $('#add-amount-product-modal').modal('hide');
+                var updamount = parseInt($(`#amount${productID}`).text()) + parseInt($('#update-amount-value').val());
+                $(`#amount${productID}`).text(updamount);
+                $('#update-amount-value').val('')
+                $.post(`../../model/processForm/updatePdAm.php?id=${productID}`,{amount: updamount})
+                    .done((data)=>{
+                        console.log(data);
+                    })
+            }
+            else{
+                alert('input require');
+            }
+        })
 
         checkboxAll.change(function () {
             var isCheckAll = $(this).prop('checked');
@@ -232,8 +275,6 @@
             const type = productType[$(`#cate${productID}`).html()];
             const price = parseInt($(`#price${productID}`).html());
             const detail = $(`#detail${productID}`).html();
-            // const amount = $(`#amount${productID}`).html();
-            console.log($('#updatePrice'));
             $('#updateName').val(name);
             $('#updatePrice').val(price);
             $('#updateType').val(type);
@@ -241,8 +282,30 @@
         })
 
         $('#updateProduct').click(function(){
-            $('#update-form').attr('action',`../../model/processForm/updateproduct.php?id=${productID}`)
-            $('#update-form').submit();
+            let myForm = document.getElementById('update-form');
+            let formData = new FormData(myForm);
+            $.ajax({
+                url:`../../model/processForm/updateproduct.php?id=${productID}`,
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                method: 'POST',
+                type: 'POST', // For jQuery < 1.9
+                success: function(data){
+                    if(data == 'update successfully'){
+                        $('#rewrite-product-modal').modal('hide');
+                        $(`#name${productID}`).text($('#updateName').val());
+                        $(`#cate${productID}`).text(productType[$('#updateType').val()]);
+                        $(`#price${productID}`).text($('#updatePrice').val());
+                        $(`#detail${productID}`).text($('#updateDetail').val());
+                        $('#updateImages').val('')
+                    }
+                    else {
+                        alert(data);
+                    }
+                }
+            })
         })
 
   });

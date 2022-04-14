@@ -14,10 +14,8 @@
         move_uploaded_file($img_opt_tmp,'../../controller/assets/img/productimg/'.$img_opt);
         $imageurl = "controller/assets/img/productimg/$img_opt";
     }
-    
     if($productname && $price && $type){
         if($imageurl !== ''){
-            echo $imageurl;
             $sql ="UPDATE product 
                 SET name='$productname', price= $price, detail='$detail', img = '$imageurl'
                 WHERE ID = $key
@@ -32,10 +30,7 @@
         $sql ="UPDATE cate SET cate ='$type' WHERE productID = $key";
         $result = $db->send($sql);
         if ($result){
-            echo '<script>
-                    location.href = "../../view/trang-quanly/index.php";
-                </script>
-                ;';
+            echo 'update successfully';
         }
     }else{
         echo 'Invalid info';

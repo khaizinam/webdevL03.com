@@ -9,7 +9,7 @@
             FROM product 
             LEFT JOIN cate 
             ON product.ID = cate.productID
-            ORDER BY ID ASC              
+            ORDER BY ID DESC              
             LIMIT $paging,$limit";
     if(isset($_GET['cate'])){
         if($_GET['cate'] != "all"){
@@ -24,7 +24,7 @@
     }
     $sql = $db->send($query);
     while($rows = $sql->fetch_array()){?>
-        <tr>
+        <tr id="<?php echo $rows['ID'] ?>">
             <td>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="objectIDs[]" value="<?php echo $rows['ID']?>" >
@@ -42,7 +42,8 @@
             <td class="text-center" id="detail<?php echo $rows['ID'] ?>" hidden><?php echo $rows['detail']?></td>
             <td class="text-center">
                 <a href="" class="btn btn-outline-primary" data-bs-toggle="modal" data-id="<?php echo $rows['ID']?>" data-bs-target="#rewrite-product-modal">Sửa</a>
-                <a href="" class="btn btn-outline-primary" data-bs-toggle="modal" data-id="<?php  echo $rows['ID']?>" data-bs-target="#delete-product-modal">Xóa</a>
+                <a href="" class="btn btn-outline-primary" data-bs-toggle="modal" data-id="<?php  echo $rows['ID']?>" data-bs-target="#delete-product-modal"><i class="bi bi-x-circle"></i></a>
+                <a href="" class="btn btn-outline-primary" data-bs-toggle="modal" data-id="<?php  echo $rows['ID']?>" data-bs-target="#add-amount-product-modal"><i class="bi bi-plus-circle"></i></a>
             </td>
         </tr>
         

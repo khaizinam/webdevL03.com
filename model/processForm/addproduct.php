@@ -13,7 +13,7 @@
         $img_opt =  $_FILES['image']['name'];
         $img_opt_tmp =  $_FILES['image']['tmp_name'];
         move_uploaded_file($img_opt_tmp,'../../controller/assets/img/productimg/'.$img_opt);
-        $imageurl = "controller/assets/img/productimg/$img_opt.$img_opt_tmp";
+        $imageurl = "controller/assets/img/productimg/$img_opt";
     }
         
     if($productname && $price && $type){
