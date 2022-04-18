@@ -27,6 +27,7 @@
         <div id="header-2">
             <div id="header-2-top" class="d-flex">
                 <a id="user" href=""><?php echo $name ?></a>
+                <a id="user" href="">Log out</a>
             </div>
             <div id="header-2-bottom" class="d-flex">
                 <div class="logo">
