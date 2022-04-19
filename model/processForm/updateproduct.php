@@ -17,17 +17,15 @@
     if($productname && $price && $type){
         if($imageurl !== ''){
             $sql ="UPDATE product 
-                SET name='$productname', price= $price, detail='$detail', img = '$imageurl'
+                SET name='$productname',cate ='$type',price= $price, detail='$detail', img = '$imageurl'
                 WHERE ID = $key
             ";
         }else{
             $sql ="UPDATE product 
-                SET name='$productname', price= $price, detail='$detail'
+                SET name='$productname',cate ='$type',price= $price, detail='$detail'
                 WHERE ID = $key
             ";
         }
-        $result = $db->send($sql);
-        $sql ="UPDATE cate SET cate ='$type' WHERE productID = $key";
         $result = $db->send($sql);
         if ($result){
             echo 'update successfully';

@@ -4,6 +4,11 @@
     include "../../config/config.php";
     include "../../model/header/conn.php";
     $db = new DataBase();
+    $page = 1;
+    $paging = 0;
+    $cate = 'all';
+    if(isset($_GET['page'])) $page = $_GET['page'];
+    if(isset($_GET['cate'])) $cate = $_GET['cate'];
 ?>
     <header></header>
     <body class="container-md">
@@ -55,7 +60,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php include "./include/displayproduct.php"; ?> 
+                    <?php //include "./include/displayproduct.php"; ?> 
                 </tbody>
             </table>
         </form>
@@ -195,19 +200,58 @@
 
 <script>
     document.addEventListener('DOMContentLoaded',function(){
+        var productDatas;
         var productID;
+        var page = <?php echo $page; ?>;
+        var cate = "<?php echo $cate; ?>";
         var deleteForm = document.getElementById('delete-product-form'); 
         var btnDeleteProduct = document.getElementById('btn-delete-product');
         var productChecks = $('input[name="objectIDs[]"]');
         var checkboxAll = $('#checkbox-all');
         var checkSubmitButton = $('.btn-check-submit');
 
+        function displayProductlist(productdatas){
+            var tbhtml = '';
+            for(let prop of productdatas){
+                    tbhtml +=`<tr id="${prop.id}">
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="objectIDs[]" value="${prop.id}" >
+                            </div>
+                        </td>
+                        <td class="text-center">${prop.id}</td>
+                        <td class="text-center" id="name${prop.id}">${prop.name}</td>
+                        <td class="text-center" id="cate${prop.id}">${productType[prop.cate]}</td>
+                        <td class="text-center" id="price${prop.id}">${prop.price} </td>
+                        <td class="text-center" id="amount${prop.id}">${prop.amount}</td>
+                        <td class="text-center" id="detail${prop.id}" hidden>${prop.detail}</td>
+                        <td class="text-center">
+                            <a href="" class="btn btn-outline-primary" data-bs-toggle="modal" data-id="${prop.id}" data-bs-target="#rewrite-product-modal">Sửa</a>
+                            <a href="" class="btn btn-outline-primary" data-bs-toggle="modal" data-id="${prop.id}" data-bs-target="#delete-product-modal"><i class="bi bi-x-circle"></i></a>
+                            <a href="" class="btn btn-outline-primary" data-bs-toggle="modal" data-id="${prop.id}" data-bs-target="#add-amount-product-modal"><i class="bi bi-plus-circle"></i></a>
+                        </td>
+                    </tr>`
+                }
+                // console.log(tbhtml);
+                $('tbody').html(tbhtml);
+        }
+        $.ajax({
+            // url: '../../model/updatePage/show-product.php',
+            url: `./include/displayproduct.php?page=${page}&cate=${cate}`,
+            success: function (data) {
+                productDatas = JSON.parse(data);
+                displayProductlist(productDatas);    
+                
+            }
+        })
         const productType={
             'Áo' : 'ao',
             'Quần': 'quan',
-            'Giày': 'giay'
+            'Giày': 'giay',
+            'ao' : 'Áo',
+            'quan': 'Quần',
+            'giay': 'Giày'
         }
-
         $('#delete-product-modal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget); 
             productID = button.data('id');
@@ -270,15 +314,21 @@
             var button = $(event.relatedTarget); 
             productID = button.data('id');
             // console.log(productID);
-
-            const name = $(`#name${productID}`).html();
-            const type = productType[$(`#cate${productID}`).html()];
-            const price = parseInt($(`#price${productID}`).html());
-            const detail = $(`#detail${productID}`).html();
-            $('#updateName').val(name);
-            $('#updatePrice').val(price);
-            $('#updateType').val(type);
-            $('#updateDetail').val(detail);
+            var product;
+            for(let pd of productDatas){
+                if(pd.id == productID){
+                    product = pd;
+                    break;
+                }
+            }
+            // const name = $(`#name${productID}`).html();
+            // const type = productType[$(`#cate${productID}`).html()];
+            // const price = parseInt($(`#price${productID}`).html());
+            // const detail = $(`#detail${productID}`).html();
+            $('#updateName').val(product.name);
+            $('#updatePrice').val(product.price);
+            $('#updateType').val(product.cate);
+            $('#updateDetail').val(product.detail);
         })
 
         $('#updateProduct').click(function(){
@@ -291,7 +341,6 @@
                 contentType: false,
                 processData: false,
                 method: 'POST',
-                type: 'POST', // For jQuery < 1.9
                 success: function(data){
                     if(data == 'update successfully'){
                         $('#rewrite-product-modal').modal('hide');
