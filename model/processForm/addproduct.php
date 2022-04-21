@@ -17,7 +17,7 @@
     }
         
     if($productname && $price && $type){
-        $sql = "INSERT INTO `product` (`name`,cate,`img`,`amount`,`price`,`detail`,`star`) VALUES ('$productname',$type,'$imageurl',0,$price,'$detail',0)";
+        $sql = "INSERT INTO `product` (`name`,cate,`img`,`amount`,`price`,`detail`,`star`) VALUES ('$productname','$type','$imageurl',0,$price,'$detail',0)";
         $result = $db->send($sql);
         if ($result){
             echo '<script>
