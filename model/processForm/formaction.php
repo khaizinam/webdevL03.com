@@ -9,16 +9,10 @@
     if($action == 'delete'){
         $sql = "DELETE FROM product WHERE ID in ($idlist)";
         $result = $db->send($sql);
-        $sql = "DELETE FROM cate WHERE productID in ($idlist)";
-        $result = $db->send($sql);
-    }
-    
+    }   
     $result = $db->send($sql);
     if ($result){
-        echo '<script>
-                location.href = "../../view/trang-quanly/index.php";
-            </script>
-            ;';
+        echo 'action success';
     }
     
 ?>

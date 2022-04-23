@@ -13,19 +13,12 @@
         $img_opt =  $_FILES['image']['name'];
         $img_opt_tmp =  $_FILES['image']['tmp_name'];
         move_uploaded_file($img_opt_tmp,'../../controller/assets/img/productimg/'.$img_opt);
-        $imageurl = "controller/assets/img/productimg/$img_opt.$img_opt_tmp";
+        $imageurl = "controller/assets/img/productimg/$img_opt";
     }
         
     if($productname && $price && $type){
-        $sql = "INSERT INTO `product` (`name`,`img`,`amount`,`price`,`detail`,`star`) VALUES ('$productname','$imageurl',0,$price,'$detail',0)";
+        $sql = "INSERT INTO `product` (`name`,cate,`img`,`amount`,`price`,`detail`,`star`) VALUES ('$productname','$type','$imageurl',0,$price,'$detail',0)";
         $result = $db->send($sql);
-        $query="SELECT ID FROM product WHERE `name` = '$productname'";
-        $sql = $db->send($query);
-        while($rows = $sql->fetch_array()){
-            $ID = $rows['ID'];
-            $insertsql = "INSERT INTO cate (productID,cate) VALUE ('$ID','$type')";
-            $db->send($insertsql);
-        }
         if ($result){
             echo '<script>
                     location.href = "../../view/trang-quanly/index.php";
