@@ -8,13 +8,6 @@
     $sql = "DELETE FROM cate WHERE productID='$key'";
     $result = $db->send($sql);
     if ($result){
-<<<<<<< HEAD
         echo "delete product successfully";
-=======
-        echo '<script>
-                location.href = "../../view/trang-quanly/index.php";
-            </script>
-            ;';
->>>>>>> khanh
     }
 ?>
