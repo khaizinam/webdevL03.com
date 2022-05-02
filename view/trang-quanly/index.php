@@ -4,16 +4,23 @@
     include "../../config/config.php";
     include "../../model/header/conn.php";
     $db = new DataBase();
+<<<<<<< HEAD
     $page = 1;
     $paging = 0;
     $cate = 'all';
     if(isset($_GET['page'])) $page = $_GET['page'];
     if(isset($_GET['cate'])) $cate = $_GET['cate'];
+=======
+>>>>>>> khanh
 ?>
     <header></header>
     <body class="container-md">
         <h1>Quản lý sản phẩm</h1>
+<<<<<<< HEAD
         <form class="container container-form" id="container-form" method="POST" >
+=======
+        <form class="container container-form" method="POST" action="../../model/processForm/formaction.php">
+>>>>>>> khanh
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -27,6 +34,7 @@
                             <option value="add-recommed">Đề xuất</option>
                             <option value="remove-recommed">Hủy đề xuất</option>
                         </select>
+<<<<<<< HEAD
                         <button class="btn btn-outline-primary col btn-check-submit" type="button" id="muti-action-button" disabled>Thực hiện</button>
                     </div>
                 </div>
@@ -44,6 +52,26 @@
                         <button class="btn btn-outline-primary col" type="button" data-bs-toggle="modal" data-bs-target="#add-product">Thêm sản phẩm</button>
                     </div>
                     
+=======
+                        <button class="btn btn-outline-primary col btn-check-submit" disabled>Thực hiện</button>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="row">
+                        <div class="dropdown d-flex justify-content-center col">
+                            <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Lọc theo
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="?cate=all">Tất cả</a></li>
+                                <li><a class="dropdown-item" href="?cate=ao">Áo</a></li>
+                                <li><a class="dropdown-item" href="?cate=quan">Quần</a></li>
+                                <li><a class="dropdown-item" href="?cate=giay">Giày</a></li>
+                            </ul>
+                        </div>
+                        <button class="btn btn-outline-primary d-flex justify-content-center col" data-bs-toggle="modal" data-bs-target="#add-product">Thêm sản phẩm</button>
+                    </div>
+>>>>>>> khanh
                 </div>
             </div>
             <table class="table">
@@ -55,11 +83,19 @@
                         <th scope="col" class="text-center">Loại</th>
                         <th scope="col" class="text-center">Giá thành</th>
                         <th scope="col" class="text-center">Số lượng tồn kho</th>
+<<<<<<< HEAD
                         <th scope="col" class="text-center" colspan="3">Hành động</th>
                     </tr>
                 </thead>
                 <tbody>
                     <!--data table here -->
+=======
+                        <th scope="col" class="text-center" colspan="2">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php include "./include/displayproduct.php"; ?> 
+>>>>>>> khanh
                 </tbody>
             </table>
         </form>
@@ -74,7 +110,13 @@
             </nav>
         </footer>
     </body>
+<<<<<<< HEAD
 </html> 
+=======
+</html>
+<form id="delete-product-form" method="POST"></form>
+  
+>>>>>>> khanh
   <!-- Modal -->
 <div class="modal fade" id="add-product" tabindex="-1" aria-labelledby="add-product" aria-hidden="true">
     <div class="modal-dialog">
@@ -132,6 +174,12 @@
                 <div class="mb-3">
                     <label for="updateType" class="form-label">Loại</label>
                     <select class="form-control form-control-sm" name="type" id="updateType">
+<<<<<<< HEAD
+=======
+                        <option value="giay">Giày</option>
+                        <option value="ao">Áo</option>
+                        <option value="quan">Quần</option>
+>>>>>>> khanh
                     </select>
                 </div>
                 <div class="mb-3">
@@ -175,6 +223,7 @@
     </div>
 </div>
 
+<<<<<<< HEAD
 <div class="modal fade" id="add-amount-product-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -273,11 +322,29 @@
             }
         })
         
+=======
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var productID;
+        var deleteForm = document.getElementById('delete-product-form'); 
+        var btnDeleteProduct = document.getElementById('btn-delete-product');
+        var productChecks = $('input[name="objectIDs[]"]');
+        var checkboxAll = $('#checkbox-all');
+        var checkSubmitButton = $('.btn-check-submit');
+
+        const productType={
+            'Áo' : 'ao',
+            'Quần': 'quan',
+            'Giày': 'giay'
+        }
+
+>>>>>>> khanh
         $('#delete-product-modal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget); 
             productID = button.data('id');
         });
 
+<<<<<<< HEAD
         $('#btn-delete-product').click( function (){ 
             $.ajax({url: `../../model/processForm/deleteproduct.php?id=${productID}`,
                 success: function(result){
@@ -342,10 +409,39 @@
                 alert('input require');
             }
         })
+=======
+        btnDeleteProduct.onclick = function (){ 
+            deleteForm.action = '../../model/processForm/deleteproduct.php?id='+productID;
+            deleteForm.submit();
+        };
+
+        checkboxAll.change(function () {
+            var isCheckAll = $(this).prop('checked');
+            productChecks.prop('checked',isCheckAll);
+            renderSubmitButton();
+        });
+
+        productChecks.change(function(){
+            var isCheckAll = productChecks.length === $('input[name="objectIDs[]"]:checked').length;
+            checkboxAll.prop('checked',isCheckAll);
+            renderSubmitButton();
+        });
+
+        function renderSubmitButton(){
+            var checkedCount = $('input[name="objectIDs[]"]:checked').length;
+            if(checkedCount > 0){
+                checkSubmitButton.attr('disabled',false);//set attribute
+            }
+            else{
+                checkSubmitButton.attr('disabled',true);
+            }
+        }
+>>>>>>> khanh
 
         $('#rewrite-product-modal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget); 
             productID = button.data('id');
+<<<<<<< HEAD
             $('#updateName').val(productDatas[productID].name);
             $('#updatePrice').val(productDatas[productID].price);
             $('#updateType').val(productDatas[productID].cate);
@@ -378,5 +474,26 @@
                 }
             })
         });
+=======
+            // console.log(productID);
+
+            const name = $(`#name${productID}`).html();
+            const type = productType[$(`#cate${productID}`).html()];
+            const price = parseInt($(`#price${productID}`).html());
+            const detail = $(`#detail${productID}`).html();
+            // const amount = $(`#amount${productID}`).html();
+            console.log($('#updatePrice'));
+            $('#updateName').val(name);
+            $('#updatePrice').val(price);
+            $('#updateType').val(type);
+            $('#updateDetail').val(detail);
+        })
+
+        $('#updateProduct').click(function(){
+            $('#update-form').attr('action',`../../model/processForm/updateproduct.php?id=${productID}`)
+            $('#update-form').submit();
+        })
+
+>>>>>>> khanh
   });
 </script>

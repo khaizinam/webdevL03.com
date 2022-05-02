@@ -23,7 +23,11 @@ function check_username(str) {
         xmlhttp.onload = function() {
             document.getElementById("txt").innerHTML = this.responseText;
         }
+<<<<<<< HEAD
         xmlhttp.open("GET", "../../model/user/check_register.php?username=" + str);
+=======
+        xmlhttp.open("GET", "controller/check_register.php?username=" + str);
+>>>>>>> khanh
         xmlhttp.send();
     }
 }
