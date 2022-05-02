@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <head>
+
+        </head>
+        <body class="container-md">
+            <h1>Thông tin người dùng</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="form-check col d-flex justify-content-center align-items-center">
+                                <input class="form-check-input " type="checkbox" value="" id="checkbox-all">
+                                <label class="form-check-label " for="checkbox-all">Chọn tất cả</label>
+                            </div>    
+                            <select class="form-control form-control-sm select-all-option col" name="action" required>
+                                <option value="">--Hành động--</option>
+                                <option value="delete">Xóa</option>
+                                <option value="add-recommed">Nâng quyền</option>
+                                <option value="remove-recommed">Hạ quyền</option>
+                            </select>
+                            <button class="btn btn-outline-primary col">Thực hiện</button>
+                        </div>
+                    </div>
+
+                    <div class="dropdown d-flex justify-content-center col">
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Lọc theo
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Thành Viên Loại 1</a></li>
+                        <li><a class="dropdown-item" href="#">Thành Viên Loại 2</a></li>
+                        <li><a class="dropdown-item" href="#">Quản trị viên</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Chọn</th>
+                        <th scope="col" class="text-center">ID</th>
+                        <th scope="col" class="text-center">Tên</th>
+                        <th scope="col" class="text-center">Quyền</th>
+                        <th scope="col" class="text-center">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="object[]" value="1" >
+                            </div>
+                        </td>
+                        <td class="text-center">1</td>
+                        <td class="text-center"><a>Hà Việt Hoàng</a></td>
+                        <td class="text-center">Quản trị viên</td>
+                        <td class="text-center">
+                            <a href="" class="btn btn-outline-primary" data-bs-toggle="modal" data-id="1" data-bs-target="#delete-product-modal">Xóa</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="object[]" value="2">
+                            </div>
+                        </td>
+                        <td class="text-center">2</td>
+                        <td class="text-center"><a>Phạm Hồng Khánh</a></td>
+                        <td class="text-center">Thành viên loại 1</td>
+                        <td class="text-center">
+                            <a href="" class="btn btn-outline-primary" data-bs-toggle="modal" data-id="1" data-bs-target="#delete-product-modal">Xóa</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="object[]" value="3">
+                            </div>
+                        </td>
+                        <td class="text-center">3</td>
+                        <td class="text-center"><a>Nguyễn Hữu Khải</a></td>
+                        <td class="text-center">Quản trị viên</td>
+                        <td class="text-center">
+                            <a href="" class="btn btn-outline-primary" data-bs-toggle="modal" data-id="1" data-bs-target="#delete-product-modal">Xóa</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="object[]" value="1" >
+                            </div>
+                        </td>
+                        <td class="text-center">4</td>
+                        <td class="text-center"><a>Trần Minh Tân</a></td>
+                        <td class="text-center">Thành viên loại 2</td>
+                        <td class="text-center">
+                            <a href="" class="btn btn-outline-primary" data-bs-toggle="modal" data-id="1" data-bs-target="#delete-product-modal">Xóa</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </body>
+        <footer class="bottom ">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </footer>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+</html>
+
+<div class="modal fade" id="delete-product-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Xóa người dùng</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="#" method="post">
+                <p>Bạn chắc muốn xóa chứ </p>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger">Xác nhận</button>
+            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" aria-label="Close">Hủy</button>
+        </div>
+      </div>
+    </div>
+</div>
