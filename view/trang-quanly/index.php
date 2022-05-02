@@ -13,7 +13,7 @@
     <header></header>
     <body class="container-md">
         <h1>Quản lý sản phẩm</h1>
-        <form class="container container-form" method="POST" action="../../model/processForm/formaction.php">
+        <form class="container container-form" id="container-form" method="POST" >
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -27,12 +27,12 @@
                             <option value="add-recommed">Đề xuất</option>
                             <option value="remove-recommed">Hủy đề xuất</option>
                         </select>
-                        <button class="btn btn-outline-primary col btn-check-submit" disabled>Thực hiện</button>
+                        <button class="btn btn-outline-primary col btn-check-submit" type="button" id="muti-action-button" disabled>Thực hiện</button>
                     </div>
                 </div>
-                <div class="col ">
+                <div class="col">
                     <div class="row">
-                        <div class="dropdown d-flex justify-content-center col">
+                        <div class="dropdown col">
                             <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             Lọc theo
                             </button>
@@ -40,9 +40,10 @@
                                 <li><a class="dropdown-item" href="?cate=all">Tất cả</a></li>
                             </ul>
                         </div>
-                        <button class="btn btn-outline-primary d-flex justify-content-center col" data-bs-toggle="modal" data-bs-target="#add-cate-modal">Thêm loại</button>
-                        <button class="btn btn-outline-primary d-flex justify-content-center col" data-bs-toggle="modal" data-bs-target="#add-product">Thêm sản phẩm</button>
+                        <button class="btn btn-outline-primary col" type="button" data-bs-toggle="modal" data-bs-target="#add-cate-modal">Thêm loại</button>
+                        <button class="btn btn-outline-primary col" type="button" data-bs-toggle="modal" data-bs-target="#add-product">Thêm sản phẩm</button>
                     </div>
+                    
                 </div>
             </div>
             <table class="table">
@@ -210,6 +211,7 @@
       </div>
     </div>
 </div>
+<script src="./include/checkboxRender.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded',function(){
         var productDatas = {};
@@ -217,10 +219,8 @@
         var productID;
         var page = <?php echo $page; ?>;
         var cate = "<?php echo $cate; ?>";
-        var productChecks = $('input[name="objectIDs[]"]');
-        var checkboxAll = $('#checkbox-all');
-        var checkSubmitButton = $('.btn-check-submit');
-
+        var productChecks;
+        
         $.ajax({//display cate list
             url: `../../model/processForm/getProductCate.php`,
             success: function (data) {
@@ -242,7 +242,7 @@
                     tbhtml =`<tr id="${productdatas[id].id}">
                         <td>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="objectIDs[]" value="${productdatas[id].id}" >
+                                <input class="form-check-input" type="checkbox" onchange="checkboxCheck()" name="objectIDs[]" value="${productdatas[id].id}" >
                             </div>
                         </td>
                         <td class="text-center">${productdatas[id].id}</td>
@@ -259,14 +259,13 @@
                     </tr>` + tbhtml;
                 }
                 // console.log(tbhtml);
-                $('tbody').html(tbhtml);
+            $('tbody').html(tbhtml);    
         }
+
         $.ajax({ //display table date
-            url: `./include/displayproduct.php?page=${page}&cate=${cate}`,
+            url: `../../model/processForm/displayproduct.php?page=${page}`,
             success: function (data) {
                 data = JSON.parse(data);
-                // productDatas = JSON.parse(data);
-                // displayProductlist(productDatas);
                 for(let product of data) {
                     productDatas[product.id] = product;
                 }
@@ -286,6 +285,29 @@
                 }
             });
         });
+
+        $('#muti-action-button').click( function (){ 
+            let myForm = document.getElementById('container-form');
+            let formData = new FormData(myForm);
+            $.ajax({
+                url: `../../model/processForm/formaction.php`,
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                method: 'POST',
+                success: function(data){
+                    if(data == 'action success'){
+                        alert('Success');
+                    }
+                    else{
+                        console.log(data);
+                        alert('Error');
+                    }
+                }
+            })
+
+        })
 
         $("#btn-add-cate").click(function(){
             const name = $('#add-cate-input').val();
@@ -355,32 +377,6 @@
                     }
                 }
             })
-        })
-
-        checkboxAll.change(function () {
-            var isCheckAll = $(this).prop('checked');
-            $('input[name="objectIDs[]"]').prop('checked',isCheckAll);
-            renderSubmitButton();
         });
-
-        $('input[name="objectIDs[]"]').change(function(){
-            console.log('asd')
-            var isCheckAll = productChecks.length === $('input[name="objectIDs[]"]:checked').length;
-            checkboxAll.prop('checked',isCheckAll);
-            renderSubmitButton();
-        });
-
-        function renderSubmitButton(){
-            var checkedCount = $('input[name="objectIDs[]"]:checked').length;
-            if(checkedCount > 0){
-                checkSubmitButton.attr('disabled',false);//set attribute
-            }
-            else{
-                checkSubmitButton.attr('disabled',true);
-            }
-        }
-
-        
-
   });
 </script>
