@@ -259,7 +259,9 @@
                     </tr>` + tbhtml;
                 }
                 // console.log(tbhtml);
-            $('tbody').html(tbhtml);    
+            if (tbhtml != '') $('tbody').html(tbhtml);
+            else $('tbody').html('No product found');
+                    
         }
 
         $.ajax({ //display table date
