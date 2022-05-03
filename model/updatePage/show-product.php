@@ -15,7 +15,7 @@
         <div class="wrapper-product">
             <a href="<?php echo '../detail/index.php?view="'.$rows['ID']?>">
                 <div class="img-product">
-                    <img src="../../controller/assets/img/trang-chu/<?php echo $rows['ID'].'.jpg'; ?>" alt="product">
+                    <img src="../../<?php echo $rows['img']; ?>" alt="product">
                 </div>
                 <div class="content-product">
                     <div class="detail-product">

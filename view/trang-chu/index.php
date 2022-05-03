@@ -2,17 +2,10 @@
     $root2 = "../../";  
     $url = $root2."controller/";
     include "include/header.php";
-    if(!isset($_COOKIE['user'])){
-       $name = "Đăng nhập";
-       $cookie_name = "user";
-       $cookie_value = "John Doe";
-       setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
-    } else {
-        $name = $_COOKIE['user'];
-    }
     include $root2."config/config.php";
     include $root2."model/header/conn.php";
     $db = new DataBase();
+    include "./include/checkCookie.php";
 ?>
 
     <div id="header">
@@ -26,8 +19,13 @@
         </div>
         <div id="header-2">
             <div id="header-2-top" class="d-flex">
-                <a id="user" href=""><?php echo $name ?></a>
-                <a id="user" href="">Log out</a>
+                <?php if(!isset($_COOKIE['user-id'])){
+                   ?><a id="user" href="../login/">Đăng nhập</a><?php
+                }else{
+                    ?><a id="user" href="../info/">Tài khoản</a>
+                    <a id="" href="../login/login.html?action=logout">Đăng xuất</a><?php
+                }?>
+                
             </div>
             <div id="header-2-bottom" class="d-flex">
                 <div class="logo">
