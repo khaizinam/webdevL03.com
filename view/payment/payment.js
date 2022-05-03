@@ -119,11 +119,16 @@ function load_info(id){
 }
 
 function payment(){
+    var phone_number = document.getElementById('phone_number').value;
+    var address = document.getElementById('address').value;
     var cart = JSON.parse(localStorage.cart);
+    var response = 1;
     cart.forEach(item => {
         const xhttp = new XMLHttpRequest();
         xhttp.onload = function(){
-            alert(this.responseText);
+            if (this.responseText=="False"){
+                response = 0;
+            }
         };
         xhttp.open("POST","controller/buy_product.php");
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -133,8 +138,19 @@ function payment(){
         txt += "&price="+item.price;
         txt += "&quantity="+item.quantity;
         txt += "&customer="+user_id;
+        txt += "&phone_number="+phone_number;
+        txt += "&address="+address;
         xhttp.send(txt);
     });
+
+    if (response==1){
+        alert("Thanh toán thành công!");
+        localStorage.cart = "[]";
+        load_cart();
+    }
+    else{
+        alert('Có lỗi xảy ra!');
+    }
     return false;
 }
 
