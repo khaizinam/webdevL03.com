@@ -3,10 +3,9 @@
     if(isset($_GET['cate'])){
         if($_GET['cate'] != "all"){
             $cate = $_GET['cate'];
-            $query = "SELECT product.ID,product.name,product.img,product.star,product.price 
-            FROM product,cate 
-            WHERE product.ID = cate.productID 
-            AND cate.cate ='$cate'
+            $query = "SELECT * 
+            FROM product 
+            WHERE `cate` = '$cate'
             ORDER BY ID DESC";
         }
     }
