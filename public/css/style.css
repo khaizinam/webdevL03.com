@@ -80,8 +80,10 @@ a {
 
 .detail-product {
     font-size: 14px;
-    height: 40px;
-    overflow-y: hidden;
+    height: 70px;
+    font-weight: bold;
+    overflow: hidden;
+    word-break: break-all;
 }
 
 #main-menu-2-bottom:hover a {
@@ -301,20 +303,28 @@ a#menu-opt-5:hover {
     overflow: hidden;
     position: relative;
     margin: 5px 0px;
-}
-
-.img-product {
-    margin: 0px auto 10px auto;
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
+    transition: all 1s;
 }
 
 .wrapper-product:hover {
     border: 1px solid black;
 }
 
-.img-product img {
+.img-product-wrapper {
+    position: relative;
+    margin: 0px auto 10px auto;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.img-background,
+.img-product {
+    position: absolute;
+}
+
+.img-product img,
+.img-background img {
     width: 100%;
     transition: all 1s;
 }

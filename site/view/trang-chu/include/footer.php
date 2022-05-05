@@ -1,4 +1,4 @@
-<div id="wr-footer">
+    <div id="wr-footer">
         <div class="footer container d-flex">
             <div class="about-us">
                 <h5>Về chúng tôi</h5>
@@ -16,14 +16,11 @@
                 <h5>Thông tin liên hệ</h5>
                 <a style="font-size:40px" href="https://github.com/khaizinam/webdevL03.com" target="_blank" ><i class="bi bi-github"></i></a>
                 <a style="font-size:40px" href="https://github.com/khaizinam/webdevL03.com" target="_blank" >  <i class="bi bi-facebook"></i></a>
-              
             </div>
         </div>
     </div>
-    <script>
-    </script>
-    <script src="<?php echo  $url?>assets/js/trang-chu-3.js"></script>
-    <script src="<?php echo  $url?>assets/js/trang-chu-2.js"></script>
+    <script src="../../../public/js/trang-chu-2.js"></script>
+    <script src="../../controller/productPage.js"></script>
 </body>
 
 </html>

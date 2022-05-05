@@ -1,3 +1,3 @@
 <?php 
-    header("Location: view/trang-chu");  
+    header("Location: site/view/trang-chu/");  
 ?>

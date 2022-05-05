@@ -1,11 +1,9 @@
 <?php
-    $root2 = "../../";  
-    $url = $root2."controller/";
-    include "include/header.php";
-    include $root2."config/config.php";
-    include $root2."model/header/conn.php";
+    include "../../../system/lib/config.php";
+    include "../../controller/conn.php";
     $db = new DataBase();
     include "./include/checkCookie.php";
+    include "./include/header.php";
 ?>
 
     <div id="header">
@@ -18,22 +16,15 @@
             </div>
         </div>
         <div id="header-2">
-            <div id="header-2-top" class="d-flex">
-                <?php if(!isset($_COOKIE['user-id'])){
-                   ?><a id="user" href="../login/">Đăng nhập</a><?php
-                }else{
-                    ?><a id="user" href="../info/">Tài khoản</a>
-                    <a id="" href="../login/login.html?action=logout">Đăng xuất</a><?php
-                }?>
-                
-            </div>
+            <!-- LOGIN BAR -->
+            <?php include "./include/login-bar.php"?>
+            <!-- end login bar -->
+            
             <div id="header-2-bottom" class="d-flex">
                 <div class="logo">
-                    <a href="index.php?cate=all"> <img src="<?php echo  $url?>assets/img/trang-chu/logo.png" alt="logo" style="width:80px"></a>
+                    <a href="index.php?cate=all"> <img src="../../../public/img/favicon.png" alt="logo" style="width:80px"></a>
                 </div>
-                <div id="main-menu-2-bottom" class="d-flex">
-                    <button onclick="btnDrop(1);" id="hover-1" class="bold">MENU</button>
-                </div>
+                <!-- search bar -->
                 <div id="right-side-menu" class="d-flex">
                     <div id="search-wrapper">
                         <form action="" method="get" id="form-search">
@@ -45,42 +36,65 @@
                     </div>
                     <button id="cart"><i class="bi bi-cart"></i></button>
                 </div>
+                <!-- end search -->
             </div>
         </div>
         <div class="mobile-menu">
             <div class="logo">
-                <a href="index.php?cate=all"> <img src="<?php echo  $url?>assets/img/trang-chu/logo.png" alt="logo" style="width:80px"></a>
+                <a href="index.php?cate=all"> <img src="../../../public/img/favicon.png" alt="logo" style="width:80px"></a>
             </div>
         </div>
     </div>
-    <div id="drop-down" class="component-wrapper-112">
-        <div id="inner-1" class="component-wrapper-113 container d-flex">
+    <div id="all-page" class="container">
 
+            <?php
+            if(isset($_GET['cate'])){
+                if($_GET['cate'] == 'all' ){
+                    include "include/title.php";
+                }
+            }else include "include/title.php";
+            ?>
+        
+            <!-- PRODUCT SHOW -->
+            <?php  
+                include "../../model/productPage/product-list.php";
+            ?>
+            <!-- END product show -->
         </div>
     </div>
-    <?php
-     if(isset($_GET['cate'])){
-        if($_GET['cate'] == 'all' ){
-            include "include/poster.php";
+    <style>
+        #pagination{
+            text-align: end;
         }
-     }else include "include/poster.php";
-    ?>
-    <div id="all-page" class="container">
-        <?php
-        if(isset($_GET['cate'])){
-            if($_GET['cate'] == 'all' ){
-                include "include/title.php";
-            }
-        }else include "include/title.php";
-        ?>
-        
-        <!-- PRODUCT SHOW -->
-
-        <div class="wrapper-product-list">
-            <?php  
-                include $root2."model/updatePage/show-product.php";
-            ?>
-        </div>
+        #pagination ul{
+            list-style: none;
+            display: flex;
+            justify-content: end;
+        }
+        a.pagination-show{
+            font-weight: 500;
+            display: block;
+            width: 27px;
+            height: 27px;
+            line-height: 28px;
+            text-align: center;
+            font-size: 14px;
+            border-radius: 50%;
+            background-color: none;
+            color: black;
+            margin: 0px 5px;
+        }
+        a.pagin-active{
+            background-color: rgb(24, 158, 255);
+            color: rgb(255, 255, 255);
+        }
+    </style>
+    <div id="pagination" class="container">
+        <ul>
+            <li> <a class="pagination-show" href="index.php?page=1">1</a> </li>
+            <li> <a class="pagination-show pagin-active" href="index.php?page=2">2</a> </li>
+            <li> <a class="pagination-show pagin-active" href="index.php?page=3">3</a> </li>
+        </ul>
     </div>
 
 <!-- Footer -->

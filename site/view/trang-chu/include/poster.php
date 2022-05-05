@@ -1,6 +1,6 @@
     <div id="poster">
         <div id="poster-content" class="container">
-            <video style="width:100%;" loop="" autoplay="" playsinline="" src="<?php echo  $url?>assets/video/poster.mp4"></video>
+            <video style="width:100%;" loop="" autoplay="" playsinline="" src="../../../public/video/poster.mp4"></video>
             <div class="text-thumb-1">
                 FIND YOUR I'MPOSSIBLE
             </div>
