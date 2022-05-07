@@ -1,6 +1,6 @@
 <?php
     include "../../../system/lib/config.php";
-    include "../../controller/conn.php";
+    include "../../../system/lib/conn.php";
     $db = new DataBase();
     include "./include/checkCookie.php";
     include "./include/header.php";
@@ -89,21 +89,7 @@
     </style>
     <div id="pagination" class="container">
         <?php 
-           if($numProduct > $limit){?>
-            <div id="pagination" class="container">
-                <ul>
-            <?php
-            for ($i = $start; $i <= $end; $i++) { 
-                if($i == $page){
-                    ?><li> <a class="pagination-show pagin-active" href="index.php?page=<?php echo $i;?>"><?php echo $i;?></a></li><?php
-                }else{
-                    ?><li> <a class="pagination-show" href="index.php?page=<?php echo $i;?>"><?php echo $i;?></a></li><?php
-                }
-            }?>
-                </ul>
-            </div>
-        <?php
-            }
+          include "./include/pagination.php";
         ?>
     </div>
 

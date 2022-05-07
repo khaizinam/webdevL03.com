@@ -1,4 +1,6 @@
 <?php 
+//SERACH product, encode to json to client.
+//Nguyen Huu Khai 07/05/2022
     include "./header.php";
     $db = new DataBase();
     $search = $_GET['search'];

@@ -1,4 +1,7 @@
 <?php 
+//Validate server request, check cate & page to right form.
+//Nguyen Huu khai
+//07/05/2022
 if(!isset($_GET['page'])){
     $_GET['page'] = 1;
 }
