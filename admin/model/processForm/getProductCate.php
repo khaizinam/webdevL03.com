@@ -1,6 +1,5 @@
 <?php
-    include "../../config/config.php";
-    include "../header/conn.php";
+    include '../header/header.php';
     $db = new DataBase();
     $query = "SELECT href,name FROM popular";
     $sql = $db->send($query);

@@ -1,6 +1,5 @@
 <?php
-    include "../../config/config.php";
-    include "../header/conn.php";
+    include '../header/header.php';
     $db = new DataBase();
     $key = $_GET['id'];
     $amount = $_POST['amount'];

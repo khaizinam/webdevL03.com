@@ -1,4 +1,3 @@
-
 var productDatas = {};
 var productType = {};
 var productID;
@@ -9,13 +8,13 @@ var limit = 7;
 var productChecks;
 
 $.ajax({//display cate list
-    url: `../../model/processForm/getProductCate.php`,
+    url: '../../model/processForm/getProductCate.php',
     success: function (data) {
         data = JSON.parse(data);
         var htmlcate = '';
         var selectlst = '';
         for(let cate of data) {
-            htmlcate += `<li><a class="dropdown-item" href="?cate=${cate.cate}">${cate.name}</a></li>`;
+            htmlcate += `<li><a class="dropdown-item" onclick="changeCate('${cate.cate}')">${cate.name}</a></li>`;
             selectlst += `<option value="${cate.cate}">${cate.name}</option>`;
             productType[cate.cate] = cate.name;
         }
@@ -24,21 +23,39 @@ $.ajax({//display cate list
         $('#catelst').append(htmlcate);
     }
 })
+if(!productCount) {
+    $.ajax({
+        url: `../../model/processForm/productCount.php?cate=${cate}`,
+        success: function (data){
+            productCount = data;
+            requestProductData();
+            paging();
+        }
+    })
+}
 
-function changePage(p) {
-    page = p;
+
+function requestProductData(){
     $.ajax({ //display table data limit
         url: `../../model/processForm/displayproduct.php?page=${page}&cate=${cate}&limit=${limit}`,
         success: function (data) {
             data = JSON.parse(data);
             productDatas={};
+            cate = data['cate'];
+            page = data['page'];
+            limit = data['limit'];
             for(let product of data['data']) {
                 productDatas[product.id] = product;
             }
             displayProductlist(productDatas);
+            paging();
         }
     });
-    paging();
+}
+
+function changePage(p) {
+    page = p;
+    requestProductData();
 }
 
 function paging() {
@@ -60,9 +77,10 @@ function paging() {
     }
 
     if(page < Math.ceil(productCount/limit)){
+        var next = parseInt(page)+1;
         pagehtml+=`
             <li class="page-item">
-                <a class='page-link' onclick="changePage(${page + 1})" aria-label='Next'>
+                <a class='page-link' onclick="changePage(${next})" aria-label='Next'>
                 <span aria-hidden="true">&raquo;</span></a>
             </li>
         `
@@ -70,13 +88,13 @@ function paging() {
     $('.pagination').html(pagehtml);
 }
 
-if(!productCount){//first time render page
+function changeCate(category){
+    cate = category;
     $.ajax({
-        url: './include/productCount.php',
+        url: `../../model/processForm/productCount.php?cate=${cate}`,
         success: function (data){
             productCount = data;
-            console.log(productCount);
-            paging();
+            requestProductData();
         }
     })
 }
@@ -111,74 +129,69 @@ function displayProductlist(productdatas){
 
 $('#limitlist').change(function (){
     limit = $(this).val();
-    $.ajax({ //display table data limit
-        url: `../../model/processForm/displayproduct.php?page=${page}&cate=${cate}&limit=${limit}`,
-        success: function (data) {
-            data = JSON.parse(data);
-            productDatas={};
-            for(let product of data['data']) {
-                productDatas[product.id] = product;
-            }
-            cate = data['cate'];
-            page = data['page'];
-            limit = data['limit'];
-            displayProductlist(productDatas);
-            paging();
-        }
-    })
+    requestProductData();
 })
 
-if(jQuery.isEmptyObject(productDatas)){// first time render page
-    $.ajax({ //display table data
-        url: `../../model/processForm/displayproduct.php?page=${page}&cate=${cate}&limit=${limit}`,
-        success: function (data) {
-            data = JSON.parse(data);
-            // console.log(data);
-            cate = data['cate'];
-            page = data['page'];
-            limit = data['limit'];
-
-            for(let product of data['data']) {
-                productDatas[product.id] = product;
-            }
-            displayProductlist(productDatas);
-        }
-    })
-}
-
-$('#delete-product-modal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget); 
-    productID = button.data('id');
-});
-
-$('#deleteProductBtn').click( function (){ 
-    $.ajax({url: `../../model/processForm/deleteproduct.php?id=${productID}`,
-        success: function(result){
-            location.reload();
-        }
-    });
-});
-
-$('#muti-action-button').click( function (){ 
-    let myForm = document.getElementById('container-form');
+$('#add-product-btn').click(()=>{
+    let myForm = document.getElementById('add-product-form');
     let formData = new FormData(myForm);
     $.ajax({
-        url: `../../model/processForm/formaction.php`,
+        url:`../../model/processForm/addproduct.php`,
         data: formData,
         cache: false,
         contentType: false,
         processData: false,
         method: 'POST',
         success: function(data){
-            if(data == 'action success'){
-                alert('Success');
+            if(data == 'add successfully'){
+                $('#add-product').modal('hide');
+                productCount++;
+                requestProductData();
             }
-            else{
-                console.log(data);
-                alert('Error');
+            else {
+                alert(data);
             }
         }
     })
+})
+
+$('#delete-product-modal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget); 
+    productID = button.data('id');
+});
+
+$('#btn-delete-product').click( function (){ 
+    $.ajax({url: `../../model/processForm/deleteproduct.php?id=${productID}`,
+        success: function(result){
+            if(result == 'delete product successfully'){
+                $('#delete-product-modal').modal('hide');
+                productCount--;
+                requestProductData();
+            }else{
+                console.log(result);
+            }
+        }
+    });
+});
+
+$('#muti-action-button').click( function (){ 
+    var objectIDs = [];
+    for(let obj of $('input[name="objectIDs[]"]:checked')){
+       objectIDs.push(obj.value);
+    }
+    action = $('#select-action').val();
+    
+    $.post('../../model/processForm/formaction.php',{action: action, objectIDs: objectIDs})
+        .done((data) => {
+            if(data =='action success'){
+                if(action == 'delete'){
+                    productCount -= objectIDs.length
+                }
+                requestProductData();
+            }else{
+                alert(data);
+            }
+        })
 
 })
 

@@ -1,6 +1,5 @@
 <?php
-    include "../../config/config.php";
-    include "../header/conn.php";
+    include '../header/header.php';
     $db = new DataBase();
     $productname = $_POST['name'];
     $price = $_POST['price'];
@@ -20,10 +19,7 @@
         $sql = "INSERT INTO `product` (`name`,cate,`img`,`amount`,`price`,`detail`,`star`) VALUES ('$productname','$type','$imageurl',0,$price,'$detail',0)";
         $result = $db->send($sql);
         if ($result){
-            echo '<script>
-                    location.href = "../../view/trang-quanly/index.php";
-                </script>
-                ;';
+            echo 'add successfully';
         }
     }else{
         echo 'Invalid info';

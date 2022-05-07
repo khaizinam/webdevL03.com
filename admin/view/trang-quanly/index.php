@@ -1,7 +1,6 @@
 <?php
-    $url = "../../controller/";
     include "../pageComponent/header.php";
-    
+    $url = '../../'
     // $_COOKIE['user-name']
     // $_COOKIE['user-id']
 ?>
@@ -16,7 +15,7 @@
                             <input class="form-check-input " type="checkbox" value="" id="checkbox-all">
                             <label class="form-check-label " for="checkbox-all">Chọn tất cả</label>
                         </div>    
-                        <select class="form-control select-all-option col" name="action" required>
+                        <select class="form-control select-all-option col" id="select-action" name="action" required>
                             <option value="">--Hành động--</option>
                             <option value="delete">Xóa</option>
                             <!-- <option value="add-recommed">Đề xuất</option>
@@ -32,7 +31,7 @@
                             Lọc theo
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id='catelst'>
-                                <li><a class="dropdown-item" href="?cate=all">Tất cả</a></li>
+                                <li><a class="dropdown-item" onclick="changeCate('all')">Tất cả</a></li>
                             </ul>
                         </div>
                         <div class="column">
@@ -66,7 +65,7 @@
             </table>
         </form>
         </body>
-        <footer class="bottom ">
+        <footer class="bottom">
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
 
@@ -84,7 +83,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form action="../../model/processForm/addproduct.php" method="post" enctype="multipart/form-data">
+            <form id="add-product-form" action="../../model/processForm/addproduct.php" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="name" class="form-label">Tên sản phẩm</label>
                     <input type="text" class="form-control" name="name" id="name">
@@ -106,7 +105,7 @@
                     <label for="detail" class="form-label">Chi tiết</label>
                     <textarea class="form-control" name="detail" id="detail" maxlength="10000"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Thêm</button>
+                <button type="button" class="btn btn-primary" id="add-product-btn">Thêm</button>
             </form>
         </div>
       </div>
@@ -165,7 +164,7 @@
             </form>
         </div>
         <div class="modal-footer">
-            <button type="button" id='deleteProductBtn' class="btn btn-danger">Xác nhận</button>
+            <button type="button" id='btn-delete-product' class="btn btn-danger">Xác nhận</button>
             <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" aria-label="Close">Hủy</button>
         </div>
       </div>
@@ -210,5 +209,5 @@
     </div>
 </div>
 
-<script src="./include/checkboxRender.js"></script>
-<script src="../../controller/manager.js"></script>
+<script src="<?php echo $url ?>../public/js/checkboxRender.js"></script>
+<script src="<?php echo $url ?>controller/manager.js"></script>

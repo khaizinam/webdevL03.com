@@ -1,21 +1,18 @@
 <?php
-    include "../../../config/config.php";
-    include "../../../model/header/conn.php";
+    include '../header/header.php';
     $db = new DataBase();
+    if(isset($_GET['cate'])) $cate = $_GET['cate'];
     $query = "SELECT COUNT(ID)
             FROM product
         ";
     if(isset($_GET['cate'])){
         if($_GET['cate'] != "all"){
             $cate = $_GET['cate'];
-            $query = "SELECT COUNT(product.ID)
+            $query = "SELECT COUNT(ID)
                 FROM product
-                LEFT JOIN cate 
-                ON product.ID = cate.productID
-                WHERE cate.cate = '$cate'
+                WHERE cate = '$cate'
             ";
-        }
-        
+        }       
     }
     $sql = $db->send($query);
     $productCount = 0;

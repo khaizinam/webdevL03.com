@@ -1,6 +1,5 @@
 <?php
-    include "../../config/config.php";
-    include "../header/conn.php";
+    include '../header/header.php';
     $db = new DataBase();
     $name = $_POST['catename'];
     $cate = $_POST['cate'];
