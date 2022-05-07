@@ -9,6 +9,7 @@
     <script src="<?php echo  $url?>assets/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <script src="<?php echo  $url?>assets/js/ajax.js"></script>
+    <link rel="stylesheet" href="include/manager.css">
     <link rel="icon" type="image/x-icon" href="../../favicon.png">
     <title>ME Shop</title>
 </head>

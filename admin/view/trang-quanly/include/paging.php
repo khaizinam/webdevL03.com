@@ -1,4 +1,5 @@
 <?php
+    
     $query = "SELECT COUNT(ID)
             FROM product
         ";
@@ -26,11 +27,11 @@
         echo "<a class='page-link' href='?cate=$cate&page=$prevpage' aria-label='Previous'>";
         echo'<span aria-hidden="true">&laquo;</span></a></li>';
     }
-    for($i = 1; $i <= ceil($productCount/7); $i++){
-        if($i == $page) echo"<li class='page-item active'><a class='page-link' href='?cate=$cate&page=$i'>$i</a></li>";
-        else echo"<li class='page-item'><a class='page-link' href='?cate=$cate&page=$i'>$i</a></li>";
+    for($i = 1; $i <= ceil($productCount/$limit); $i++){
+        if($i == $page) echo"<li class='page-item active'><a class='page-link' href='?cate=$cate&page=$i&limit=$limit'>$i</a></li>";
+        else echo"<li class='page-item'><a class='page-link' href='?cate=$cate&page=$i&limit=$limit'>$i</a></li>";
     }
-    if($page < ceil($productCount/7)){ 
+    if($page < ceil($productCount/$limit)){ 
         // echo"<script>console.log($page)</script>";
         $nextpage = $page + 1;
         echo '<li class="page-item">';

@@ -1,0 +1,17 @@
+table{
+    border-collapse: collapse;
+}
+.rows{
+    display: flex;
+}
+.column{
+    padding: 0px 10px;
+}
+@media only screen and (max-width: 900px) {
+    .column{
+        padding: 0px 0px;
+    }
+    span.rphd {
+        display: none;
+    }
+}
