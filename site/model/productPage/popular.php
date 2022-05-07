@@ -1,6 +1,5 @@
 <?php 
-    include "../../config/config.php";
-    include "../header/conn.php";
+    include "./header.php";
     $db = new DataBase();
     $query = "SELECT * FROM popular ORDER BY num ASC";
     $data =array();

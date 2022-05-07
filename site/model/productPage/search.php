@@ -1,6 +1,5 @@
 <?php 
-    include "../../../system/lib/config.php";
-    include "../../controller/conn.php";
+    include "./header.php";
     $db = new DataBase();
     $search = $_GET['search'];
     $sql = "SELECT * 
