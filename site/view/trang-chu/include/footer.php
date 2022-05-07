@@ -19,8 +19,7 @@
             </div>
         </div>
     </div>
-    <script src="../../../public/js/trang-chu-2.js"></script>
-    <script src="../../controller/productPage.js"></script>
+    <script src="../../controller/trang-chu/productPage.js"></script>
 </body>
 
 </html>
