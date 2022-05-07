@@ -4,14 +4,18 @@
 
 <div class="wrapper-product-list">
     <?php 
-        $query = "SELECT * FROM product ORDER BY ID DESC";
+        $getstart = ($page - 1) * $limit;
+        $query = "SELECT * FROM product ORDER BY ID DESC LIMIT $getstart,$limit";
         if(isset($_GET['cate'])){
             if($_GET['cate'] != "all"){
                 $cate = $_GET['cate'];
                 $query = "SELECT * 
                 FROM product 
                 WHERE `cate` = '$cate'
-                ORDER BY ID DESC";
+                ORDER BY ID DESC
+                LIMIT $getstart,$limit";
+            }else {
+                $query = "SELECT * FROM product ORDER BY ID DESC LIMIT $getstart,$limit";
             }
         }
         $sql = $db->send($query);

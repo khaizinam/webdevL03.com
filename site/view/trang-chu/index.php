@@ -4,6 +4,8 @@
     $db = new DataBase();
     include "./include/checkCookie.php";
     include "./include/header.php";
+    include "../../controller/trang-chu/header-mainpage.php";
+    
 ?>
 
     <div id="header">
@@ -48,11 +50,7 @@
     <div id="all-page" class="container">
 
             <?php
-            if(isset($_GET['cate'])){
-                if($_GET['cate'] == 'all' ){
-                    include "include/title.php";
-                }
-            }else include "include/title.php";
+             include "include/title.php";
             ?>
         
             <!-- PRODUCT SHOW -->
@@ -90,11 +88,23 @@
         }
     </style>
     <div id="pagination" class="container">
-        <ul>
-            <li> <a class="pagination-show" href="index.php?page=1">1</a> </li>
-            <li> <a class="pagination-show pagin-active" href="index.php?page=2">2</a> </li>
-            <li> <a class="pagination-show pagin-active" href="index.php?page=3">3</a> </li>
-        </ul>
+        <?php 
+           if($numProduct > $limit){?>
+            <div id="pagination" class="container">
+                <ul>
+            <?php
+            for ($i = $start; $i <= $end; $i++) { 
+                if($i == $page){
+                    ?><li> <a class="pagination-show pagin-active" href="index.php?page=<?php echo $i;?>"><?php echo $i;?></a></li><?php
+                }else{
+                    ?><li> <a class="pagination-show" href="index.php?page=<?php echo $i;?>"><?php echo $i;?></a></li><?php
+                }
+            }?>
+                </ul>
+            </div>
+        <?php
+            }
+        ?>
     </div>
 
 <!-- Footer -->
