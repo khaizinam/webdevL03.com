@@ -1,6 +1,6 @@
 <?php
     $url = "../../controller/";
-    include "include/header.php";
+    include "../pageComponent/header.php";
     include "../../config/config.php";
     include "../../model/header/conn.php";
     $db = new DataBase();

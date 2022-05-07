@@ -1,3 +1,3 @@
 <?php 
-    header("Location: view/trang-quanly");  
+    header("Location: admin/view");  
 ?>

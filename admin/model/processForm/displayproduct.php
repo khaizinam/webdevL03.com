@@ -1,5 +1,5 @@
 <?php
-    include "../../config/config.php";
+    include "../../../system/lib/config.php";
     include "../header/conn.php";
     $db = new DataBase();
     $page = 1;
