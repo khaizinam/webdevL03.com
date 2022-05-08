@@ -102,33 +102,6 @@
             <!-- END product show -->
         </div>
     </div>
-    <style>
-        #pagination{
-            text-align: end;
-        }
-        #pagination ul{
-            list-style: none;
-            display: flex;
-            justify-content: end;
-        }
-        a.pagination-show{
-            font-weight: 500;
-            display: block;
-            width: 27px;
-            height: 27px;
-            line-height: 28px;
-            text-align: center;
-            font-size: 14px;
-            border-radius: 50%;
-            background-color: none;
-            color: black;
-            margin: 0px 5px;
-        }
-        a.pagin-active{
-            background-color: rgb(24, 158, 255);
-            color: rgb(255, 255, 255);
-        }
-    </style>
     <div style="background-color: white;min-height:50px;margin-bottom:20px" id="pagination" class="container">
         <?php 
           include "./include/pagination.php";
