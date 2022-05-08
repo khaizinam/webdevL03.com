@@ -117,6 +117,17 @@ $(document).ready(function() {
     //     <button id="cart"><i class="bi bi-cart"></i></button>`);
     // }
 })
+$.get("../../model/productPage/search.php", {
+        cate: $("#cate-https").val()
+    },
+    function(data, status) {
+        if (status === 'success') {
+            if (data != "no data find") {
+                let ndata = JSON.parse(data);
+
+            }
+        }
+    });
 addEventListener("resize", () => {
     imgResize();
 })

@@ -1,7 +1,8 @@
 <?php
     include "./include/header.php";
 ?>
-
+    <input type="hidden" id="cate-https" value="<?php echo $cate;?>">
+    <input type="hidden" id="page-https" value="<?php echo $page;?>">
     <div id="header">
         <div id="header-1" class="d-flex">
             <div id="header-1-left">
@@ -85,7 +86,9 @@
             <?php
              include "include/title.php";
             ?>
-        
+            <div class="component-wrapper-1">
+                <h3 id="h3-1" class="center"></h3> 
+            </div> 
             <!-- PRODUCT SHOW -->
             <div class="wrapper-product-list">
             <?php  

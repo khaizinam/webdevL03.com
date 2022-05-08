@@ -38,10 +38,6 @@ class DataBase
     }
 } 
 class Cookie{
-    public static function init()
-    {
-        //INIT CODE
-    }
     public static function set($cname , $cvalue){
         if(!self::check($cname)){
             setcookie($cname, $cvalue, time() + (86400 * 3), "/");   
@@ -64,5 +60,35 @@ class Cookie{
             return true;
         }else return false;
     }
-} 
+}
+class Session{
+    public static function init()
+    {
+        if(version_compare(phpversion(), '5.4.0', '>=')){
+            if(session_id() === '') {
+                session_start();
+            }else {
+                if(session_status() === PHP_SESSION_NONE){
+                    session_start();
+                }
+            }
+        }   
+    }
+    public static function set($key, $val){
+        $_SESSION[$key] = $val;
+    }
+    public static function get($key){
+        if(self::check($key)){
+            return $_SESSION[$key];
+        } else return false;
+    }
+    public static function check($val){
+        if(!isset($_SESSION[$val])){
+            return false;
+        }else return true;
+    }
+    public static function destroy(){
+        session_destroy();   
+    }
+}  
 ?>
