@@ -4,6 +4,7 @@ var productID;
 var productCount;
 var page = 1;
 var cate = 'all';
+var search = '';
 var limit = 7;
 var productChecks;
 
@@ -23,6 +24,7 @@ $.ajax({//display cate list
         $('#catelst').append(htmlcate);
     }
 })
+
 if(!productCount) {
     $.ajax({
         url: `../../model/processForm/productCount.php?cate=${cate}`,
@@ -34,10 +36,9 @@ if(!productCount) {
     })
 }
 
-
 function requestProductData(){
     $.ajax({ //display table data limit
-        url: `../../model/processForm/displayproduct.php?page=${page}&cate=${cate}&limit=${limit}`,
+        url: `../../model/processForm/displayproduct.php?page=${page}&cate=${cate}&limit=${limit}&search=${search}`,
         success: function (data) {
             data = JSON.parse(data);
             productDatas={};
@@ -126,6 +127,12 @@ function displayProductlist(productdatas){
     else $('tbody').html('No product found');
             
 }
+
+$('#search-btn').click(()=> {
+    search = $('#search-bar').val();
+    console.log("search");
+    requestProductData();
+})
 
 $('#limitlist').change(function (){
     limit = $(this).val();

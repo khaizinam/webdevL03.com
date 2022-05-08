@@ -1,13 +1,16 @@
 table{
     border-collapse: collapse;
 }
-.rows{
-    display: flex;
+.row{
+    align-items: center;
 }
 .column{
     padding: 0px 10px;
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 700px) {
+    .action-nav{
+        display: block;
+    }
     .column{
         padding: 0px 0px;
     }

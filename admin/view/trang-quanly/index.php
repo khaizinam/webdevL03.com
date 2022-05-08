@@ -4,12 +4,11 @@
     // $_COOKIE['user-name']
     // $_COOKIE['user-id']
 ?>
-    <header></header>
     <body class="container-md">
         <h1>Quản lý sản phẩm</h1>
         <form class="container container-form" id="container-form" method="POST" >
-            <div class="row">
-                <div class="col">
+            <ul class="nav nav-pills nav-fill">
+                <li class="nav-item">
                     <div class="row">
                         <div class="form-check col d-flex justify-content-center align-items-center">
                             <input class="form-check-input " type="checkbox" value="" id="checkbox-all">
@@ -23,30 +22,29 @@
                         </select>
                         <button class="btn btn-outline-primary col btn-check-submit" type="button" id="muti-action-button" disabled>Thực hiện</button>
                     </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Lọc theo
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id='catelst'>
+                        <li><a class="dropdown-item" onclick="changeCate('all')">Tất cả</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <select class="form-control" name="action" id="limitlist">
+                        <option value="7">Hiện 7</option>
+                        <option value="14">Hiện 14</option>
+                        <option value="21">Hiện 21</option>
+                    </select>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#add-cate-modal">Thêm loại</button>
+                </li>
+                <div class="nav-item">
+                    <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#add-product">Thêm sản phẩm</button>
                 </div>
-                <div class="col">
-                    <div class="rows">
-                        <div class="dropdown column">
-                            <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            Lọc theo
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id='catelst'>
-                                <li><a class="dropdown-item" onclick="changeCate('all')">Tất cả</a></li>
-                            </ul>
-                        </div>
-                        <div class="column">
-                            <select class="form-control" name="action" id="limitlist">
-                                <option value="7">Hiện 7</option>
-                                <option value="14">Hiện 14</option>
-                                <option value="21">Hiện 21</option>
-                            </select>
-                        </div>
-                        <div class="column"><button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#add-cate-modal">Thêm loại</button></div>
-                        <div class="column"><button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#add-product">Thêm sản phẩm</button></div>
-                    </div>
-                    
-                </div>
-            </div>
+            </ul>
             <table class="table table-striped">
                 <thead>
                     <tr>

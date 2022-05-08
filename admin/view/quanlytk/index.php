@@ -5,47 +5,44 @@
     <body class="container-md">
         <h1>Quản lý tài khoản</h1>
         <form class="container container-form" id="container-form" method="POST" >
-            <div class="row">
-                <div class="col">
+            
+            <ul class="nav nav-pills nav-fill action-nav">
+                <li class="nav-item">
                     <div class="row">
                         <div class="form-check col d-flex justify-content-center align-items-center">
                             <input class="form-check-input " type="checkbox" value="" id="checkbox-all">
                             <label class="form-check-label " for="checkbox-all">Chọn tất cả</label>
                         </div>    
-                        <select class="form-control form-control-sm select-all-option col" name="action" required>
+                        <select class="form-control form-control-sm select-all-option col" id="select-action" name="action" required>
                             <option value="">--Hành động--</option>
                             <option value="delete">Xóa</option>
                         </select>
                         <button class="btn btn-outline-primary col btn-check-submit" type="button" id="muti-action-button" disabled>Thực hiện</button>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="row">
-                        <div class="dropdown col">
-                            <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            Lọc theo
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id='catelst'>
-                                <li><a class="dropdown-item" onclick="changeType('all')">Tất cả</a></li>
-                                <li><a class="dropdown-item" onclick="changeType(1)">Admin</a></li>
-                                <li><a class="dropdown-item" onclick="changeType(0)">User</a></li>
-                            </ul>
-                        </div>
-                        <div class="col">
-                            <select class="form-control" name="action" id="limitlist">
-                                <option value="7">Hiện 7</option>
-                                <option value="14">Hiện 14</option>
-                                <option value="21">Hiện 21</option>
-                            </select>
-                        </div>
-                        <div class="col">
-                            <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#add-product">Thêm sản phẩm</button>
-                        </div>
-                        
+                </li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Lọc theo
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id='catelst'>
+                            <li><a class="dropdown-item" onclick="changeType('all')">Tất cả</a></li>
+                            <li><a class="dropdown-item" onclick="changeType(1)">Admin</a></li>
+                            <li><a class="dropdown-item" onclick="changeType(0)">User</a></li>
+                        </ul>
                     </div>
-                    
-                </div>
-            </div>
+                    <!-- <div class="col">
+                        <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#add-product">Thêm quản trị viên</button>
+                    </div> -->
+                </li>
+                <li class="nav-item">
+                    <select class="form-control" name="action" id="limitlist">
+                        <option value="7">Hiện 7</option>
+                        <option value="14">Hiện 14</option>
+                        <option value="21">Hiện 21</option>
+                    </select>
+                </li>
+            </ul>
             <table class="table">
                 <thead>
                     <tr>

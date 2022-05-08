@@ -8,10 +8,11 @@ var accountCount;
 var page = 1;
 var type = 'all';
 var limit = 7;
+var search = '';
 
 function requestAccountDatas(){
     $.ajax({ //display table data limit
-        url: `../../model/account/getUserlist.php?page=${page}&type=${type}&limit=${limit}`,
+        url: `../../model/account/getUserlist.php?page=${page}&type=${type}&limit=${limit}&search=${search}`,
         success: function (data) {
             data = JSON.parse(data);
             productDatas={};
@@ -103,6 +104,12 @@ function displayAccountlist(accountdatas){
             
 }
 
+$('#search-btn').click(()=> {
+    search = $('#search-bar').val();
+    console.log("search");
+    requestAccountDatas();
+})
+
 $('#limitlist').change(function (){
     limit = $(this).val();
     requestAccountDatas();
@@ -123,24 +130,20 @@ $('#btn-delete-account').click( function (){
 });
 
 $('#muti-action-button').click( function (){ 
-    let myForm = document.getElementById('container-form');
-    let formData = new FormData(myForm);
-    $.ajax({
-        url: `../../model/processForm/formaction.php`,
-        data: formData,
-        cache: false,
-        contentType: false,
-        processData: false,
-        method: 'POST',
-        success: function(data){
-            if(data == 'action success'){
-                alert('Success');
+    var objectIDs = [];
+    for(let obj of $('input[name="objectIDs[]"]:checked')){
+       objectIDs.push(obj.value);
+    }
+    action = $('#select-action').val();
+    $.post('../../model/account/multiaction.php',{action: action, objectIDs: objectIDs})
+        .done((data) => {
+            if(data =='action success'){
+                if(action == 'delete'){
+                    accountCount -= objectIDs.length;
+                }
+                requestAccountDatas();
+            }else{
+                alert(data);
             }
-            else{
-                console.log(data);
-                alert('Error');
-            }
-        }
-    })
-
+        })
 })
