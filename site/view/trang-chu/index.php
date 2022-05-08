@@ -14,37 +14,76 @@
                 <span>ME Shop</span>
             </div>
             <div id="header-1-right">
-                <span>Moderm Evolution TEAM</span>
+                <span>Moderm TEAM</span>
             </div>
         </div>
         <div id="header-2">
             <!-- LOGIN BAR -->
-            <?php include "./include/login-bar.php"?>
-            <!-- end login bar -->
-            
-            <div id="header-2-bottom" class="d-flex">
+            <div id="header-2-top" class="d-flex justify-content-between">
                 <div class="logo">
-                    <a href="index.php?cate=all"> <img src="../../../public/img/favicon.png" alt="logo" style="width:80px"></a>
+                    <a href="index.php?cate=all"> <img src="../../../public/img/favicon.png" alt="logo" style="width:60px"></a>
                 </div>
-                <!-- search bar -->
-                <div id="right-side-menu" class="d-flex">
+                 <!-- search bar -->
                     <div id="search-wrapper">
-                        <form action="" method="get" id="form-search">
+                        <div id="form-search">
                             <input id="q" type="text" placeholder="Tìm kiếm" name="q">
-                        </form>
+                        </div>
                         <div id="search-result" class="search-auto-complete">
                             <span>Mời nhập!</span>
                         </div>
-                    </div>
-                    <button id="cart"><i class="bi bi-cart"></i></button>
-                </div>
+                        <div id="clear-search">
+                            <button><i class="bi bi-x-lg"></i></button>
+                        </div>
+                    </div>  
                 <!-- end search -->
+                <div id="user-area">
+                </div>
+                <div>
+                    <button onclick="openSlide()" id="btn-menu-slide"><i class="bi bi-list"></i></button>
+                </div>
             </div>
         </div>
         <div class="mobile-menu">
             <div class="logo">
-                <a href="index.php?cate=all"> <img src="../../../public/img/favicon.png" alt="logo" style="width:80px"></a>
+                <a href="index.php?cate=all"> <img src="../../../public/img/favicon.png" alt="logo" style="width:40px"></a>
             </div>
+            <div>
+                <button onclick="openSlide()" id="btn-menu-slide"><i class="bi bi-list"></i></button>
+            </div>
+        </div>
+    </div>
+    <?php
+        if($cate != "all"){
+            
+            $query_cate = "SELECT * FROM cate WHERE `href` = '$cate'";
+            $sql_cate = $db->send($query_cate);
+            $row_cate = $sql_cate->fetch_assoc();
+        ?>
+            <div id="menu-direct" class="container">
+            <a href="index.php?cate=all&page=1">Trang chủ</a>
+            <span>></span>
+            <span><?php echo $row_cate['name'];?></span>
+        </div>
+    <?php
+        }
+    ?>
+    <div id="slide-menu">
+        <div id="slide-menu-header">
+            <button onclick="closeSlide()" id="btn-close-slide-menu"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <!-- start slide body -->
+        <div id="slide-menu-body" class="container">
+            <a class="menu-101" href="index.php">Trang chủ</a>
+            <a class="menu-101" href="index.php">Giỏ hàng</a>
+            <button class="menu-101" data-bs-toggle="collapse" data-bs-target="#collapse-danh-muc-san-pham" aria-expanded="false" aria-controls="collapseExample">Danh mục sản phẩm <i class="bi bi-caret-down-fill"></i></button>
+            <div class="collapse" id="collapse-danh-muc-san-pham">
+                <ul class="list-slide-menu">
+                    <li><a href="index.php?cate=ao">ÁO</a> </li>
+                </ul>
+            </div>
+            <a class="menu-101" href="index.php">Đăng nhập</a>
+            <a class="menu-101" href="index.php">Tài khoản</a>
+        <!-- end slide body -->
         </div>
     </div>
     <div id="all-page" class="container">
@@ -54,9 +93,11 @@
             ?>
         
             <!-- PRODUCT SHOW -->
+            <div class="wrapper-product-list">
             <?php  
                 include "../../model/productPage/product-list.php";
             ?>
+            </div>
             <!-- END product show -->
         </div>
     </div>
@@ -87,7 +128,7 @@
             color: rgb(255, 255, 255);
         }
     </style>
-    <div id="pagination" class="container">
+    <div style="background-color: white;" id="pagination" class="container">
         <?php 
           include "./include/pagination.php";
         ?>

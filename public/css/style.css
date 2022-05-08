@@ -5,21 +5,28 @@
 
 ol,
 ul {
-    padding-left: 0px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 a:hover {
     color: black;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 body {
     overflow-anchor: none;
+    background-color: rgb(245, 245, 250);
 }
 
 #header {
     top: 0;
+    min-height: 95px;
     width: 100%;
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+    background-color: white;
 }
 
 #header-1 {
@@ -47,7 +54,6 @@ a {
 
 #header-2-top {
     height: 32px;
-    justify-content: end;
     margin-right: 50px;
 }
 
@@ -62,8 +68,9 @@ a {
 
 .logo img {
     position: absolute;
-    top: -30px;
+    top: 30px;
     left: 30px;
+    border-radius: 50%;
 }
 
 #main-menu-2-bottom button {
@@ -86,27 +93,123 @@ a {
     word-break: break-all;
 }
 
+#clear-search {
+    position: absolute;
+    display: none;
+    right: 10px;
+    top: 15px;
+}
+
+#slide-menu {
+    position: fixed;
+    width: 400px;
+    height: 100%;
+    right: -400px;
+    top: 0px;
+    background-color: white;
+    z-index: 100;
+    overflow-y: auto;
+    transition: all 1s;
+}
+
+#slide-menu-header {
+    text-align: end;
+    height: 60px;
+    width: 100%;
+}
+
+.menu-101 {
+    font-size: 20px;
+    width: 100%;
+    text-align: left;
+    display: inline-block;
+}
+
+button#btn-close-slide-menu {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    height: 50px;
+    width: 50px;
+    font-size: 30px;
+}
+
+button#btn-close-slide-menu:hover {
+    color: red;
+}
+
+#slide-menu-body {
+    text-align: start;
+}
+
+ul.list-slide-menu {
+    padding: 0;
+}
+
+.list-slide-menu>li>a {
+    width: 100%;
+    display: inline-block;
+    padding-left: 10px;
+}
+
+.list-slide-menu>li>a:hover,
+.list-slide-menu>li:hover,
+.menu-101:hover {
+    background-color: var(--bs-gray-300);
+    text-decoration: none;
+}
+
+.active>a {
+    color: white;
+    background-color: black;
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+button.menu-101 {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    padding: 0;
+}
+
+#clear-search button {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+}
+
+button#btn-menu-slide {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    height: 65px;
+    width: 65px;
+    font-size: 45px;
+}
+
 #main-menu-2-bottom:hover a {
     color: black;
 }
 
 #search-wrapper {
-    position: absolute;
+    position: relative;
     padding: 8px 0px 8px 2px;
-    right: 100px;
+    width: 450px;
     z-index: 10;
 }
 
-.search-auto-complete ul {
+#search-result ul {
     margin: none;
     padding: none;
     list-style: none;
 }
 
-.search-auto-complete {
+#search-result {
     display: none;
     height: 200px;
-    width: 420px;
+    width: 450px;
     background-color: white;
     padding: 15px 0px 15px 0px;
     overflow-y: scroll;
@@ -116,19 +219,15 @@ a {
     /* Firefox */
 }
 
-.search-auto-complete a {
+#search-result a {
     display: block;
     width: 100%;
     overflow-wrap: break-word;
     padding: 5px 10px 5px 10px;
 }
 
-.search-auto-complete a:hover {
+#search-result a:hover {
     background-color: var(--bs-gray-400);
-}
-
-#search-wrapper:hover .search-auto-complete {
-    display: block;
 }
 
 button#cart {
@@ -144,15 +243,9 @@ button#cart {
 }
 
 #form-search input {
-    width: 400px;
-    height: 32px;
+    width: 450px;
+    height: 40px;
     padding: 1px 35px 1px 10px;
-}
-
-#poster {
-    overflow: hidden;
-    background-color: var(--bs-gray-400);
-    width: 100%;
 }
 
 #poster-content {
@@ -173,7 +266,7 @@ button#cart {
 #all-page {
     min-height: 1200px;
     margin-top: 30px;
-    border-top: 1px solid black;
+    background-color: white;
 }
 
 a.btn-kham-pha {
@@ -262,6 +355,7 @@ a#menu-opt-5:hover {
 
 .component-wrapper-1 {
     margin-bottom: 20px;
+    padding-top: 30px;
 }
 
 #drop-down {
@@ -358,12 +452,8 @@ a#menu-opt-5:hover {
 
 #title-popular {
     width: 100%;
-    overflow-x: scroll;
-    height: 50px;
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
+    word-break: normal;
+    min-height: 50px;
 }
 
 @media only screen and (max-width: 768px) {
