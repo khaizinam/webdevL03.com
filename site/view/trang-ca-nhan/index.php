@@ -19,23 +19,47 @@
 </head>
 
 <body>
+    <div id="header">
+        <div id="header-1">
+            <div id="header-1-left">
+                <span>ME Shop</span>
+            </div>
+            <div id="header-1-right">
+                <span>Moderm TEAM</span>
+            </div>
+        </div>
+
+        <div id="header-2">
+            <div id="header-2-left">
+                <a href="../trang-chu/index.php">
+                    <img src="../../../public/img/favicon.png" alt="logo" style="width:40px">
+                </a>
+            </div>
+            <div id="header-2-right">
+                <a href="../trang-ca-nhan/"><?= $_COOKIE['user-name'];?></a>
+                <a href="../../../system/lib/logout.php">Đăng xuất</a>
+            </div>
+        </div>
+    </div>
     <div id="body">
         <div id="sidebar">
-            <div class="image">
-                <img src="../../../public/img/user.jpg" alt="Avatar">
-            </div>
-            <div class="usertitle">
-                <div class="usertitle-name" id="usertitle-name">
-                    Anonymous
+            <div id="basis-info">
+                <div class="image">
+                    <img src="../../../public/img/user.jpg" alt="Avatar">
                 </div>
-                <span class="usertitle-type">
-                    <i id="usertitle-type">Member</i>
-                </span>
-                <input type="text" id="user-id" value="<?=$_COOKIE['user-id'];?>" hidden>
+                <div class="usertitle">
+                    <div class="usertitle-name" id="usertitle-name">
+                        Anonymous
+                    </div>
+                    <span class="usertitle-type">
+                        <i id="usertitle-type">Member</i>
+                    </span>
+                    <input type="text" id="user-id" value="<?=$_COOKIE['user-id'];?>" hidden>
 
+                </div>
+
+                <a href="../trang-chu/" type="button" class="btn btn-out"><i class="fa-solid fa-chevron-left"></i></a>
             </div>
-
-            <a href="../trang-chu/" type="button" class="btn btn-out"><i class="fa-solid fa-chevron-left"></i></a>
 
             <hr>
 
@@ -43,7 +67,7 @@
                 <ul class="nav">
                     <li onclick="show_content(0)" class="li-active">
                         <i class="fa-solid fa-circle-info"></i>
-                        Cập nhật thông tin
+                        Thông tin
                     </li>
                     <li onclick="show_content(1)">
                         <i class="fa-solid fa-key"></i>

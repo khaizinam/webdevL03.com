@@ -63,12 +63,14 @@ function load_info(){
                     </div>
                     <div class="line">
                         <div class="title">Địa chỉ</div>
-                        <input type="text" id="address" value="`+info.address+`">
+                        <textarea id="address" rows=2>`+info.address+`</textarea>
                     </div>
                     <div class="line">
                         <div class="title"></div>
-                        <input type="submit" value="Cập nhật" class="btn btn-update">
-                        <input type="reset" value="Khôi phục" class="btn btn-reset">
+                        <div class="btn-group">
+                            <input type="submit" value="Cập nhật" class="btn btn-update">
+                            <input type="reset" value="Khôi phục" class="btn btn-reset">
+                        </div>
                     </div>
         `;
     }

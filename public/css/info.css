@@ -21,6 +21,7 @@ body{
     max-width: 1000px;
     margin: 20px auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 
@@ -31,11 +32,50 @@ body{
     cursor: pointer;
     transform: scale(1.05);
 }
+
+/* ------------------------- HEADER -----------------------------*/
+#header{
+    border-bottom: 1px solid black;
+    margin-bottom: 3px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+}
+
+#header-1{
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    padding: 2px 30px;
+}
+
+#header-2{
+    padding: 3px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#header-2-right{
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+#header-2-right a{
+    text-decoration: none;
+    display: block;
+    color: black;
+    margin: 5px;
+}
+#header-2-right a:hover{
+    text-decoration: underline;
+}
 /* ------------------------- SIDE BAR --------------------------------*/
 #sidebar{
     width: 22.5%;
     background-color: white;
-    padding: 20px 0 10px 0;
+    padding: 10px 0 10px 0;
     text-align: center;
     border-radius: 5px;
 }
@@ -86,7 +126,7 @@ body{
     background-color: #ea3740;
     position: absolute;
     left: 5px;
-    top: 5px;
+    top: 0px;
 }
 /* ------------------------- MENU --------------------------------*/
 .usermenu{
@@ -178,7 +218,8 @@ body{
     font-size: 14px;
 }
 
-#info .line input{
+#info .line input, #info .line textarea{
+    resize: none;
     width: 80%;
     border: none;
     border: 1.5px solid #2691d9;
@@ -195,7 +236,8 @@ body{
 
 #info .line input[type="text"]:focus,
 #info .line input[type="email"]:focus,
-#info .line input[type="tel"]:focus{
+#info .line input[type="tel"]:focus,
+#info .line textarea:focus{
     outline: none;
     box-shadow: 0px 0px 1px 4px #c5e3f7c3;
 }
@@ -203,6 +245,12 @@ body{
 #info .line input:placeholder-shown{
     box-shadow: none !important;
     border: 1px solid rgb(231, 42, 42);
+}
+
+#info .line .btn-group{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
 }
 
 
@@ -217,7 +265,6 @@ body{
     background-color: #3e9ede;
     color: white;
     border-radius: 3px;
-    margin-left: 10%;
 }
 #info .line .btn-reset{
     width: 100px;
@@ -230,7 +277,6 @@ body{
     background-color: #f0464f;
     color: white;
     border-radius: 3px;
-    margin-left: 10%;
 }
 /* ------------------------- CHANGE PASS ------------------------------*/
 
@@ -303,3 +349,29 @@ body{
     border: 1px solid #bfe0f6;
 }
 
+
+@media only screen and (max-width: 800px) {
+    #sidebar, #content{
+        width: 100%;
+    }
+
+    #sidebar{
+        border-bottom: 2px solid grey;
+        display: flex;
+        justify-content: center;
+    }
+    #basis-info{
+        width: 30%;
+        border-right: 2px solid grey;
+    }
+    .usermenu{
+        width: 60%;
+        margin: 0 20px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #info{
+        width: 100%;
+    }
+}

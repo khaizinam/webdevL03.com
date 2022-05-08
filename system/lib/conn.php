@@ -32,7 +32,7 @@ class DataBase
         if($result){
             return $result;
         }else {
-            echo "fail";
+            return false;
         }
     }
 

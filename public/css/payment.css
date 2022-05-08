@@ -61,7 +61,8 @@
 }
 
 #body-span{
-    width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     margin: auto;
     display: flex;
     justify-content: space-around;
@@ -75,6 +76,7 @@
     padding: 10px 0;
     border: 3px solid var(--cart-color);
     border-radius: 5px;
+    transition: 0.7s;
 }
 
 #cart-span .title{
@@ -225,6 +227,7 @@
 /* ---------------------------------------------------------*/
 #feedback{
     width: 30%;
+    transition: 0.7s;
 }
 
 #info-span{
@@ -233,6 +236,7 @@
     padding: 10px;
     color: var(--info-color);
     margin: 20px 0 20px;
+    transition: 0.7s;
 }
 
 #info-line{
@@ -269,6 +273,7 @@
     padding: 10px;
     color: var(--bill-color);
     font-size: 17px;
+    transition: 0.7s;
 }
 
 #bill-span hr{
@@ -316,4 +321,33 @@
     color: white;
     transform: scale(1.04);
     cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+    #cart-span{
+        width: 100%;
+        margin: 5px;
+    }
+    #feedback{
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    #feedback #bill-span, #feedback #info-span{
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #feedback #bill-span{
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #feedback #bill-span, #feedback #info-span{
+        width: 90%;
+    }
 }

@@ -37,7 +37,7 @@
                         <span>Mời nhập!</span>
                     </div>
                 </div>
-                <button id="cart"><i class="bi bi-cart"></i></button>
+                <button id="cart"><a href="../trang-thanh-toan/"><i class="bi bi-cart"></i></a></button>
             </div>
             <!-- end search -->
         </div>

@@ -17,9 +17,9 @@ var cart = [
 ];
 
 localStorage.setItem("cart", JSON.stringify(cart));
-var user_id = 3;
 
 /* --------------- MAIN ---------------------------*/
+var user_id = $("#user-id").val();
 
 function str_money(money){
     str = money + "";
@@ -128,23 +128,27 @@ function payment(){
     var cart = JSON.parse(localStorage.cart);
     var response = 1;
     cart.forEach(item => {
-        $.post(
-            "../../controller/trang-thanh-toan/buy_product.php",
-            {
-                id: item.id,
-                product_name: item.name,
-                price: item.price,
-                quantity: item.quantity,
-                customer: user_id,
-                phone_number: phone_number,
-                address: address
-            },
-            function(data){
-                if (data=="False"){
-                    response = 0;
-                }
-            }
-        );
+        if (item.quantity>0){
+            $.ajax({
+                method: 'POST',
+                url: "../../controller/trang-thanh-toan/buy_product.php",
+                data: {
+                    id: item.id,
+                    product_name: item.name,
+                    price: item.price,
+                    quantity: item.quantity,
+                    customer: user_id,
+                    phone_number: phone_number,
+                    address: address
+                },
+                success: function(data){
+                    if (data=="False"){
+                        response = 0;
+                    }
+                },
+                async: false
+            });
+        }
     });
 
     if (response==1){

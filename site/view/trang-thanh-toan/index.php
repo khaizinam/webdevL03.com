@@ -81,6 +81,7 @@
 
         <form id="feedback" onsubmit="return payment()">
             <div id="info-span">
+                <input type="text" id="user-id" value="<?= $_COOKIE['user-id'];?>" hidden>
                 <h1 class="title">
                     <i class="fa-solid fa-user"></i>
                     INFO
