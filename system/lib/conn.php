@@ -36,5 +36,33 @@ class DataBase
         $result = $this->link->query($query);
         return mysqli_num_rows($result);
     }
-}  
+} 
+class Cookie{
+    public static function init()
+    {
+        //INIT CODE
+    }
+    public static function set($cname , $cvalue){
+        if(!self::check($cname)){
+            setcookie($cname, $cvalue, time() + (86400 * 3), "/");   
+        }else {
+            $_COOKIE[$cname] = $cvalue;
+        }
+    } 
+    public static function get($cname){
+        if(self::check($cname)){
+            return $_COOKIE[$cname];   
+        }else return false;
+    } 
+    public static function delete($cname){
+        if(self::check($cname)){
+            setcookie($cname, "", time()-3600, "/");
+        }
+    } 
+    public static function check($cname){
+        if(isset($_COOKIE[$cname])){
+            return true;
+        }else return false;
+    }
+} 
 ?>
