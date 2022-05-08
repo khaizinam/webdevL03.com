@@ -1,3 +1,10 @@
+<?php
+    include "../../../system/lib/config.php";
+    include "../../../system/lib/conn.php";
+    $db = new DataBase();
+    include "../../controller/trang-chu/cookie.php";
+    include "../../controller/trang-chu/header-mainpage.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 

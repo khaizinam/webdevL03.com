@@ -1,12 +1,5 @@
 <?php
-    include "../../../system/lib/config.php";
-    include "../../../system/lib/conn.php";
-    $db = new DataBase();
-    //$cookie = new Cookie();
-    include "./include/cookie.php";
     include "./include/header.php";
-    include "../../controller/trang-chu/header-mainpage.php";
-    
 ?>
 
     <div id="header">
