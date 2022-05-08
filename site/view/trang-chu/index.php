@@ -48,20 +48,8 @@
             </div>
         </div>
     </div>
-    <?php
-        if($cate != "all"){
-            $query_cate = "SELECT * FROM cate WHERE `href` = '$cate'";
-            $sql_cate = $db->send($query_cate);
-            $row_cate = $sql_cate->fetch_assoc();
-        ?>
-            <div id="menu-direct" class="container">
-            <a href="index.php?cate=all&page=1">Trang chủ</a>
-            <span>></span>
-            <span><?php echo $row_cate['name'];?></span>
+        <div id="menu-direct" class="container">
         </div>
-    <?php
-        }
-    ?>
     <div id="slide-menu">
         <div id="slide-menu-header">
             <button onclick="closeSlide()" id="btn-close-slide-menu"><i class="bi bi-x-lg"></i></button>
@@ -72,8 +60,8 @@
             <a class="menu-101" href="index.php">Giỏ hàng</a>
             <button class="menu-101" data-bs-toggle="collapse" data-bs-target="#collapse-danh-muc-san-pham" aria-expanded="false" aria-controls="collapseExample">Danh mục sản phẩm <i class="bi bi-caret-down-fill"></i></button>
             <div class="collapse" id="collapse-danh-muc-san-pham">
-                <ul class="list-slide-menu">
-                    <li><a href="index.php?cate=ao">ÁO</a> </li>
+                <ul id="show-list-categories" class="list-slide-menu">
+                   
                 </ul>
             </div>
             <a class="menu-101" href="index.php">Đăng nhập</a>
@@ -82,10 +70,6 @@
         </div>
     </div>
     <div id="all-page" class="container">
-
-            <?php
-             include "include/title.php";
-            ?>
             <div class="component-wrapper-1">
                 <h3 id="h3-1" class="center"></h3> 
             </div> 
