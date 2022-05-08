@@ -61,7 +61,6 @@
             <button class="menu-101" data-bs-toggle="collapse" data-bs-target="#collapse-danh-muc-san-pham" aria-expanded="false" aria-controls="collapseExample">Danh mục sản phẩm <i class="bi bi-caret-down-fill"></i></button>
             <div class="collapse" id="collapse-danh-muc-san-pham">
                 <ul id="show-list-categories" class="list-slide-menu">
-                   
                 </ul>
             </div>
             <a class="menu-101" href="index.php">Đăng nhập</a>
