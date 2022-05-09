@@ -438,6 +438,7 @@ a#menu-opt-5:hover {
 
 .wrapper-product:hover {
     border: 1px solid black;
+    box-shadow: 2px 2px 2px 2px grey;
 }
 
 .img-product-wrapper {
