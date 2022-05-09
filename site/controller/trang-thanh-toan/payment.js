@@ -1,23 +1,3 @@
-/*---------------- INIT ---------------------------*/
-var cart = [
-    {
-        id : 37,
-        image: "shoe.jpg",
-        name: "Tai nghe Bluetooth",
-        price: 200000,
-        quantity: 1
-    },
-    {
-        id : 43,
-        image: "1.jpg",
-        name: "Mũ trẻ em",
-        price: 10000,
-        quantity: 2
-    }
-];
-
-localStorage.setItem("cart", JSON.stringify(cart));
-
 /* --------------- MAIN ---------------------------*/
 var user_id = $("#user-id").val();
 
@@ -36,13 +16,19 @@ function str_money(money){
 
 
 function load_cart(){
+    var check = localStorage.getItem('cart');
+
+    if (check==null){
+        localStorage.setItem('cart','[]');
+    }
+
     var cart = JSON.parse(localStorage.cart);
     var txt = "";
     for (let i=0; i<cart.length; i++){
         txt += `
                     <div class="cart-item">
                         <div class="image">
-                            <img src="../../../public/img/productimg/`+cart[i].image+`" atl="Product-Image">
+                            <img src="../../../`+cart[i].image+`" atl="Product-Image">
                         </div>
                         <div class="product-info">
                             <div class="product-name center">
@@ -97,6 +83,12 @@ function change_cart(i,t){
 
 
 function load_bill(){
+    var check = localStorage.getItem('cart');
+    
+    if (check==null){
+        localStorage.setItem('cart','[]');
+    }
+
     var cart = JSON.parse(localStorage.cart);
     var total = 0;
     var count = 0;
