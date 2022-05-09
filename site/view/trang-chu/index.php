@@ -31,21 +31,54 @@
                         </div>
                     </div>  
                 <!-- end search -->
-                <div id="user-area">
-                    
-                </div>
-                <div>
-                    <button onclick="openSlide()" id="btn-menu-slide"><i class="bi bi-list"></i></button>
-                </div>
+                <style>
+                    .btn-blank {
+                        background-color: Transparent;
+                        background-repeat: no-repeat;
+                        border: none;
+                    }
+                    .icon-standard{
+                        margin-top: 8px;
+                        margin-right: 20px;
+                        position: relative;
+                        width: 50px;
+                        height: 50px;
+                        font-size: 30px;
+                        color: grey;
+                        border-radius: 50%;
+                        overflow: hidden;
+                    }
+                    .icon-standard:hover{
+                        color: black;
+                    }
+                    .icon-standard i,.icon-standard img{
+                        position: absolute;
+                        top: 4px;
+                        left: 10px;
+                    }
+                    .icon-standard img{
+                        width: 35px;
+                        height: 35px;
+                        top: 7.5px;
+                        left: 7.5px;
+                    }
+                </style>
+                    <div id="user-area" class="log">
+                        <button onclick="location.href='../trang-ca-nhan/'" class="btn-blank icon-standard"><i class="bi bi-person-circle"></i></button>
+                        <button onclick="location.href='../trang-thanh-toan/'" class="btn-blank icon-standard"><i class="bi bi-cart"></i></button>
+                        <button onclick="openSlide()" class="btn-blank icon-standard" id=""><i class="bi bi-list"></i></button>
+                    </div>
             </div>
         </div>
         <div class="mobile-menu">
-            <div class="logo">
-                <a href="index.php?cate=all"> <img src="../../../public/img/favicon.png" alt="logo" style="width:40px"></a>
-            </div>
-            <div>
-                <button onclick="openSlide()" id="btn-menu-slide"><i class="bi bi-list"></i></button>
-            </div>
+                <div style="width:100%;min-width:350px;" class="d-flex justify-content-between" >
+                        <button class="btn-blank icon-standard"><img src="../../../public/img/favicon.png" alt="logo"></button>
+                        <div>
+                            <button onclick="location.href='../trang-ca-nhan/'" class="btn-blank icon-standard"><i class="bi bi-person-circle"></i></button>
+                            <button onclick="location.href='../trang-thanh-toan/'" class="btn-blank icon-standard"><i class="bi bi-cart"></i></button>
+                            <button onclick="openSlide()" class="btn-blank icon-standard" id=""><i class="bi bi-list"></i></button>
+                        </div>
+                </div>
         </div>
     </div>
         <div id="menu-direct" class="container">

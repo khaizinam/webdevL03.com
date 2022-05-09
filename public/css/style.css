@@ -237,7 +237,7 @@ button#btn-menu-slide {
 #search-wrapper {
     position: relative;
     padding: 8px 0px 8px 2px;
-    width: 450px;
+    width: 350px;
     z-index: 10;
 }
 
@@ -250,7 +250,7 @@ button#btn-menu-slide {
 #search-result {
     display: none;
     height: 200px;
-    width: 450px;
+    width: 350px;
     background-color: white;
     padding: 15px 0px 15px 0px;
     overflow-y: auto;
@@ -279,7 +279,7 @@ button#cart {
 }
 
 #form-search input {
-    width: 450px;
+    width: 350px;
     height: 40px;
     padding: 1px 35px 1px 10px;
 }
