@@ -79,7 +79,7 @@ openSlide = () => {
     console.log("click");
 }
 closeSlide = () => {
-    $("#slide-menu").css("right", "-400px");
+    $("#slide-menu").css("right", "-250px");
     console.log("click");
 }
 $("#clear-search").click(function(e) {
@@ -130,6 +130,7 @@ $.get("../../model/productPage/category.php", {},
             let ndata = JSON.parse(data);
             let mes = ``;
             let cate = $("#cate-https").val();
+            var found = false;
             console.log(ndata);
             for (let key in ndata) {
                 if (ndata[key].href == cate) {
@@ -137,8 +138,11 @@ $.get("../../model/productPage/category.php", {},
                     $("#menu-direct").html(`<a href="index.php?cate=all&page=1">Trang chủ</a>
                     <span>></span>
                     <span>${ndata[key].name}</span>`);
+                    found = true;
                 } else {
-                    $("#h3-1").html("Trang chủ");
+                    if (found == false) {
+                        $("#h3-1").html("Trang chủ");
+                    }
                 }
                 mes += `<li><a href="index.php?cate=${ndata[key].href}">${ndata[key].name}</a> </li>`;
             }

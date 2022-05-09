@@ -14,6 +14,11 @@ button:focus {
     border: none;
 }
 
+button:active {
+    outline: none;
+    border: none;
+}
+
 #pagination {
     text-align: end;
 }
@@ -91,7 +96,7 @@ a {
 }
 
 #header-2-top a {
-    margin: 0 10px;
+    margin: 0px;
     font-size: 13px;
 }
 
@@ -135,11 +140,12 @@ a {
 
 #slide-menu {
     position: fixed;
-    width: 400px;
+    width: 250px;
     height: 100%;
-    right: -400px;
+    right: -250px;
     top: 0px;
-    background-color: white;
+    background-color: rgb(245, 245, 245);
+    border: 1px solid black;
     z-index: 100;
     overflow-y: auto;
     transition: all 1s;
@@ -147,7 +153,7 @@ a {
 
 #slide-menu-header {
     text-align: end;
-    height: 60px;
+    height: 40px;
     width: 100%;
 }
 
@@ -189,6 +195,7 @@ ul.list-slide-menu {
 .list-slide-menu>li:hover,
 .menu-101:hover {
     background-color: var(--bs-gray-300);
+    color: red;
     text-decoration: none;
 }
 
@@ -245,17 +252,12 @@ button#btn-menu-slide {
     width: 450px;
     background-color: white;
     padding: 15px 0px 15px 0px;
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
+    overflow-y: auto;
 }
 
 #search-result a {
     display: block;
     width: 100%;
-    overflow-wrap: break-word;
     padding: 5px 10px 5px 10px;
 }
 
