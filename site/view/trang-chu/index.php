@@ -32,7 +32,7 @@
                     </div>  
                 <!-- end search -->
                 <div id="user-area">
-                    aaa
+                    
                 </div>
                 <div>
                     <button onclick="openSlide()" id="btn-menu-slide"><i class="bi bi-list"></i></button>
@@ -57,15 +57,17 @@
         <!-- start slide body -->
         <div id="slide-menu-body" class="container">
             <a class="menu-101" href="index.php">Trang chủ</a>
-            <a class="menu-101" href="../trang-thanh-toan/index.php">Giỏ hàng</a>
+            <a class="menu-101 log" href="../trang-thanhtoan/index.php">Giỏ hàng</a>
             <button class="menu-101" data-bs-toggle="collapse" data-bs-target="#collapse-danh-muc-san-pham" aria-expanded="false" aria-controls="collapseExample">Danh mục sản phẩm <i class="bi bi-caret-down-fill"></i></button>
             <div class="collapse" id="collapse-danh-muc-san-pham">
                 <ul id="show-list-categories" class="list-slide-menu">
                 </ul>
             </div>
-            <a class="menu-101" href="../trang-dang-nhap/index.php">Đăng nhập</a>
-            <a class="menu-101" href="../trang-dang-ky/">Đăng kí</a>
-            <a class="menu-101" href="../trang-ca-nhan/index.php">Tài khoản</a>
+            
+            <a class="menu-101 no-log" href="../trang-dang-nhap/index.php">Đăng nhập</a>
+            <a class="menu-101 no-log" href="../trang-dang-ki/index.php">Đăng kí</a>
+            <a class="menu-101 log" href="../trang-ca-nhan/index.php">Tài khoản</a>
+            <a class="menu-101 log" href="../../../system/lib/logout.php">Đăng Xuất</a>
         <!-- end slide body -->
         </div>
     </div>

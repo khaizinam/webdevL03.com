@@ -112,21 +112,18 @@ function getCookie(cname) {
 //Title of page in categories
 //08/05/2022
 //Nguyen Huu Khai
-// $.get("../../model/productPage/tieu-de.php", {
-//         cate: $("#cate-https").val()
-//     },
-//     function(data, status) {
-//         if (status === 'success') {
-//             let ndata = JSON.parse(data);
-//             console.log(ndata);
-//             $("#h3-1").html(ndata[1]);
-//             if (ndata[0] != "all") {
-//                 $("#menu-direct").html(`<a href="index.php?cate=all&page=1">Trang chủ</a>
-//                 <span>></span>
-//                 <span>${ndata[1]}</span>`);
-//             }
-//         }
-//     });
+$.get("../../model/productPage/cookie.php", {},
+    function(data, status) {
+        if (status === 'success') {
+            if (data === "no") {
+                $(".no-log").css("display", null);
+                $(".log").css("display", "none");
+            } else {
+                $(".no-log").css("display", "none");
+                $(".log").css("display", null);
+            }
+        }
+    });
 $.get("../../model/productPage/category.php", {},
     function(data, status) {
         if (status === 'success') {
