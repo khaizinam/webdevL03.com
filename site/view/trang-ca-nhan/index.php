@@ -1,8 +1,4 @@
-<?php
-    include "../../../system/lib/config.php";
-    include "../../../system/lib/conn.php";
-    include "../../../system/lib/checkCookie.php";
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
