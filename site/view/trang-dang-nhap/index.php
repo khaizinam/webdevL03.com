@@ -1,8 +1,4 @@
-<?php
-if(isset($_COOKIE["check-login"]) && $_COOKIE["check-login"] == "true"){
-     header("location: ../trang-chu/");
- }
- ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

@@ -15,10 +15,8 @@
             $row = $sql->fetch_assoc();
             Cookie::set("user-name",$row["username"]);
             Cookie::set("user-id",$row["ID"]);
-            Cookie::set("check-login","true");
         }
     }else{
-        Cookie::set("check-login","false");
         header("Location: ../trang-dang-nhap/");
     }
 ?>
