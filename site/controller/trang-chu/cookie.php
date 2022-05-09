@@ -10,15 +10,15 @@
         WHERE `username` = '$uName'
         AND `ID` = '$uID'";
         if($db->num($query) == 0){
-            Cookie::set("check-login","false");
+            Cookie::set("check-login","no");
         }else {
             $sql = $db->send($query);
             $row = $sql->fetch_assoc();
             Cookie::set("user-name",$row["username"]);
             Cookie::set("user-id",$row["ID"]);
-            Cookie::set("check-login","true");
+            Cookie::set("check-login","log");
         }
     }else{
-        Cookie::set("check-login","false");
+        Cookie::set("check-login","no");
     }
 ?>

@@ -1,5 +1,22 @@
 <?php
     include "./include/header.php";
+//Check cookie of website to login or not.
+//Nguyen Huu khai
+//08/05/2022
+        $uName = Cookie::get("user-name");
+        $uID = Cookie::get("user-id"); 
+        $query = "SELECT *
+        FROM user
+        WHERE `username` = '$uName'
+        AND `ID` = '$uID'";
+        if($db->num($query) == 0){
+            Cookie::set("login","no");
+        }else {
+            $sql = $db->send($query);
+            $row = $sql->fetch_assoc();
+            Cookie::set("user-name",$row["username"]);
+            Cookie::set("user-id",$row["ID"]);
+        }
 ?>
     <input type="hidden" id="cate-https" value="<?php echo $cate;?>">
     <input type="hidden" id="page-https" value="<?php echo $page;?>">
