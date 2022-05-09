@@ -21,6 +21,7 @@ class UserModel extends DataBase{
             else{
                 setcookie("user-name", $row["username"], time() + (86400), "/");
                 setcookie("user-id", $row["ID"], time() + (86400), "/");
+                setcookie("check-login","true", time() + (86400), "/");
                 // Đăng nhập thành công
                 if ($row['type']==1){
                     return "Customer";

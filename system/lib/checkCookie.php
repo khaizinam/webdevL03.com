@@ -1,4 +1,5 @@
 <?php
+    $db = new DataBase();
     if(Cookie::check("user-name") == true && Cookie::check("user-id") == true){
         $uName = Cookie::get("user-name");
         $uID = Cookie::get("user-id"); 

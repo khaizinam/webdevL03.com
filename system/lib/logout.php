@@ -1,7 +1,7 @@
 <?php
-
-setcookie("user-name", $row["username"], time() - (86400), "/");
-setcookie("user-id", $row["ID"], time() - (86400), "/");
-
+include "./conn.php";
+Cookie::delete("user-name");
+Cookie::delete("user-id");
+Cookie::set("check-login","false");
 header("Location: ../../site/view/trang-dang-nhap");
 ?>
