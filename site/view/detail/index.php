@@ -1,6 +1,7 @@
 <?php
     include "../../../system/lib/config.php";
     include "../../../system/lib/conn.php";
+    include "../../../system/lib/checkCookie.php";
     include "../../controller/trang-chi-tiet/detail_controller.php";
 ?>
 
@@ -18,6 +19,8 @@
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../../public/css/productpage.css">
+    <link rel="stylesheet" href="../../../public/css/style.css">
+    <script src="../../../system/lib/ajax.js"></script>
     <link rel="icon" type="image/x-icon" href="../../../public/img/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,12 +29,8 @@
 </head>
 
 <body>
-    <header class="header_promo d-flex flex-wrap align-items-center">
-        <div class="container-sm d-flex flex-wrap align-items-center justify-content-between">
-            <p class="header_promo_text text-white">SHOP BÁN HÀNG</p>
-            <a href="../trang-thanh-toan/" class="header_promo_text text-white">LẬP TRÌNH WEB</a>
-        </div>
-    </header>
+    <?php include "./inc/nav-header.php";?>
+    <script src="../../../public/js/nav-bar.js"></script>
     <div class="product_body">
         <div class="row product_body_inner">
             <div class="col-lg-8 col-xs-12 col-sm-12 col-md-12 product_image">
