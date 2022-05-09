@@ -12,6 +12,7 @@ ul {
 
 button:focus {
     border: none;
+    outline: 0;
 }
 
 button:active {
