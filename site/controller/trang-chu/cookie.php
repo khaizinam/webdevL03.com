@@ -1,4 +1,7 @@
 <?php
+//Check cookie of website to login or not.
+//Nguyen Huu khai
+//08/05/2022
     if(Cookie::check("user-name") == true && Cookie::check("user-id") == true){
         $uName = Cookie::get("user-name");
         $uID = Cookie::get("user-id"); 

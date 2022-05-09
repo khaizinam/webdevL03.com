@@ -1,8 +1,4 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Credentials: true ");
-header("Access-Control-Allow-Methods:GET, POST");
-header("Access-Control-Allow-Headers: Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control");
 class DataBase    
 {
     public $host = HOSTNAME;
@@ -19,6 +15,7 @@ class DataBase
     }
     public function connectDB(){
             $this->link = new mysqli($this->host,$this->name,$this->pass,$this->database);
+            mysqli_set_charset($this->link, 'UTF8');
             if ($this->link -> connect_errno) {
                 echo "Failed to connect to MySQL: ".$this->link -> connect_error;
                 exit();
@@ -38,10 +35,6 @@ class DataBase
     }
 } 
 class Cookie{
-    public static function init()
-    {
-        //INIT CODE
-    }
     public static function set($cname , $cvalue){
         if(!self::check($cname)){
             setcookie($cname, $cvalue, time() + (86400 * 3), "/");   
@@ -64,5 +57,35 @@ class Cookie{
             return true;
         }else return false;
     }
-} 
+}
+class Session{
+    public static function init()
+    {
+        if(version_compare(phpversion(), '5.4.0', '>=')){
+            if(session_id() === '') {
+                session_start();
+            }else {
+                if(session_status() === PHP_SESSION_NONE){
+                    session_start();
+                }
+            }
+        }   
+    }
+    public static function set($key, $val){
+        $_SESSION[$key] = $val;
+    }
+    public static function get($key){
+        if(self::check($key)){
+            return $_SESSION[$key];
+        } else return false;
+    }
+    public static function check($val){
+        if(!isset($_SESSION[$val])){
+            return false;
+        }else return true;
+    }
+    public static function destroy(){
+        session_destroy();   
+    }
+}  
 ?>

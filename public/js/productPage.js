@@ -108,15 +108,47 @@ function getCookie(cname) {
     }
     return "";
 }
-$(document).ready(function() {
-    // if (!getCookie("user-id")) {
-    //     $("#user-area").html('<a class="link-login" href="../login/">Đăng nhập</a>');
-    // } else {
-    //     $("#user-area").html(`<a class="link-login" href="../info/">Tài khoản</a>
-    //     <a class="link-login" href="../login/login.html?action=logout">Đăng xuất</a>
-    //     <button id="cart"><i class="bi bi-cart"></i></button>`);
-    // }
-})
+
+//Title of page in categories
+//08/05/2022
+//Nguyen Huu Khai
+// $.get("../../model/productPage/tieu-de.php", {
+//         cate: $("#cate-https").val()
+//     },
+//     function(data, status) {
+//         if (status === 'success') {
+//             let ndata = JSON.parse(data);
+//             console.log(ndata);
+//             $("#h3-1").html(ndata[1]);
+//             if (ndata[0] != "all") {
+//                 $("#menu-direct").html(`<a href="index.php?cate=all&page=1">Trang chủ</a>
+//                 <span>></span>
+//                 <span>${ndata[1]}</span>`);
+//             }
+//         }
+//     });
+$.get("../../model/productPage/category.php", {},
+    function(data, status) {
+        if (status === 'success') {
+            let ndata = JSON.parse(data);
+            let mes = ``;
+            let cate = $("#cate-https").val();
+            console.log(ndata);
+            for (let key in ndata) {
+                if (ndata[key].href == cate) {
+                    $("#h3-1").html(ndata[key].name);
+                    $("#menu-direct").html(`<a href="index.php?cate=all&page=1">Trang chủ</a>
+                    <span>></span>
+                    <span>${ndata[key].name}</span>`);
+                } else {
+                    $("#h3-1").html("Trang chủ");
+                }
+                mes += `<li><a href="index.php?cate=${ndata[key].href}">${ndata[key].name}</a> </li>`;
+            }
+            $("#show-list-categories").html(mes);
+        }
+    });
+
 addEventListener("resize", () => {
     imgResize();
 })

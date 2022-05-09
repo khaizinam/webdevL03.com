@@ -61,6 +61,5 @@ if(!isset($_GET['page']) || !isset($_GET['cate'])){
                     $end = $page;
                 }
             }
-        }
-        
+        }  
 ?>
