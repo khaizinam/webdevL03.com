@@ -1,5 +1,6 @@
 <?php
     include "../pageComponent/header.php";
+    include "../pageComponent/cookie.php"
 ?>
     <header></header>
     <body class="container-md">

@@ -1,3 +1,7 @@
+<?php 
+    include "../../../system/lib/config.php";
+    include "../../../system/lib/conn.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +24,7 @@
     <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-             <a class="navbar-brand" href="#"><!--thêm ảnh vào đây -->BKStore</a> 
+             <a class="navbar-brand" href="../../../site/view/trang-chu"><!--thêm ảnh vào đây -->BKStore</a> 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
