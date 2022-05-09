@@ -90,6 +90,7 @@
         <!-- start slide body -->
         <div id="slide-menu-body" class="container">
             <a class="menu-101" href="index.php">Trang chủ</a>
+            <a class="menu-101 admin-page" href="../../../admin/view/trang-quanly/index.php">Quản lí</a>
             <a class="menu-101 log" href="../trang-thanh-toan/index.php">Giỏ hàng</a>
             <button class="menu-101" data-bs-toggle="collapse" data-bs-target="#collapse-danh-muc-san-pham" aria-expanded="false" aria-controls="collapseExample">Danh mục sản phẩm</i></button>
             <div class="collapse" id="collapse-danh-muc-san-pham">

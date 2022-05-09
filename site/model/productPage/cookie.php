@@ -16,7 +16,7 @@
         }else {
             $sql = $db->send($query);
             $row = $sql->fetch_assoc();
-            echo "log";
+            echo $row['type'];
         }
     }else echo "no";
 ?>

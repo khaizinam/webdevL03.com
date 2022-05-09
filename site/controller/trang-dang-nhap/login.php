@@ -33,11 +33,7 @@
             </script>';
     }
 
-    else if ($result=="Customer"){
+    else{
         header("Location: ../../view/trang-chu/");
-    }
-
-    else if ($result=="Admin"){
-        echo "Admin";
     }
 ?>

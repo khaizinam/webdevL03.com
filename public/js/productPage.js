@@ -119,6 +119,11 @@ $.get("../../model/productPage/cookie.php", {},
             } else {
                 $(".no-log").css("display", "none");
                 $(".log").css("display", null);
+                if (data === "0") {
+                    $(".admin-page").css("display", null);
+                } else if (data === "1") {
+                    $(".admin-page").css("display", "none");
+                }
             }
         }
     });

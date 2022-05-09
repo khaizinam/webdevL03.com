@@ -1,8 +1,7 @@
 <?php
     include "../pageComponent/header.php";
-    $url = '../../'
-    // $_COOKIE['user-name']
-    // $_COOKIE['user-id']
+    include "../pageComponent/cookie.php"
+
 ?>
     <body class="container-md">
         <h1>Quản lý sản phẩm</h1>
@@ -207,5 +206,5 @@
     </div>
 </div>
 
-<script src="<?php echo $url ?>../public/js/checkboxRender.js"></script>
-<script src="<?php echo $url ?>controller/manager.js"></script>
+<script src="../../../public/js/checkboxRender.js"></script>
+<script src="../../controller/manager.js"></script>
