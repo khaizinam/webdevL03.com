@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `cate` (
   `no` int(5) NOT NULL,
   `href` varchar(20) NOT NULL,
-  `name` int(50) NOT NULL
+  `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
