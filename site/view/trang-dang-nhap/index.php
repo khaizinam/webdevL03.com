@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/96c87f9550.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="../../../public/img/favicon.png">
     <title>Login Page</title>
     <link rel="stylesheet" href="../../../public/css/login.css">
 </head>
