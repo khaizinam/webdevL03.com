@@ -11,19 +11,16 @@ if(!isset($_GET['page']) || !isset($_GET['cate'])){
 }else{
     $page = $_GET['page'];
     $cate = $_GET['cate'];
-}
-
     $query_get_num = "SELECT * FROM product";
     $numProduct = $db->num($query_get_num);
    
         $limit = 20; //LIMIT PRODUCT ON PAGE
         $totalPage = ceil($numProduct / $limit);
         // validate PAGE;
-        if($_GET['page'] > $totalPage){
+        if($page > $totalPage && $totalPage !=0 ){
             $page = $totalPage;
             header("Location: index.php?cate=$cate&page=$page");
-        } 
-        if($_GET['page'] <= 0){
+        } else if($page <= $totalPage && $totalPage == 0){
             $page = 1;
             header("Location: index.php?cate=$cate&page=$page");
         } 
@@ -62,4 +59,6 @@ if(!isset($_GET['page']) || !isset($_GET['cate'])){
                 }
             }
         }  
+}
+
 ?>
