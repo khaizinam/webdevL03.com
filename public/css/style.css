@@ -10,6 +10,10 @@ ul {
     list-style: none;
 }
 
+button:focus {
+    border: none;
+}
+
 a:hover {
     color: black;
     text-decoration: underline;

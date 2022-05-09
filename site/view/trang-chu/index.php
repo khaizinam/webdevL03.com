@@ -2,7 +2,8 @@
     include "../../../system/lib/config.php";
     include "../../../system/lib/conn.php";
     $db = new DataBase();
-    include "./include/checkCookie.php";
+    //$cookie = new Cookie();
+    include "./include/cookie.php";
     include "./include/header.php";
     include "../../controller/trang-chu/header-mainpage.php";
     
@@ -37,6 +38,7 @@
                     </div>  
                 <!-- end search -->
                 <div id="user-area">
+                    aaa
                 </div>
                 <div>
                     <button onclick="openSlide()" id="btn-menu-slide"><i class="bi bi-list"></i></button>
@@ -54,7 +56,6 @@
     </div>
     <?php
         if($cate != "all"){
-            
             $query_cate = "SELECT * FROM cate WHERE `href` = '$cate'";
             $sql_cate = $db->send($query_cate);
             $row_cate = $sql_cate->fetch_assoc();
@@ -128,7 +129,7 @@
             color: rgb(255, 255, 255);
         }
     </style>
-    <div style="background-color: white;" id="pagination" class="container">
+    <div style="background-color: white;min-height:50px;margin-bottom:20px" id="pagination" class="container">
         <?php 
           include "./include/pagination.php";
         ?>
