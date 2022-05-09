@@ -26,7 +26,7 @@ class DataBase
         if($result){
             return $result;
         }else {
-            echo "fail";
+            return "fail";
         }
     }
     public function num($query){
