@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,500&display=swap');
+
+:root{
+    --main-color: #2691d9;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background: #F1F3FA;
+}
+
+#body{
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.btn{
+    transition: 0.3s;
+}
+.btn:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+/* ------------------------- HEADER -----------------------------*/
+#header{
+    border-bottom: 1px solid black;
+    margin-bottom: 3px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+}
+
+#header-1{
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    padding: 2px 30px;
+}
+
+#header-2{
+    padding: 3px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#header-2-right{
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+#header-2-right a{
+    text-decoration: none;
+    display: block;
+    color: black;
+    margin: 5px;
+}
+#header-2-right a:hover{
+    text-decoration: underline;
+}
+/* ------------------------- SIDE BAR --------------------------------*/
+#sidebar{
+    width: 22.5%;
+    background-color: white;
+    padding: 10px 0 10px 0;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#sidebar .image img{
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+}
+
+.usertitle{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.usertitle-name{
+    text-transform: uppercase;
+    color: #5b9bd1;
+    font-weight: 600;
+    font-size: 16px;
+}
+.usertitle-type{
+    margin-top: 10px;
+    display: inline-block;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 10px;
+    background-color: #16d52d;
+    font-size: 12px;
+}
+
+#sidebar hr{
+    margin-top: 10px;
+    height: 2px;
+    background-color: var(--main-color);
+}
+
+.btn-out{
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 7px 11px;
+    margin-right: 5px;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 13px;
+    background-color: #ea3740;
+    position: absolute;
+    left: 5px;
+    top: 0px;
+}
+/* ------------------------- MENU --------------------------------*/
+.usermenu{
+    margin-top: 10px;
+}
+
+.usermenu ul{
+    list-style-type: none;
+}
+.usermenu ul li{
+    margin-bottom: 2px;
+    border-top: 1px solid #f0f4f7;
+    padding: 12px;
+    color: #93a3b5;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: left;
+    padding-left: 10px;
+    border-left: 4px solid white;
+}
+.usermenu ul li:last-child {
+    border-bottom: 1px solid #f0f4f7;;
+}
+
+.usermenu ul li:hover{
+    cursor: pointer;
+    background-color: rgb(211, 232, 241);
+    color: #4090d0;
+    border-left: 4px solid rgb(132, 201, 239);
+}
+.li-active{
+    background-color: var(--main-color) !important;
+    color: white !important;
+    border-left: 4px solid var(--main-color) !important;
+}
+
+.usermenu ul li i{
+    width: 40px;
+    padding-left: 10px;
+    transition: 0.5s;
+}
+  
+
+
+
+/* ------------------------- CONTENT --------------------------------*/
+#content{
+    width: 70%;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.tabcontent{
+    display: none;
+    padding: 20px;
+    transition: 0.5s;
+}
+
+.active{
+    display: block;
+}
+
+.tabcontent h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ------------------------- CHANGE INFO ------------------------------*/
+#change_info{
+    color: var(--main-color);
+}
+
+#info{
+    width: 80%;
+    margin: auto;
+}
+
+
+#info .line{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #eff6fb;
+}
+
+#info .line .title{
+    width: 20%;
+    font-size: 14px;
+}
+
+#info .line input, #info .line textarea{
+    resize: none;
+    width: 80%;
+    border: none;
+    border: 1.5px solid #2691d9;
+    border-radius: 3px;
+    font-size: 15px;
+    padding: 5px 10px;
+    color: #2691d9;
+}
+
+#info .line input:placeholder-shown{
+    font-size: 13px;
+    background-color: rgb(255, 231, 231);
+}
+
+#info .line input[type="text"]:focus,
+#info .line input[type="email"]:focus,
+#info .line input[type="tel"]:focus,
+#info .line textarea:focus{
+    outline: none;
+    box-shadow: 0px 0px 1px 4px #c5e3f7c3;
+}
+
+#info .line input:placeholder-shown{
+    box-shadow: none !important;
+    border: 1px solid rgb(231, 42, 42);
+}
+
+#info .line .btn-group{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+}
+
+
+#info .line .btn-update{
+    width: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 7px 18px;
+    margin-right: 5px;
+    outline: none;
+    border: none;
+    background-color: #3e9ede;
+    color: white;
+    border-radius: 3px;
+}
+#info .line .btn-reset{
+    width: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 7px 18px;
+    margin-right: 5px;
+    outline: none;
+    border: none;
+    background-color: #f0464f;
+    color: white;
+    border-radius: 3px;
+}
+/* ------------------------- CHANGE PASS ------------------------------*/
+
+#change_pass{
+    color: var(--main-color);
+}
+
+#change_pass .line{
+    width: 70%;
+    margin: 5px auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+
+#change_pass .line .title{
+    padding: 10px;
+    width: 100%;
+}
+
+#change_pass .line input[type="password"]{
+    border: none;
+    border: 1px solid #2691d9;
+    margin: 0px 20px;
+    width: 100%;
+    font-size: 15px;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+#change_pass .line input:focus{
+    outline: none;
+    box-shadow: 0 0 0 4px #c5e3f7c3;
+}
+
+#change_pass .line .btn-change{
+    width: 100px;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 7px 18px;
+    margin-right: 5px;
+    outline: none;
+    border: none;
+    background-color: #3e9ede;
+    color: white;
+    border-radius: 3px;
+    margin-left: 10%;
+}
+
+/* ------------------------- TRANSACTION ------------------------------*/
+
+#transaction{
+    color: var(--main-color);
+}
+
+#transaction table{
+    width: 100%;
+}
+
+#transaction thead{
+    border: 1px solid;
+}
+#transaction thead th{
+    background-color: #d5ebfb;
+    border: 1px solid;
+    padding: 5px;
+}
+#transaction table tr td{
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #bfe0f6;
+}
+
+
+@media only screen and (max-width: 800px) {
+    #sidebar, #content{
+        width: 100%;
+    }
+
+    #sidebar{
+        border-bottom: 2px solid grey;
+        display: flex;
+        justify-content: center;
+    }
+    #basis-info{
+        width: 30%;
+        border-right: 2px solid grey;
+    }
+    .usermenu{
+        width: 60%;
+        margin: 0 20px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #info{
+        width: 100%;
+    }
+}
