@@ -4,11 +4,9 @@ imgResize = () => {
     console.log(size.offsetWidth);
     for (let i = 0; i < c.length; i++) {
         if (size.offsetWidth >= 768) {
-            c[i].style.width = size.offsetWidth * 0.2 + "px";
-            c[i].style.height = size.offsetWidth * 0.2 * 1.5 + "px";
+            c[i].style.width = size.offsetWidth * 0.2 - 10 + "px";
         } else {
-            c[i].style.width = size.offsetWidth * 0.5 + "px";
-            c[i].style.height = size.offsetWidth * 0.5 * 1.5 + "px";
+            c[i].style.width = size.offsetWidth * 0.5 - 10 + "px";
         }
     }
 }
