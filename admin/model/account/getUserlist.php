@@ -17,28 +17,36 @@
     if($type != "all"){
         $query = "SELECT *
         FROM user
-        WHERE type = $type, username LIKE '%$search%'
-        ORDER BY ID DESC
-        LIMIT $paging,$limitpage";
+        WHERE type = $type ";
     }
     else{
         $query = "SELECT *
-            FROM user
-            WHERE username LIKE '%$search%'
-            ORDER BY ID DESC              
-            LIMIT $paging,$limit";
+            FROM user ";
     }
+    if ($search != ""){
+        if ($cate != "all"){
+            $query.=", username LIKE '%$search%'";
+        }else{
+            $query.="WHERE username LIKE '%$search%'";
+        }
+    }
+    $query.=" ORDER BY ID DESC LIMIT $paging,$limitpage";
     $sql = $db->send($query);
-    
-    while($rows = $sql->fetch_array()){
-        array_push($data, array('id' => $rows['ID'],
-            'name' => $rows['full_name'],
-            'type' => $rows['type'],
-            'pnum' => $rows['p_number'],
-            'address' => $rows['address'],
-            'email' => $rows['email']
-        ));
+    if($sql != "fail"){
+        while($rows = $sql->fetch_array()){
+            array_push($data, array('id' => $rows['ID'],
+                'name' => $rows['full_name'],
+                'type' => $rows['type'],
+                'pnum' => $rows['p_number'],
+                'address' => $rows['address'],
+                'email' => $rows['email']
+            ));
+        }
+        $returndata = array('data'=>$data, 'page'=>$page, 'type'=>$type, 'limit'=>$limit);
+        echo json_encode($returndata);
+    }else{
+        echo"SQL fail";
     }
-    $returndata = array('data'=>$data, 'page'=>$page, 'type'=>$type, 'limit'=>$limit);
-    echo json_encode($returndata);
+    
+    
 ?>
