@@ -32,7 +32,7 @@
                 <a href="<?php echo $linkToDetailPage?>">
                     <div class="img-product-wrapper">
                         <div class="img-background">
-                            <img src="../../../public/img/1.jpg" alt="product">    
+                            <img src="../../../public/img/bg-product.jpg" alt="product">    
                         </div>
                         <div class="img-product">  
                             <img  src="<?php echo $imgLink ?>" alt="product"> 
@@ -42,10 +42,6 @@
                         <!-- show name product -->
                         <div class="detail-product">
                             <span><?php echo $productName;?></span>
-                        </div>
-
-                        <div class="danh-gia">
-                            <span>đã bán :</span><span>150</span>
                         </div>
                         <!-- price -->
                         <div class="price">
