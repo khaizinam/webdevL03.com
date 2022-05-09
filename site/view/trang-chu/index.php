@@ -6,7 +6,7 @@
     <div id="header">
         <div id="header-1" class="d-flex">
             <div id="header-1-left">
-                <span>ME Shop</span>
+                <span>BKStore</span>
             </div>
             <div id="header-1-right">
                 <span>Moderm TEAM</span>

@@ -16,7 +16,7 @@
     <link href="../../../system/bootstrap/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <script src="../../../system/bootstrap/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="../../../public/img/favicon.png">
-    <title>PAYMENT</title>
+    <title>BKStore</title>
     <script src="https://kit.fontawesome.com/96c87f9550.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../../public/css/payment.css">
 

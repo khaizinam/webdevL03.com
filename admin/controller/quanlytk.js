@@ -1,7 +1,7 @@
 var accountDatas = {};
 var accountType = {
-    1 : 'Admin',
-    0 : 'Khách hàng',
+    1: 'Khách hàng',
+    0: 'Admin',
 };
 var accountID;
 var accountCount;
@@ -10,13 +10,13 @@ var type = 'all';
 var limit = 7;
 var search = '';
 
-function requestAccountDatas(){
+function requestAccountDatas() {
     $.ajax({ //display table data limit
         url: `../../model/account/getUserlist.php?page=${page}&type=${type}&limit=${limit}&search=${search}`,
-        success: function (data) {
+        success: function(data) {
             data = JSON.parse(data);
-            productDatas={};
-            for(let product of data['data']) {
+            productDatas = {};
+            for (let product of data['data']) {
                 productDatas[product.id] = product;
             }
             cate = data['type'];
@@ -40,8 +40,8 @@ function changeType(t) {
 
 function paging() {
     var pagehtml = '';
-    if(page > 1){
-        pagehtml+=`
+    if (page > 1) {
+        pagehtml += `
             <li class="page-item">
                 <a class='page-link' onclick="changePage(${page - 1})" aria-label='Previous'>
                 <span aria-hidden="true">&laquo;</span></a>
@@ -49,15 +49,14 @@ function paging() {
         `
     }
 
-    for(var i = 1; i <= Math.ceil(accountCount/limit); i++) {
-        if(i == page){
+    for (var i = 1; i <= Math.ceil(accountCount / limit); i++) {
+        if (i == page) {
             pagehtml += `<li class="page-item active"><a class="page-link" >${i}</a></li>`;
-        }
-        else pagehtml += `<li class='page-item'><a class='page-link' onclick="changePage(${i})">${i}</a></li>`
+        } else pagehtml += `<li class='page-item'><a class='page-link' onclick="changePage(${i})">${i}</a></li>`
     }
 
-    if(page < Math.ceil(accountCount/limit)){
-        pagehtml+=`
+    if (page < Math.ceil(accountCount / limit)) {
+        pagehtml += `
             <li class="page-item">
                 <a class='page-link' onclick="changePage(${page + 1})" aria-label='Next'>
                 <span aria-hidden="true">&raquo;</span></a>
@@ -67,10 +66,10 @@ function paging() {
     $('.pagination').html(pagehtml);
 }
 
-if(!accountCount){//first time render page
+if (!accountCount) { //first time render page
     $.ajax({
         url: `../../model/account/getUserCount.php?type=${type}`,
-        success: function (data){
+        success: function(data) {
             accountCount = data;
             requestAccountDatas();
             paging();
@@ -78,10 +77,10 @@ if(!accountCount){//first time render page
     })
 }
 
-function displayAccountlist(accountdatas){
+function displayAccountlist(accountdatas) {
     var tbhtml = '';
-    for(const id in accountdatas){
-        tbhtml =`<tr id="${accountdatas[id].id}">
+    for (const id in accountdatas) {
+        tbhtml = `<tr id="${accountdatas[id].id}">
             <td>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" onchange="checkboxCheck()" name="objectIDs[]" value="${accountdatas[id].id}" >
@@ -98,51 +97,52 @@ function displayAccountlist(accountdatas){
             </td>
         </tr>` + tbhtml;
     }
-        // console.log(tbhtml);
+    // console.log(tbhtml);
     if (tbhtml != '') $('tbody').html(tbhtml);
     else $('tbody').html('No product found');
-            
+
 }
 
-$('#search-btn').click(()=> {
+$('#search-btn').click(() => {
     search = $('#search-bar').val();
     console.log("search");
     requestAccountDatas();
 })
 
-$('#limitlist').change(function (){
+$('#limitlist').change(function() {
     limit = $(this).val();
     requestAccountDatas();
 })
 
-$('#delete-account-modal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget); 
+$('#delete-account-modal').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget);
     accountID = button.data('id');
 });
 
-$('#btn-delete-account').click( function (){ 
-    $.ajax({url: `../../model/account/deleteUser.php?id=${accountID}`,
-        success: function(result){
+$('#btn-delete-account').click(function() {
+    $.ajax({
+        url: `../../model/account/deleteUser.php?id=${accountID}`,
+        success: function(result) {
             $('#delete-account-modal').modal('hide');
             requestAccountDatas();
         }
     });
 });
 
-$('#muti-action-button').click( function (){ 
+$('#muti-action-button').click(function() {
     var objectIDs = [];
-    for(let obj of $('input[name="objectIDs[]"]:checked')){
-       objectIDs.push(obj.value);
+    for (let obj of $('input[name="objectIDs[]"]:checked')) {
+        objectIDs.push(obj.value);
     }
     action = $('#select-action').val();
-    $.post('../../model/account/multiaction.php',{action: action, objectIDs: objectIDs})
+    $.post('../../model/account/multiaction.php', { action: action, objectIDs: objectIDs })
         .done((data) => {
-            if(data =='action success'){
-                if(action == 'delete'){
+            if (data == 'action success') {
+                if (action == 'delete') {
                     accountCount -= objectIDs.length;
                 }
                 requestAccountDatas();
-            }else{
+            } else {
                 alert(data);
             }
         })

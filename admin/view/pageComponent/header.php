@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../../../public/css/manager.css">
     
     <link rel="icon" type="image/x-icon" href="../../../public/img/favicon.png">
-    <title>ME Shop</title>
+    <title>BKStore</title>
 </head>
 
 <body>

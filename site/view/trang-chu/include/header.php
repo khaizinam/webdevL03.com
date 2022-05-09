@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="../../../public/css/footer.css">
     <script src="../../../system/lib/ajax.js"></script>
     <link rel="icon" type="image/x-icon" href="../../../public/img/favicon.png">
-    <title>ME Shop</title>
+    <title>BKStore</title>
 </head>
 
 <body>

@@ -27,8 +27,8 @@
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id='catelst'>
                             <li><a class="dropdown-item" onclick="changeType('all')">Tất cả</a></li>
-                            <li><a class="dropdown-item" onclick="changeType(1)">Admin</a></li>
-                            <li><a class="dropdown-item" onclick="changeType(0)">User</a></li>
+                            <li><a class="dropdown-item" onclick="changeType(0)">Admin</a></li>
+                            <li><a class="dropdown-item" onclick="changeType(1)">User</a></li>
                         </ul>
                     </div>
                     <!-- <div class="col">
