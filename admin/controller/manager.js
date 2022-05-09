@@ -204,12 +204,15 @@ $('#muti-action-button').click( function (){
 
 $("#btn-add-cate").click(function(){
     const name = $('#add-cate-input').val();
+    console.log(name);
     const normalname = name.normalize('NFD').replace(/[\u0300-\u036f ]/g, '').toLowerCase();
     $.post('../../model/processForm/addCate.php',{catename: name,cate: normalname})
         .done((data)=>{
             console.log(data);
             $('#add-cate-modal').modal('hide');
-            $('#catelst').append(`<li><a class="dropdown-item" href="?cate=${normalname}">${name}</a></li>`);
+            $('#catelst').append(`<li><a class="dropdown-item" onclick="changeCate(${normalname})">${name}</a></li>`);
+            $('#seclect-type').append(`<option value="${normalname}">${name}</option>`);
+            $('#updateType').append(`<option value="${normalname}">${name}</option>`);
         })
 })
 
