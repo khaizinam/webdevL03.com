@@ -63,7 +63,7 @@
                 <ul id="show-list-categories" class="list-slide-menu">
                 </ul>
             </div>
-            <a class="menu-101" href="index.php">Đăng nhập</a>
+            <a class="menu-101" href="">Đăng nhập</a>
             <a class="menu-101" href="index.php">Tài khoản</a>
         <!-- end slide body -->
         </div>
