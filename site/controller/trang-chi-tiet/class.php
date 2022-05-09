@@ -1,9 +1,17 @@
 <?php
-class DetailModel extends DataBase{
+class DetailModel{
+    public $db;
+    public function __construct()
+    {
+        $this->db = new DataBase();
+    }
     public function getDetail($id) {
-        $result = $this->send("SELECT * FROM product, cate WHERE product.ID=$id AND product.ID = productID");
-
-        if ($result->num_rows > 0) {
+        $query = "SELECT * 
+            FROM product
+            WHERE `ID` = $id";
+        $num = $this->db->num($query);
+        if ($num > 0) {
+            $result = $this->db->send($query);
             $row = $result->fetch_assoc();
             $data = [
                 'id' => $id,
@@ -11,7 +19,6 @@ class DetailModel extends DataBase{
                 'img' => $row['img'],
                 'amount' => $row['amount'],
                 'detail' => $row['detail'],
-                'star' => $row['star'],
                 'price' => $row['price'],
                 'cate' => $row['cate']
             ];
@@ -22,15 +29,18 @@ class DetailModel extends DataBase{
     }
 
     public function getComments($id, $page) {
-        $result = $this->send("SELECT * FROM comment, user WHERE productID=$id AND page_id = $page AND comment.author_ID = user.ID");
+        $query = "SELECT * FROM 
+            comment, user 
+            WHERE productID=$id AND page_id = $page AND comment.author_ID = user.ID";
+        $result = $this->db->send($query);
         $data = [];
-        if ($result->num_rows > 0) {
+        $num = $this->db->num($query);
+        if ($num > 0) {
             while($row = $result->fetch_assoc()){
                 array_push($data,[
                     'author_id' =>$row['author_ID'],
                     'username' => $row['username'],
-                    'content' => $row['content'],
-                    'star' => $row['star'],
+                    'content' => $row['content']
                 ]);
 
             }
@@ -40,3 +50,4 @@ class DetailModel extends DataBase{
         }
     }
 }
+?>

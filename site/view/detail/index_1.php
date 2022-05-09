@@ -1,32 +1,8 @@
-<?php
-    include "../../../system/lib/config.php";
-    include "../../../system/lib/conn.php";
-    include "../../controller/trang-chi-tiet/detail_controller.php";
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../../../public/css/productpage.css">
-    <link rel="icon" type="image/x-icon" href="favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
-    <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>Document</title>
-</head>
-
-<body>
+<?php include "./inc/header.php";?>
     <header class="header_promo d-flex flex-wrap align-items-center">
         <div class="container-sm d-flex flex-wrap align-items-center justify-content-between">
-            <p class="header_promo_text text-white">SHOP BÁN HÀNG</p>
-            <p class="header_promo_text text-white">LẬP TRÌNH WEB</p>
+            <p class="header_promo_text text-white">BKStore</p>
+            <p class="header_promo_text text-white">Modern Team</p>
         </div>
     </header>
     <div class="product_body">
@@ -112,6 +88,4 @@
             </div>
         </div>
     </div>
-</body>
-
-</html>
+<?php include "./inc/footer.php" ?>
