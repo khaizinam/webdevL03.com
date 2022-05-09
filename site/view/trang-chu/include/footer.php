@@ -20,6 +20,7 @@
         </div>
     </div>
     <script src="../../../public/js/productPage.js"></script>
+    <script src="../../../public/js/nav-bar.js"></script>
 </body>
 
 </html>
