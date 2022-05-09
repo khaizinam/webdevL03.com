@@ -1,22 +1,23 @@
 <?php
-    if(!isset($_COOKIE["user-name"]) || !isset($_COOKIE["user-id"])){
-        header("Location: ../trang-dang-nhap/");
-    }else {
-        $username = $_COOKIE["user-name"];
-        $uID = $_COOKIE["user-id"];
+    if(Cookie::check("user-name") == true && Cookie::check("user-id") == true){
+        $uName = Cookie::get("user-name");
+        $uID = Cookie::get("user-id"); 
         $query = "SELECT *
-        FROM `user`
-        WHERE `username` = '$username'
-        AND `ID` = '$uID' LIMIT 1";
-        
-        $db = new Database();
+        FROM user
+        WHERE `username` = '$uName'
+        AND `ID` = '$uID'";
         if($db->num($query) == 0){
+            Cookie::set("check-login","false");
             header("Location: ../trang-dang-nhap/");
         }else {
             $sql = $db->send($query);
             $row = $sql->fetch_assoc();
-            setcookie("user-name", $row["username"], time() + (86400), "/");
-            setcookie("user-id", $row["ID"], time() + (86400), "/");
+            Cookie::set("user-name",$row["username"]);
+            Cookie::set("user-id",$row["ID"]);
+            Cookie::set("check-login","true");
         }
+    }else{
+        Cookie::set("check-login","false");
+        header("Location: ../trang-dang-nhap/");
     }
 ?>
