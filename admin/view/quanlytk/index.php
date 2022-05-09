@@ -72,7 +72,7 @@
     </body>
 </html> 
   <!-- Modal -->
-  <div class="modal fade" id="add-product" tabindex="-1" aria-labelledby="add-product" aria-hidden="true">
+  <!-- <div class="modal fade" id="add-product" tabindex="-1" aria-labelledby="add-product" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -107,7 +107,7 @@
         </div>
       </div>
     </div>
-</div>
+</div> -->
 
 <div class="modal fade" id="delete-account-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
