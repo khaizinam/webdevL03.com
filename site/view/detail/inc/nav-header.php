@@ -11,7 +11,7 @@
             <!-- LOGIN BAR -->
             <div id="header-2-top" class="d-flex justify-content-between">
                 <div class="logo">
-                    <a href="index.php?cate=all"> <img src="../../../public/img/favicon.png" alt="logo" style="width:60px"></a>
+                    <a href="../trang-chu/index.php?cate=all"> <img src="../../../public/img/favicon.png" alt="logo" style="width:60px"></a>
                 </div>
                 <style>
                     .btn-blank {
