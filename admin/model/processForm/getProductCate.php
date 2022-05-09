@@ -1,7 +1,7 @@
 <?php
     include '../header/header.php';
     $db = new DataBase();
-    $query = "SELECT href,name FROM popular";
+    $query = "SELECT href,name FROM cate";
     $sql = $db->send($query);
     $data = array();
     while($rows = $sql->fetch_array()){
