@@ -63,9 +63,9 @@
                         left: 7.5px;
                     }
                 </style>
-                    <div id="user-area" class="log">
-                        <button onclick="location.href='../trang-ca-nhan/'" class="btn-blank icon-standard"><i class="bi bi-person-circle"></i></button>
-                        <button onclick="location.href='../trang-thanh-toan/'" class="btn-blank icon-standard"><i class="bi bi-cart"></i></button>
+                    <div>
+                        <button onclick="location.href='../trang-ca-nhan/'" class="btn-blank icon-standard log"><i class="bi bi-person-circle"></i></button>
+                        <button onclick="location.href='../trang-thanh-toan/'" class="btn-blank icon-standard log"><i class="bi bi-cart"></i></button>
                         <button onclick="openSlide()" class="btn-blank icon-standard" id=""><i class="bi bi-list"></i></button>
                     </div>
             </div>
@@ -74,8 +74,8 @@
                 <div style="width:100%;min-width:350px;" class="d-flex justify-content-between" >
                         <button class="btn-blank icon-standard"><img src="../../../public/img/favicon.png" alt="logo"></button>
                         <div>
-                            <button onclick="location.href='../trang-ca-nhan/'" class="btn-blank icon-standard"><i class="bi bi-person-circle"></i></button>
-                            <button onclick="location.href='../trang-thanh-toan/'" class="btn-blank icon-standard"><i class="bi bi-cart"></i></button>
+                            <button onclick="location.href='../trang-ca-nhan/'" class="btn-blank icon-standard log"><i class="bi bi-person-circle"></i></button>
+                            <button onclick="location.href='../trang-thanh-toan/'" class="btn-blank icon-standard log"><i class="bi bi-cart"></i></button>
                             <button onclick="openSlide()" class="btn-blank icon-standard" id=""><i class="bi bi-list"></i></button>
                         </div>
                 </div>
