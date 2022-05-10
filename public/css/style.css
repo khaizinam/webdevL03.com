@@ -482,7 +482,7 @@ a#menu-opt-5:hover {
     display: none;
 }
 
-.wrapper-product-list {
+#wrapper-product-list {
     display: flex;
     flex-wrap: wrap;
 }
