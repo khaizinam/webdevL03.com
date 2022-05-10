@@ -1,19 +1,4 @@
-<div id="header">
-        <div id="header-1" class="d-flex">
-            <div id="header-1-left">
-                <span>BKStore</span>
-            </div>
-            <div id="header-1-right">
-                <span>Moderm TEAM</span>
-            </div>
-        </div>
-        <div id="header-2">
-            <!-- LOGIN BAR -->
-            <div id="header-2-top" class="d-flex justify-content-between">
-                <div class="logo">
-                    <a href="../trang-chu/index.php?cate=all"> <img src="../../../public/img/favicon.png" alt="logo" style="width:60px"></a>
-                </div>
-                <style>
+<style>
                     .btn-blank {
                         background-color: Transparent;
                         background-repeat: no-repeat;
@@ -39,22 +24,35 @@
                         left: 10px;
                     }
                     .icon-standard img{
-                        width: 35px;
-                        height: 35px;
-                        top: 7.5px;
-                        left: 7.5px;
+                        width: 40px;
+                        height: 40px;
+                        top: 5px;
+                        left: 5px;
                     }
                 </style>
-                    <div>
-                        <button onclick="location.href='../trang-ca-nhan/'" class="btn-blank icon-standard log"><i class="bi bi-person-circle"></i></button>
-                        <button onclick="location.href='../trang-thanh-toan/'" class="btn-blank icon-standard log"><i class="bi bi-cart"></i></button>
-                        <button onclick="openSlide()" class="btn-blank icon-standard" id=""><i class="bi bi-list"></i></button>
-                    </div>
+<div id="header">
+        <div id="header-1" class="d-flex">
+            <div id="header-1-left">
+                <span>BKStore</span>
+            </div>
+            <div id="header-1-right">
+                <span>Moderm TEAM</span>
+            </div>
+        </div>
+        <div id="header-2">
+            <!-- LOGIN BAR -->
+            <div style="width:100%;min-width:350px;" id="header-2-top" class="d-flex justify-content-between">
+                        <button onclick="location.href='../trang-chu/'" class="btn-blank icon-standard"><img src="../../../public/img/favicon.png" alt="logo"></button>
+                        <div>
+                            <button onclick="location.href='../trang-ca-nhan/'" class="btn-blank icon-standard log"><i class="bi bi-person-circle"></i></button>
+                            <button onclick="location.href='../trang-thanh-toan/'" class="btn-blank icon-standard log"><i class="bi bi-cart"></i></button>
+                            <button onclick="openSlide()" class="btn-blank icon-standard" id=""><i class="bi bi-list"></i></button>
+                        </div>
             </div>
         </div>
         <div class="mobile-menu">
                 <div style="width:100%;min-width:350px;" class="d-flex justify-content-between" >
-                        <button class="btn-blank icon-standard"><img src="../../../public/img/favicon.png" alt="logo"></button>
+                        <button onclick="location.href='../trang-chu/'" class="btn-blank icon-standard"><img src="../../../public/img/favicon.png" alt="logo"></button>
                         <div>
                             <button onclick="location.href='../trang-ca-nhan/'" class="btn-blank icon-standard log"><i class="bi bi-person-circle"></i></button>
                             <button onclick="location.href='../trang-thanh-toan/'" class="btn-blank icon-standard log"><i class="bi bi-cart"></i></button>

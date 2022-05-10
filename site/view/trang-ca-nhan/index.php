@@ -12,36 +12,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/96c87f9550.js" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/x-icon" href="../../../public/img/favicon.png">
-    <title>BKStore</title>
-    <script src="../../../system/lib/ajax.js"></script>
+    <link href="../../../system/bootstrap/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="../../../system/bootstrap/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../../../public/css/info.css">
+    <link rel="stylesheet" href="../../../public/css/style.css">
+    <script src="../../../system/lib/ajax.js"></script>
+    <link rel="icon" type="image/x-icon" href="../../../public/img/favicon.png">
+
+    <title>BKStore</title>
 
 </head>
 
 <body>
-    <div id="header">
-        <div id="header-1">
-            <div id="header-1-left">
-                <span>ME Shop</span>
-            </div>
-            <div id="header-1-right">
-                <span>Moderm TEAM</span>
-            </div>
-        </div>
-
-        <div id="header-2">
-            <div id="header-2-left">
-                <a href="../trang-chu/index.php">
-                    <img src="../../../public/img/favicon.png" alt="logo" style="width:40px">
-                </a>
-            </div>
-            <div id="header-2-right">
-                <a href="../trang-ca-nhan/"><?= $_COOKIE['user-name'];?></a>
-                <a href="../../../system/lib/logout.php">Đăng xuất</a>
-            </div>
-        </div>
-    </div>
+    <style>
+        .logo img {
+            position: absolute;
+            top: 12px;
+            left: 30px;
+            border-radius: 50%;
+            }
+    </style>
+    <?php include "../inc/nav-header.php";?>
+    <script src="../../../public/js/nav-bar.js"></script>
     <div id="body">
         <div id="sidebar">
             <div id="basis-info">

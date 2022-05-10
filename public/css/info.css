@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,500&display=swap');
-
-:root{
+:root {
     --main-color: #2691d9;
 }
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -12,11 +11,11 @@
     font-family: 'Roboto', sans-serif;
 }
 
-body{
+body {
     background: #F1F3FA;
 }
 
-#body{
+#body {
     width: 100%;
     max-width: 1000px;
     margin: 20px auto;
@@ -25,54 +24,22 @@ body{
     justify-content: space-around;
 }
 
-.btn{
+.btn {
     transition: 0.3s;
 }
-.btn:hover{
+
+.btn:hover {
     cursor: pointer;
     transform: scale(1.05);
 }
 
+
 /* ------------------------- HEADER -----------------------------*/
-#header{
-    border-bottom: 1px solid black;
-    margin-bottom: 3px;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-color: white;
-}
 
-#header-1{
-    display: flex;
-    justify-content: space-between;
-    background-color: black;
-    color: white;
-    padding: 2px 30px;
-}
 
-#header-2{
-    padding: 3px 20px;
-    display: flex;
-    justify-content: space-between;
-}
-
-#header-2-right{
-    margin-right: 20px;
-    display: flex;
-    align-items: center;
-}
-#header-2-right a{
-    text-decoration: none;
-    display: block;
-    color: black;
-    margin: 5px;
-}
-#header-2-right a:hover{
-    text-decoration: underline;
-}
 /* ------------------------- SIDE BAR --------------------------------*/
-#sidebar{
+
+#sidebar {
     width: 22.5%;
     background-color: white;
     padding: 10px 0 10px 0;
@@ -80,24 +47,25 @@ body{
     border-radius: 5px;
 }
 
-#sidebar .image img{
+#sidebar .image img {
     width: 50%;
     height: 50%;
     border-radius: 50%;
 }
 
-.usertitle{
+.usertitle {
     text-align: center;
     margin-top: 20px;
 }
 
-.usertitle-name{
+.usertitle-name {
     text-transform: uppercase;
     color: #5b9bd1;
     font-weight: 600;
     font-size: 16px;
 }
-.usertitle-type{
+
+.usertitle-type {
     margin-top: 10px;
     display: inline-block;
     padding: 5px 10px;
@@ -107,13 +75,13 @@ body{
     font-size: 12px;
 }
 
-#sidebar hr{
+#sidebar hr {
     margin-top: 10px;
     height: 2px;
     background-color: var(--main-color);
 }
 
-.btn-out{
+.btn-out {
     text-transform: uppercase;
     font-weight: 500;
     padding: 7px 11px;
@@ -128,15 +96,19 @@ body{
     left: 5px;
     top: 0px;
 }
+
+
 /* ------------------------- MENU --------------------------------*/
-.usermenu{
+
+.usermenu {
     margin-top: 10px;
 }
 
-.usermenu ul{
+.usermenu ul {
     list-style-type: none;
 }
-.usermenu ul li{
+
+.usermenu ul li {
     margin-bottom: 2px;
     border-top: 1px solid #f0f4f7;
     padding: 12px;
@@ -147,65 +119,68 @@ body{
     padding-left: 10px;
     border-left: 4px solid white;
 }
+
 .usermenu ul li:last-child {
-    border-bottom: 1px solid #f0f4f7;;
+    border-bottom: 1px solid #f0f4f7;
+    ;
 }
 
-.usermenu ul li:hover{
+.usermenu ul li:hover {
     cursor: pointer;
     background-color: rgb(211, 232, 241);
     color: #4090d0;
     border-left: 4px solid rgb(132, 201, 239);
 }
-.li-active{
+
+.li-active {
     background-color: var(--main-color) !important;
     color: white !important;
     border-left: 4px solid var(--main-color) !important;
 }
 
-.usermenu ul li i{
+.usermenu ul li i {
     width: 40px;
     padding-left: 10px;
     transition: 0.5s;
 }
-  
-
 
 
 /* ------------------------- CONTENT --------------------------------*/
-#content{
+
+#content {
     width: 70%;
     background-color: white;
     border-radius: 5px;
 }
 
-.tabcontent{
+.tabcontent {
     display: none;
     padding: 20px;
     transition: 0.5s;
 }
 
-.active{
+.active {
     display: block;
 }
 
-.tabcontent h2{
+.tabcontent h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 
+
 /* ------------------------- CHANGE INFO ------------------------------*/
-#change_info{
+
+#change_info {
     color: var(--main-color);
 }
 
-#info{
+#info {
     width: 80%;
     margin: auto;
 }
 
-
-#info .line{
+#info .line {
     padding: 20px;
     display: flex;
     align-items: center;
@@ -213,12 +188,13 @@ body{
     background-color: #eff6fb;
 }
 
-#info .line .title{
+#info .line .title {
     width: 20%;
     font-size: 14px;
 }
 
-#info .line input, #info .line textarea{
+#info .line input,
+#info .line textarea {
     resize: none;
     width: 80%;
     border: none;
@@ -229,7 +205,7 @@ body{
     color: #2691d9;
 }
 
-#info .line input:placeholder-shown{
+#info .line input:placeholder-shown {
     font-size: 13px;
     background-color: rgb(255, 231, 231);
 }
@@ -237,24 +213,23 @@ body{
 #info .line input[type="text"]:focus,
 #info .line input[type="email"]:focus,
 #info .line input[type="tel"]:focus,
-#info .line textarea:focus{
+#info .line textarea:focus {
     outline: none;
     box-shadow: 0px 0px 1px 4px #c5e3f7c3;
 }
 
-#info .line input:placeholder-shown{
+#info .line input:placeholder-shown {
     box-shadow: none !important;
     border: 1px solid rgb(231, 42, 42);
 }
 
-#info .line .btn-group{
+#info .line .btn-group {
     display: flex;
     justify-content: space-around;
     width: 80%;
 }
 
-
-#info .line .btn-update{
+#info .line .btn-update {
     width: 100px;
     font-size: 13px;
     font-weight: 500;
@@ -266,7 +241,8 @@ body{
     color: white;
     border-radius: 3px;
 }
-#info .line .btn-reset{
+
+#info .line .btn-reset {
     width: 100px;
     font-size: 13px;
     font-weight: 500;
@@ -278,13 +254,15 @@ body{
     color: white;
     border-radius: 3px;
 }
+
+
 /* ------------------------- CHANGE PASS ------------------------------*/
 
-#change_pass{
+#change_pass {
     color: var(--main-color);
 }
 
-#change_pass .line{
+#change_pass .line {
     width: 70%;
     margin: 5px auto;
     display: flex;
@@ -292,12 +270,12 @@ body{
     padding: 5px;
 }
 
-#change_pass .line .title{
+#change_pass .line .title {
     padding: 10px;
     width: 100%;
 }
 
-#change_pass .line input[type="password"]{
+#change_pass .line input[type="password"] {
     border: none;
     border: 1px solid #2691d9;
     margin: 0px 20px;
@@ -306,12 +284,13 @@ body{
     padding: 5px 10px;
     border-radius: 3px;
 }
-#change_pass .line input:focus{
+
+#change_pass .line input:focus {
     outline: none;
     box-shadow: 0 0 0 4px #c5e3f7c3;
 }
 
-#change_pass .line .btn-change{
+#change_pass .line .btn-change {
     width: 100px;
     font-size: 13px;
     font-weight: 500;
@@ -325,53 +304,55 @@ body{
     margin-left: 10%;
 }
 
+
 /* ------------------------- TRANSACTION ------------------------------*/
 
-#transaction{
+#transaction {
     color: var(--main-color);
 }
 
-#transaction table{
+#transaction table {
     width: 100%;
 }
 
-#transaction thead{
+#transaction thead {
     border: 1px solid;
 }
-#transaction thead th{
+
+#transaction thead th {
     background-color: #d5ebfb;
     border: 1px solid;
     padding: 5px;
 }
-#transaction table tr td{
+
+#transaction table tr td {
     padding: 5px;
     text-align: center;
     border: 1px solid #bfe0f6;
 }
 
-
 @media only screen and (max-width: 800px) {
-    #sidebar, #content{
+    #sidebar,
+    #content {
         width: 100%;
     }
-
-    #sidebar{
+    #sidebar {
         border-bottom: 2px solid grey;
         display: flex;
         justify-content: center;
     }
-    #basis-info{
+    #basis-info {
         width: 30%;
         border-right: 2px solid grey;
     }
-    .usermenu{
+    .usermenu {
         width: 60%;
         margin: 0 20px;
     }
 }
 
 @media only screen and (max-width: 600px) {
-    #info{
+    #info {
         width: 100%;
     }
 }
