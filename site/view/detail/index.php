@@ -29,7 +29,7 @@
 </head>
 
 <body>
-    <?php include "./inc/nav-header.php";?>
+    <?php include "../inc/nav-header.php";?>
     <script src="../../../public/js/nav-bar.js"></script>
     <div class="product_body">
         <div class="row product_body_inner">
