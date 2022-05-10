@@ -115,6 +115,7 @@ $.get("../../model/productPage/cookie.php", {},
             if (data === "no") {
                 $(".no-log").css("display", null);
                 $(".log").css("display", "none");
+                $(".admin-page").css("display", "none");
             } else {
                 $(".no-log").css("display", "none");
                 $(".log").css("display", null);
