@@ -9,10 +9,7 @@
                 <h3 id="h3-1" class="center"></h3> 
             </div> 
             <!-- PRODUCT SHOW -->
-            <div class="wrapper-product-list">
-            <?php  
-                include "../../model/productPage/product-list.php";
-            ?>
+            <div id="wrapper-product-list">
             </div>
             <!-- END product show -->
         </div>

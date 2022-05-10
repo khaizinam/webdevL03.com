@@ -1,6 +1,6 @@
 imgResize = () => {
     let c = document.getElementsByClassName("wrapper-product");
-    let size = document.getElementsByClassName("wrapper-product-list")[0];
+    let size = document.getElementById("wrapper-product-list");
     console.log(size.offsetWidth);
     for (let i = 0; i < c.length; i++) {
         if (size.offsetWidth >= 768) {
@@ -10,7 +10,6 @@ imgResize = () => {
         }
     }
 }
-imgResize();
 
 document.getElementById("search-wrapper").onkeyup = (e) => {
     let q = $("#q").val();
@@ -127,6 +126,57 @@ $.get("../../model/productPage/cookie.php", {},
             }
         }
     });
+$.get("../../model/productPage/product.php", {
+        page: $("#page-https").val(),
+        cate: $("#cate-https").val()
+    },
+    function(data, status) {
+        if (status === 'success' && data !== "no") {
+            let mes = ``;
+            let n = JSON.parse(data);
+            for (let key in n) {
+                let length = n[key].name.length;
+                let a = ``;
+                if (length >= 73) {
+                    n[key].name = n[key].name.substr(0, 70);
+                    n[key].name += "...";
+                }
+                if (n[key].amount == 0) {
+                    a = `<span style="color:red;">${n[key].price} VNĐ<span>`;
+                } else {
+                    a = `<span>${n[key].price} VNĐ<span>`;
+                }
+                mes += `<div class="wrapper-product">
+                            <a href="../detail/index.php?view=${n[key].id}">
+                                <div class="img-product-wrapper">
+                                    <div class="img-background">
+                                        <img src="../../../public/img/bg-product.jpg" alt="product">    
+                                    </div>
+                                    <div class="img-product">  
+                                        <img  src="../../../${n[key].img}" alt="product"> 
+                                    </div>
+                                </div>
+                                <div class="content-product">
+                                    <!-- show name product -->
+                                    <div class="detail-product">
+                                        <span>${n[key].name}</span>
+                                    </div>
+                                    <div class="danh-gia">
+                                        <span>Số lượng : ${n[key].amount}</span>
+                                    </div>
+                                    <!-- price -->
+                                    <div class="price">
+                                        ${a}
+                                    </div>
+                                </div>
+                            </a>
+                        </div>`;
+            }
+            $("#wrapper-product-list").html(mes);
+            imgResize();
+        }
+    });
+imgResize();
 $.get("../../model/productPage/category.php", {},
     function(data, status) {
         if (status === 'success') {
