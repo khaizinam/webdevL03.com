@@ -357,3 +357,12 @@ body {
         width: 100%;
     }
 }
+
+@media only screen and (max-width: 400px) {
+    .usermenu {
+        width: 50%;
+    }
+    .basis-info{
+        width: 40%;
+    }
+}
