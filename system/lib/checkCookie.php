@@ -8,7 +8,6 @@
         WHERE `username` = '$uName'
         AND `ID` = '$uID'";
         if($db->num($query) == 0){
-            Cookie::set("login","no");
             header("Location: ../trang-dang-nhap/");
         }else {
             $sql = $db->send($query);

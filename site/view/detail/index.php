@@ -11,7 +11,6 @@
         WHERE `username` = '$uName'
         AND `ID` = '$uID'";
         if($db->num($query) == 0){
-            Cookie::set("login","no");
             header("Location: ../trang-chu/");
         }else {
             $sql = $db->send($query);
