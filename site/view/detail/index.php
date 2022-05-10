@@ -84,17 +84,17 @@
                     <div class="row">
 
                         <div class="col-lg-8 col-xs-12 col-sm-12 col-md-12">
-                            <?php foreach($comments as $key => $value) {?>
+                            <?php //foreach($comments as $key => $value) {?>
 
                             <div class="comment">
                                 <p class="comment_title">
-                                    <?php echo $value['username']?>
+                                    <?php // echo $value['username']?>
                                 </p>
                                 <div class="comment_content">
-                                    <?php echo $value['content']?>
+                                    <?php // echo $value['content']?>
                                 </div>
                             </div>
-                            <?php }?>
+                            <?php //}?>
 
                         </div>
                     </div>

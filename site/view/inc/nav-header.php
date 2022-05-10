@@ -1,4 +1,4 @@
-<style>
+                <style>
                     .btn-blank {
                         background-color: Transparent;
                         background-repeat: no-repeat;
