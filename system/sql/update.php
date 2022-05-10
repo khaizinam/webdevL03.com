@@ -1,11 +1,10 @@
 <?php
     include("../lib/config.php");
     include("../lib/conn.php");
-    class DBmanage{
-        public $db;
+    class DBmanage extends DataBase{
         public function __construct()
         {
-            $this->db = new DataBase();
+            ///
         }
         
     }
