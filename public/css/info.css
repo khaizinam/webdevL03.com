@@ -82,6 +82,7 @@ body {
 }
 
 .btn-out {
+    width: 34px;
     text-transform: uppercase;
     font-weight: 500;
     padding: 7px 11px;

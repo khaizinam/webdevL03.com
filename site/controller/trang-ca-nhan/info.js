@@ -19,7 +19,7 @@ function show_content(n){
     }
     tabcontent[n].classList.add('active');
 
-    litab = document.querySelectorAll(".nav li");
+    litab = document.querySelectorAll(".navmenu li");
     for (i = 0; i < litab.length; i++) {
         litab[i].classList.remove('li-active');
     }

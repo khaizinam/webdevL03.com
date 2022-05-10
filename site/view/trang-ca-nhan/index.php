@@ -26,12 +26,12 @@
 
 <body>
     <style>
-        .logo img {
-            position: absolute;
-            top: 12px;
-            left: 30px;
-            border-radius: 50%;
-            }
+    .mobile-menu .logo img {
+        position: absolute;
+        top: 12px;
+        left: 30px;
+        border-radius: 50%;
+    }
     </style>
     <?php include "../inc/nav-header.php";?>
     <script src="../../../public/js/nav-bar.js"></script>
@@ -58,7 +58,7 @@
             <hr>
 
             <div class="usermenu">
-                <ul class="nav">
+                <ul class="navmenu">
                     <li onclick="show_content(0)" class="li-active">
                         <i class="fa-solid fa-circle-info"></i>
                         Thông tin
