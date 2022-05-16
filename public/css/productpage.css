@@ -25,6 +25,7 @@ body {
 
 .product_image{
     padding-right: 0;
+    height: 500px;
 }
 
 .product_image_wrapper{
@@ -118,6 +119,12 @@ body {
     margin-left: 5px;
     font-size: 1.6rem;
     font-weight: bold;
+}
+
+.product_image_inner {
+    width: 600px;
+    height: 600px;
+    object-fit: contain;
 }
 
 .product_detail {
