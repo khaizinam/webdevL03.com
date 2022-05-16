@@ -18,9 +18,10 @@
             Cookie::set("user-name",$row["username"]);
             Cookie::set("user-id",$row["ID"]);
         }
-    }else{
-        header("Location: ../trang-chu/");
     }
+    // }else{
+    //     header("Location: ../trang-chu/");
+    // }
 ?>
 
 <!DOCTYPE html>
@@ -79,22 +80,40 @@
                     </div>
 
                     <div class="container mt-5">
-                        <h2>XẾP HẠNG & ĐÁNH GIÁ</h2>
+                        <h2>BÌNH LUẬN</h2>
                     </div>
-                    <div class="row">
+                    <div class="row comment_list">
 
-                        <div class="col-lg-8 col-xs-12 col-sm-12 col-md-12">
-                            <?php //foreach($comments as $key => $value) {?>
-
-                            <div class="comment">
-                                <p class="comment_title">
-                                    <?php // echo $value['username']?>
-                                </p>
-                                <div class="comment_content">
-                                    <?php // echo $value['content']?>
-                                </div>
+                        <div class=" col-lg-12 col-xs-12 col-sm-12 col-md-12">
+                            <?php if (!isset($_COOKIE['user-name'])) { ?>
+                            <div class="mb-3">
+                                <p>Vui lòng đăng nhập để bình luận</p>
+                                <a href="../../view/trang-dang-nhap/index.php"><button type="button" class="btn btn-primary">Đăng nhập</button></a>
                             </div>
-                            <?php //}?>
+                            <?php } else {?>
+                            <div class="mb-3">
+                                <label for="comment_input" class="form-label">Viết bình luận</label>
+                                <input class="form-control" id="comment_input" rows="1" onkeypress="if(event.keyCode == 13){
+                                    addcomment(<?php 
+                                    echo $_COOKIE['user-id']
+                                    .',' .$_GET['view'] 
+                                   
+                                ?>,event.target.value);}"/>
+                            </div>
+                            <?php } ?>
+                            <div class="comment_body">
+                                <?php foreach($comments as $key => $value) {?>
+    
+                                <div class="comment">
+                                    <p class="comment_title">
+                                        <?php echo $value['username']?>
+                                    </p>
+                                    <div class="comment_content">
+                                        <?php echo $value['content']?>
+                                    </div>
+                                </div>
+                                <?php }?>
+                            </div>
 
                         </div>
                     </div>
@@ -106,7 +125,7 @@
                 <div class="container sticky-top">
                     <div class="product_info_pre_header">
                         <span class="product_info_title"><?php echo $res['name']?></span>
-                        <p class="product_info_price"><?php echo $res['price']?></p>
+                        <p class="product_info_price"><?php echo $res['price']?>$</p>
                         <p class="product_info_details">Số lượng trong kho: <?php echo $res['amount']?></b>
                         <p class="product_info_details"><b>No returns, no refunds</b><br>
                             Đơn hàng được xác nhận sau khi xác nhận thanh toán. Không đổi hàng, trả hàng hay hoàn tiền
@@ -129,6 +148,8 @@
     </div>
 
     <script src="../../controller/trang-chi-tiet/addcart.js"></script>
+    <script src="../../controller/trang-chi-tiet/addcomment.js"></script>
+
 </body>
 
 </html>
