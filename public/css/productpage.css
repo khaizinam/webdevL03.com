@@ -19,8 +19,13 @@ body {
     margin-bottom: 0px;
 }
 
+.product_body {
+    margin-top: -20px;
+}
+
 .product_image{
     padding-right: 0;
+    height: 500px;
 }
 
 .product_image_wrapper{
@@ -116,6 +121,12 @@ body {
     font-weight: bold;
 }
 
+.product_image_inner {
+    width: 600px;
+    height: 600px;
+    object-fit: contain;
+}
+
 .product_detail {
     margin-left: 30px;
 }
@@ -123,6 +134,11 @@ body {
 .comment {
     padding-bottom: 30px;
     border-bottom: 1px solid #ccc;
+}
+
+.comment_body {
+    height: 500px;
+    overflow-y: scroll;
 }
 
 .comment_title {
@@ -138,6 +154,10 @@ body {
     margin-top: 10px;
     word-spacing: -1px;
     font-size: 1rem;
+}
+
+.comment_list {
+    margin-left: 15px;
 }
 
 @media only screen and (max-width: 575px) {
