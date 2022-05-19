@@ -2,6 +2,7 @@
     include "../../../system/lib/config.php";
     include "../../../system/lib/conn.php";
     include "../../controller/trang-chi-tiet/detail_controller.php";
+
     $db = new DataBase();
     if(Cookie::check("user-name") == true && Cookie::check("user-id") == true){
         $uName = Cookie::get("user-name");
@@ -132,14 +133,15 @@
                             trừ trường hợp pháp luật có quy định khác. Sản phẩm này không áp dụng bất kỳ chương trình ưu
                             đãi và khuyến mãi nào. Giới hạn số lượng 1 sản phẩm trên mỗi đơn hàng.</p>
                     </div>
-                    <button onclick="addcart(<?php 
-                            echo $_GET['view']
-                            .',\'' .$res['img'] 
-                            .'\',\'' .$res['name']
-                            .'\',' .$res['price']
-                            .',1'
-                            ;
-                        ?>)" class="product_info_button">THÊM VÀO GIỎ
+                    <button <?php if (isset($_COOKIE['user-name'])) {
+                        echo 'onclick="addcart('
+                        .$_GET['view']
+                        .',\'' .$res['img'] 
+                        .'\',\'' .$res['name']
+                        .'\',' .$res['price']
+                        .',1'
+                        .')"';
+                    } ?> class="product_info_button">THÊM VÀO GIỎ
                         HÀNG <i class="bi bi-arrow-right"></i></button>
                 </div>
 
@@ -149,6 +151,9 @@
 
     <script src="../../controller/trang-chi-tiet/addcart.js"></script>
     <script src="../../controller/trang-chi-tiet/addcomment.js"></script>
+    <script>
+        console.log("<?php print_r($res); ?>");
+    </script>
 
 </body>
 

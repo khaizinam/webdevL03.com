@@ -1,20 +1,20 @@
 <?php
 class DetailModel extends DataBase{
     public function getDetail($id) {
-        $result = $this->send("SELECT * FROM product, cate WHERE product.ID=$id AND cate.href = product.cate");
+        $result = $this->send("SELECT 
+        product.ID AS ID,
+        product.name AS name,
+        product.img AS img,
+        product.amount AS amount,
+        product.detail AS detail,
+        product.price AS price,
+        cate.name AS cate
+        FROM product, cate 
+        WHERE product.ID=$id AND cate.href = product.cate");
 
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-            $data = [
-                'id' => $id,
-                'name' => $row['name'],
-                'img' => $row['img'],
-                'amount' => $row['amount'],
-                'detail' => $row['detail'],
-                'price' => $row['price'],
-                'cate' => $row['name']
-            ];
-            return json_encode($data);
+            return json_encode($row);
         } else {
             return "{}";
         }
