@@ -324,6 +324,7 @@ body {
     background-color: #d5ebfb;
     border: 1px solid;
     padding: 5px;
+    text-align: center;
 }
 
 #transaction table tr td {
@@ -340,7 +341,7 @@ body {
     #sidebar {
         border-bottom: 2px solid grey;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
     }
     #basis-info {
         width: 30%;
@@ -356,13 +357,21 @@ body {
     #info {
         width: 100%;
     }
+    .usermenu {
+        width: 70%;
+        margin: 0 10px;
+    }
+    .usermenu ul li i{
+        padding-left: 0;
+    }
 }
 
 @media only screen and (max-width: 400px) {
     .usermenu {
         width: 50%;
+        margin: 0;
     }
-    .basis-info{
-        width: 40%;
+    #basis-info{
+        width: 50%;
     }
 }

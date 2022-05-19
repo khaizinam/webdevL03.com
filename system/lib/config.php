@@ -3,7 +3,7 @@ define('SITE_URL', '');
 define('HOSTNAME', 'localhost');
 define('USERTNAME', 'root');
 define('PASS', '');
-define('DATABASEBNAME', 'data_web');
+define('DATABASEBNAME', 'dataweb');
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Credentials: true ");
 header("Access-Control-Allow-Methods:GET, POST");
