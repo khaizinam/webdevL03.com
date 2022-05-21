@@ -133,16 +133,16 @@
                             trừ trường hợp pháp luật có quy định khác. Sản phẩm này không áp dụng bất kỳ chương trình ưu
                             đãi và khuyến mãi nào. Giới hạn số lượng 1 sản phẩm trên mỗi đơn hàng.</p>
                     </div>
-                    <button <?php if (isset($_COOKIE['user-name'])) {
-                        echo 'onclick="addcart('
+                    <?php if (isset($_COOKIE['user-name'])) {
+                        echo '<button onclick="addcart('
                         .$_GET['view']
                         .',\'' .$res['img'] 
                         .'\',\'' .$res['name']
                         .'\',' .$res['price']
                         .',1'
-                        .')"';
-                    } ?> class="product_info_button">THÊM VÀO GIỎ
-                        HÀNG <i class="bi bi-arrow-right"></i></button>
+                        .')" class="product_info_button">THÊM VÀO GIỎ
+                        HÀNG <i class="bi bi-arrow-right"></i></button>';
+                    } ?>
                 </div>
 
             </div>

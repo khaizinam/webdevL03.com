@@ -51,8 +51,6 @@
                     <input type="text" id="user-id" value="<?=$_COOKIE['user-id'];?>" hidden>
 
                 </div>
-
-                <a href="../trang-chu/" type="button" class="btn btn-out"><i class="fa-solid fa-chevron-left"></i></a>
             </div>
 
             <hr>
