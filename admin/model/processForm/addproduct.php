@@ -18,7 +18,7 @@
     if($productname && $price && $type){
         $sql = "INSERT INTO `product` (`name`,cate,`img`,`amount`,`price`,`detail`) VALUES ('$productname','$type','$imageurl',0,$price,'$detail')";
         $result = $db->send($sql);
-        if ($result != 'fail'){
+        if ($result){
             echo 'add successfully';
         }else{
             echo 'add failed';

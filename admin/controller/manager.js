@@ -110,7 +110,7 @@ function displayProductlist(productdatas){
                     </div>
                 </td>
                 <td class="text-center">${productdatas[id].id}</td>
-                <td class="text-center" id="name${productdatas[id].id}">${productdatas[id].name}</td>
+                <td class="text-center" id="name${productdatas[id].id}"><a href="../../../site/view/detail/index.php?view=${productdatas[id].id}">${productdatas[id].name}</a></td>
                 <td class="text-center" id="cate${productdatas[id].id}">${productType[productdatas[id].cate]}</td>
                 <td class="text-center" id="price${productdatas[id].id}">${productdatas[id].price} </td>
                 <td class="text-center" id="amount${productdatas[id].id}">${productdatas[id].amount}</td>
@@ -204,7 +204,6 @@ $('#muti-action-button').click( function (){
 
 $("#btn-add-cate").click(function(){
     const name = $('#add-cate-input').val();
-    console.log(name);
     const normalname = name.normalize('NFD').replace(/[\u0300-\u036f ]/g, '').toLowerCase();
     $.post('../../model/processForm/addCate.php',{catename: name,cate: normalname})
         .done((data)=>{
@@ -262,7 +261,7 @@ $('#updateProductBtn').click(function(){
             if(data == 'update successfully'){
                 productDatas[productID]
                 $('#rewrite-product-modal').modal('hide');
-                $(`#name${productID}`).text($('#updateName').val());
+                $(`#name${productID}`).html(`<a href="../../../site/view/detail/index.php?view=${productID}">${$('#updateName').val()}</a>`);
                 $(`#cate${productID}`).text(productType[$('#updateType').val()]);
                 $(`#price${productID}`).text($('#updatePrice').val());
                 $(`#detail${productID}`).text($('#updateDetail').val());

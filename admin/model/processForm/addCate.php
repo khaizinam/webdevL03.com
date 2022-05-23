@@ -5,11 +5,7 @@
     $cate = $_POST['cate'];
     $sql = "INSERT INTO cate (href, name) VALUES ('$cate', '$name')";
     $result = $db->send($sql);
-    if ($result != 'fail') {
+    if ($result) {
         echo "Cate added:".$name;
-    }else {
-        echo "Fail"
-    }
-   
-    
+    } 
 ?>
