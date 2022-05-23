@@ -32,6 +32,7 @@
                 <thead>
                     <tr>
                         <th scope="col" class="text-center">ID</th>
+                        <th scope="col" class="text-center">Tên TK</th>
                         <th scope="col" class="text-center">Tên</th>
                         <th scope="col" class="text-center">Quyền</th>
                         <th scope="col" class="text-center">Số điện thoại</th>

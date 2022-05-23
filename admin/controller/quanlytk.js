@@ -82,11 +82,12 @@ function displayAccountlist(accountdatas) {
     for (const id in accountdatas) {
         var tbhtmlc = `<tr id="${accountdatas[id].id}">
             <td class="text-center">${accountdatas[id].id}</td>
-            <td class="text-center" id="name${accountdatas[id].id}">${accountdatas[id].name}</td>
+            <td class="text-center" id="username${accountdatas[id].id}">${accountdatas[id].username}</td>
+            <td class="text-center" id="name${accountdatas[id].id}">${accountdatas[id].name}</td> 
             <td class="text-center" id="type${accountdatas[id].id}">${accountType[accountdatas[id].type]}</td>
             <td class="text-center" id="phonenum${accountdatas[id].id}">${accountdatas[id].pnum} </td>
-            <td class="text-center" id="address${accountdatas[id].id}">${accountdatas[id].address}</td>
-            <td class="text-center" id="email${accountdatas[id].id}">${accountdatas[id].email}</td>
+            <td class="text-center" id="address${accountdatas[id].id}"><textarea disabled>${accountdatas[id].address}</textarea></td>
+            <td class="text-center" id="email${accountdatas[id].id}"><textarea disabled>${accountdatas[id].email}</textarea></td>
             <td class="text-center">
             `
             if (accountdatas[id].type != 0){

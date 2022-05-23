@@ -31,9 +31,10 @@
     }
     $query.=" ORDER BY ID DESC LIMIT $paging,$limit";
     $sql = $db->send($query);
-    if($sql != "fail"){
+    if($sql){
         while($rows = $sql->fetch_array()){
             array_push($data, array('id' => $rows['ID'],
+                'username'=>$rows['username'],
                 'name' => $rows['full_name'],
                 'type' => $rows['type'],
                 'pnum' => $rows['p_number'],
