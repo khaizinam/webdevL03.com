@@ -196,8 +196,8 @@
           <div class="mb-3">
                 <input type="text" class="form-control" id="editname" name="name" value="" required>
             </div>
-            <button type="button" class="btn btn-primary" id="editBtn" >Confirm</button>
-            <button type="button" id="editclose" class="btn btn-secondary" data-bs-dismiss="modal" style="display: none">Close</button>
+            <button type="button" class="btn btn-primary" id="editBtn" >Xác nhận</button>
+            <button type="button" id="editclose" class="btn btn-secondary" data-bs-dismiss="modal" style="display: none">Đóng</button>
           </div>
         </div>
       </div>
