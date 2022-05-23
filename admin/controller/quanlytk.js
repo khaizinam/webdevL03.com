@@ -81,11 +81,6 @@ function displayAccountlist(accountdatas) {
     var tbhtml = '';
     for (const id in accountdatas) {
         var tbhtmlc = `<tr id="${accountdatas[id].id}">
-            <td>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" onchange="checkboxCheck()" name="objectIDs[]" value="${accountdatas[id].id}" >
-                </div>
-            </td>
             <td class="text-center">${accountdatas[id].id}</td>
             <td class="text-center" id="name${accountdatas[id].id}">${accountdatas[id].name}</td>
             <td class="text-center" id="type${accountdatas[id].id}">${accountType[accountdatas[id].type]}</td>
