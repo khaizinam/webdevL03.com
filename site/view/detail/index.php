@@ -45,6 +45,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Asap:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>BKStore</title>
 </head>
 
@@ -105,12 +106,24 @@
                             <div class="comment_body">
                                 <?php foreach($comments as $key => $value) {?>
     
-                                <div class="comment">
-                                    <p class="comment_title">
+                                <div class="comment" id="record<?php echo $value['ID']?>">
+                                    <div class="comment_title">
                                         <?php echo $value['username']?>
-                                    </p>
+                                        <?php if (isset($_COOKIE['user-name'])) { ?>
+                                            <?php if ($value['author_id'] == $_COOKIE['user-id']) {?>
+                                                <button type="button" class="btn btnDel" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="<?php echo $value['ID']?>"><i class="fa-solid fa-trash comment-action"></i></button>
+                                
+                                            <?php }?>
+                                        <?php }?>
+                                    </div>
                                     <div class="comment_content">
-                                        <?php echo $value['content']?>
+                                        <span id="comm<?php echo $value['ID']?>"><?php echo $value['content']?></span>
+                                        <?php if (isset($_COOKIE['user-name'])) { ?>
+                                            <?php if ($value['author_id'] == $_COOKIE['user-id']) {?>
+                                                <button type="button" class="btn btnDel" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-id="<?php echo $value['ID']?>" data-bs-content="<?php echo $value['content']?>"><i class="fa-solid fa-pen comment-action"></i></button>
+                                
+                                            <?php }?>
+                                        <?php }?>
                                     </div>
                                 </div>
                                 <?php }?>
@@ -133,7 +146,10 @@
                             trừ trường hợp pháp luật có quy định khác. Sản phẩm này không áp dụng bất kỳ chương trình ưu
                             đãi và khuyến mãi nào. Giới hạn số lượng 1 sản phẩm trên mỗi đơn hàng.</p>
                     </div>
-                    <?php if (isset($_COOKIE['user-name'])) {
+                    <?php if ($res['amount']==0) { ?>
+                        <p class="product_info_warning"><b>Hết hàng</b><br>
+                    <?php }?>
+                    <?php if (isset($_COOKIE['user-name']) && $res['amount']!=0 ) {
                         echo '<button onclick="addcart('
                         .$_GET['view']
                         .',\'' .$res['img'] 
@@ -148,6 +164,46 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteModalLabel">Xóa bình luận</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+            <div class="modal-body">
+              Bạn có chắc chắn muốn xóa bình luận không?
+              <input type="hidden" value="" name="id" id="deleteid">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" id="deleteBtn">Xác nhận</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Chỉnh sửa bình luận</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+          <div class="modal-body">
+          <input type="hidden" value="" name="id" id="editproduct">
+          <div class="mb-3">
+                <input type="text" class="form-control" id="editname" name="name" value="" required>
+            </div>
+            <button type="button" class="btn btn-primary" id="editBtn" >Xác nhận</button>
+            <button type="button" id="editclose" class="btn btn-secondary" data-bs-dismiss="modal" style="display: none">Đóng</button>
+          </div>
+        </div>
+      </div>
+  </div>
+    <script src="../../controller/trang-chi-tiet/deletecomment.js" ></script>
+    <script src="../../controller/trang-chi-tiet/editcomment.js" ></script>
 
     <script src="../../controller/trang-chi-tiet/addcart.js"></script>
     <script src="../../controller/trang-chi-tiet/addcomment.js"></script>

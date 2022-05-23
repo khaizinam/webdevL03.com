@@ -37,7 +37,7 @@ class DataBase
 class Cookie{
     public static function set($cname , $cvalue){
         if(!self::check($cname)){
-            setcookie($cname, $cvalue, time() + (86400 * 3), "/");   
+            setcookie($cname, $cvalue, time() + (86400 * 1), "/");   
         }else {
             $_COOKIE[$cname] = $cvalue;
         }

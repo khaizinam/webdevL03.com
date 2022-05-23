@@ -10,8 +10,18 @@
         $detailmodel->addComment($_POST['userid'], $_POST['productid'], $_POST['content']);
         echo $detailmodel->getLatestComment();
     }
-    else {
-        echo 'fail';
+
+
+    if (isset($_POST['deleteid'])) {
+        $id = $_POST['deleteid'];
+        $detailmodel->deleteComment($id);
+    }
+
+    if (isset($_POST['editid'])) {
+        $id = $_POST['editid'];
+        $content = $_POST['content'];
+        $detailmodel->editComment($id, $content);
+        echo $detailmodel->getCommentbyID($id);
     }
     
 
