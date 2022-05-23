@@ -2,7 +2,6 @@
     include '../header/header.php';
     $db = new DataBase();
     $page = 1;
-    $paging = 0;
     $limit = 7;
     $cate = 'all';
     $search = "";
@@ -12,7 +11,6 @@
     if(isset($_GET['search'])) $search = $_GET['search'];
     $data =array();
     $paging = ($page-1) * $limit;
-    $limitpage = $paging + $limit;
     $query = "";
     if($cate != "all"){
         $query = "SELECT *
@@ -30,7 +28,7 @@
             $query.="WHERE name LIKE '%$search%'";
         }
     }
-    $query.=" ORDER BY ID DESC LIMIT $paging,$limitpage";
+    $query.=" ORDER BY ID DESC LIMIT $paging,$limit";
     $sql = $db->send($query);
     if($sql != 'fail'){
         while($rows = $sql->fetch_array()){
