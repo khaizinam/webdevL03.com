@@ -20,6 +20,13 @@
             Cookie::set("user-id",$row["ID"]);
         }
     }
+    if (isset($_COOKIE['user-id'])) {
+        $checkid = $_COOKIE['user-id'];
+        $sql = "SELECT type from user WHERE ID = '$checkid'";
+        $result = $db->send($sql);
+        $type = $result->fetch_assoc();
+        $type = $type["type"];
+    }
     // }else{
     //     header("Location: ../trang-chu/");
     // }
@@ -110,7 +117,7 @@
                                     <div class="comment_title">
                                         <?php echo $value['username']?>
                                         <?php if (isset($_COOKIE['user-name'])) { ?>
-                                            <?php if ($value['author_id'] == $_COOKIE['user-id']) {?>
+                                            <?php if ($value['author_id'] == $_COOKIE['user-id'] || $type == '0') {?>
                                                 <button type="button" class="btn btnDel" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="<?php echo $value['ID']?>"><i class="fa-solid fa-trash comment-action"></i></button>
                                 
                                             <?php }?>

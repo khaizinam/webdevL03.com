@@ -40,11 +40,12 @@ class DetailModel extends DataBase{
     }
 
     public function getLatestComment() {
-        $result = $this->send("SELECT * FROM comment, user WHERE comment.author_ID = user.ID ORDER BY comment.ID DESC LIMIT 1");
+        $result = $this->send("SELECT comment.ID, author_ID, username, content FROM comment, user WHERE comment.author_ID = user.ID ORDER BY comment.ID DESC LIMIT 1");
         $data = [];
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()){
                 array_push($data,[
+                    'ID' => $row['ID'],
                     'author_id' =>$row['author_ID'],
                     'username' => $row['username'],
                     'content' => $row['content']

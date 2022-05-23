@@ -17,9 +17,14 @@ function addcomment(userid, productid, content) {
             $(".comment_body").html(`<div class="comment">
             <p class="comment_title">
                 ${data['username']}
+                <button type="button" class="btn btnDel" data-bs-toggle="modal" data-bs-target="#deleteModal" data-bs-id="${data['ID']}"><i class="fa-solid fa-trash comment-action"></i></button>
             </p>
             <div class="comment_content">
-            ${data['content']}
+            
+            <span id="comm${data['ID']}">${data['content']}</span>
+                                        
+            <button type="button" class="btn btnDel" data-bs-toggle="modal" data-bs-target="#editModal" data-bs-id="${data['ID']}" data-bs-content="${data['content']}"><i class="fa-solid fa-pen comment-action"></i></button>
+                     
             </div>
         </div>` + $(".comment_body").html());
             console.log(data);
