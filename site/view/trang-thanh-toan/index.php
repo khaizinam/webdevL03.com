@@ -40,10 +40,10 @@
 
     <div id="body-span">
         <div id="cart-span">
-            <h1 class="title">
+            <h2 class="title">
                 GIỎ HÀNG
                 <hr>
-            </h1>
+            </h2>
 
             <div id="cart-content">
                 <div id="cart-header">
@@ -72,10 +72,10 @@
         <form id="feedback" onsubmit="return payment()">
             <div id="info-span">
                 <input type="text" id="user-id" value="<?= $_COOKIE['user-id'];?>" hidden>
-                <h1 class="title">
+                <h2 class="title">
                     <i class="fa-solid fa-user"></i>
                     INFO
-                </h1>
+                </h2>
                 <div id="info-line">
                     <label for="fullname">Tên</label>
                     <input id="fullname" name="fullname" type="text" placeholder="Fullname" required>
@@ -90,10 +90,10 @@
                 </div>
             </div>
             <div id="bill-span">
-                <h1 class="title">
+                <h2 class="title">
                     <i class="fa-solid fa-money-check"></i>
                     BILL
-                </h1>
+                </h2>
                 <div class="bill-line">
                     <div class="title">Tổng</div>
                     <div class="data" id="total">200.000</div>

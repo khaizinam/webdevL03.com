@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
 :root {
-    --main-color: #2691d9;
+    --main-color: black;
     --error-color: #e74c3c;
-    --cart-color: #2691d9;
-    --info-color: #ffa200;
-    --bill-color: #05b805;
+    --cart-color: black;
+    --info-color: black;
+    --bill-color: black;
 }
 
 * {
@@ -77,9 +77,10 @@
     width: 65%;
     color: var(--cart-color);
     padding: 10px 0;
-    border: 3px solid var(--cart-color);
-    border-radius: 5px;
+    border-left: 2px solid var(--cart-color);
+    border-right: 2px solid var(--cart-color);
     transition: 0.7s;
+    background-color: white;
 }
 
 #cart-span .title {
@@ -90,7 +91,7 @@
     width: 100px;
     margin: auto;
     height: 2px;
-    background-color: var(--cart-color);
+    background-color: var(--main-color);
     margin-bottom: 20px;
 }
 
@@ -101,6 +102,10 @@
 
 #cart {
     width: 100%;
+}
+
+#cart:last-child{
+    border-bottom: 1px solid var(--cart-color);
 }
 
 
@@ -118,7 +123,7 @@
 #cart-header>.cart-item {
     padding: 8px 0;
     border-bottom: 2px solid var(--cart-color);
-    border-top: 2px solid var(--cart-color);
+    border-top: 2px solid #333639;
 }
 
 #cart-header .first {
@@ -249,12 +254,13 @@
 }
 
 #info-span {
-    border: 3px solid var(--info-color);
-    border-radius: 10px;
+    border: 2px solid var(--info-color);
     padding: 10px;
     color: var(--info-color);
     margin: 20px 0 20px;
-    transition: 0.7s;
+    transition: 0.5s;
+    background-color: white;
+
 }
 
 #info-line {
@@ -292,12 +298,12 @@
 /* ---------------------------------------------------------*/
 
 #bill-span {
-    border: 3px solid var(--bill-color);
-    border-radius: 10px;
+    border: 2px solid var(--bill-color);
     padding: 10px;
     color: var(--bill-color);
     font-size: 17px;
     transition: 0.7s;
+    background-color: white;
 }
 
 #bill-span hr {
@@ -316,7 +322,7 @@
 }
 
 .bill-line:hover {
-    background-color: #bbffbb;
+    background-color: #cbcbcb;
 }
 
 #all-bill {
@@ -333,9 +339,11 @@
     text-align: center;
     border: none;
     border-radius: 5px;
-    background-color: var(--bill-color);
-    color: white;
+    color: var(--bill-color);
+    background-color: white;
+    border: 2px solid var(--bill-color);
     width: 70%;
+    min-width: 200px;
     font-size: 20px;
     padding: 10px;
     transition: 0.5s;
@@ -343,10 +351,10 @@
 }
 
 #payment-btn:hover {
-    background-color: #05a505;
-    color: white;
-    transform: scale(1.04);
+    transform: scale(1.05);
     cursor: pointer;
+    background-color: var(--bill-color);
+    color: white;
 }
 
 @media only screen and (max-width: 800px) {
