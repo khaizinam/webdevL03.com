@@ -80,7 +80,7 @@ if (!accountCount) { //first time render page
 function displayAccountlist(accountdatas) {
     var tbhtml = '';
     for (const id in accountdatas) {
-        tbhtml = `<tr id="${accountdatas[id].id}">
+        var tbhtmlc = `<tr id="${accountdatas[id].id}">
             <td>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" onchange="checkboxCheck()" name="objectIDs[]" value="${accountdatas[id].id}" >
@@ -93,9 +93,15 @@ function displayAccountlist(accountdatas) {
             <td class="text-center" id="address${accountdatas[id].id}">${accountdatas[id].address}</td>
             <td class="text-center" id="email${accountdatas[id].id}">${accountdatas[id].email}</td>
             <td class="text-center">
-                <a href="" class="btn btn-outline-primary" data-bs-toggle="modal" data-id="${accountdatas[id].id}" data-bs-target="#delete-account-modal"><i class="bi bi-x-circle"></i></a>
-            </td>
-        </tr>` + tbhtml;
+            `
+            if (accountdatas[id].type != 0){
+                tbhtmlc += `
+                    <a href="" class="btn btn-outline-primary" data-bs-toggle="modal" data-id="${accountdatas[id].id}" data-bs-target="#update-permission-modal"><i class="bi bi-arrow-up"></i></i></a>
+                    <a href="" class="btn btn-outline-primary" data-bs-toggle="modal" data-id="${accountdatas[id].id}" data-bs-target="#delete-account-modal"><i class="bi bi-x-circle"></i></a>
+                `
+            }
+            tbhtmlc += `</td></tr>`;
+        tbhtml = tbhtmlc + tbhtml;       
     }
     // console.log(tbhtml);
     if (tbhtml != '') $('tbody').html(tbhtml);
@@ -114,6 +120,23 @@ $('#limitlist').change(function() {
     requestAccountDatas();
 })
 
+$('#update-permission-modal').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget);
+    accountID = button.data('id');
+});
+
+$('#btn-update-account').click(function() {
+    $.post(`../../model/account/updUserPermission.php?id=${accountID}`,{id : accountID})
+        .done((result) => {
+            if (result == 'update successfully'){
+                $('#update-permission-modal').modal('hide');
+                requestAccountDatas();
+            }else{
+                console.log(result);
+            }
+        })
+});
+
 $('#delete-account-modal').on('show.bs.modal', function(event) {
     var button = $(event.relatedTarget);
     accountID = button.data('id');
@@ -122,6 +145,10 @@ $('#delete-account-modal').on('show.bs.modal', function(event) {
 $('#btn-delete-account').click(function() {
     $.ajax({
         url: `../../model/account/deleteUser.php?id=${accountID}`,
+        type: 'POST',
+        data:{
+            id: accountID
+        },
         success: function(result) {
             $('#delete-account-modal').modal('hide');
             requestAccountDatas();

@@ -73,42 +73,25 @@
     </body>
 </html> 
   <!-- Modal -->
-  <!-- <div class="modal fade" id="add-product" tabindex="-1" aria-labelledby="add-product" aria-hidden="true">
+<div class="modal fade" id="update-permission-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="add-product">Thêm sản phẩm</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Cấp quyền quản trị</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form action="../../model/processForm/addproduct.php" method="post" enctype="multipart/form-data">
-                <div class="mb-3">
-                    <label for="name" class="form-label">Tên sản phẩm</label>
-                    <input type="text" class="form-control" name="name" id="name">
-                </div>
-                <div class="mb-3">
-                    <label for="seclect-type" class="form-label">Loại</label>
-                    <select class="form-control form-control-sm" name="type" id="seclect-type">
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <label for="price" class="form-label">Giá thành</label>
-                    <input type="number" name="price" class="form-control" id="price">
-                </div>
-                <div class="mb-3">
-                    <label for="image" class="form-label">Hình ảnh</label>
-                    <input type="file" class="form-control" id="image" name="image">
-                </div>
-                <div class="mb-3">
-                    <label for="detail" class="form-label">Chi tiết</label>
-                    <textarea class="form-control" name="detail" id="detail" maxlength="10000"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Thêm</button>
+            <form action="#" method="post">
+                <p>Bạn chắc chứ?</p>
             </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" id='btn-update-account' class="btn btn-danger">Xác nhận</button>
+            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" aria-label="Close">Hủy</button>
         </div>
       </div>
     </div>
-</div> -->
+</div>
 
 <div class="modal fade" id="delete-account-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
