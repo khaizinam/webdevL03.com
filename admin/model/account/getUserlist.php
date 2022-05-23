@@ -12,7 +12,6 @@
     if(isset($_GET['search'])) $search = $_GET['search'];
     $data =array();
     $paging = ($page-1) * $limit;
-    $limitpage = $paging + $limit;
     $query = "";
     if($type != "all"){
         $query = "SELECT *
@@ -30,7 +29,7 @@
             $query.="WHERE username LIKE '%$search%'";
         }
     }
-    $query.=" ORDER BY ID DESC LIMIT $paging,$limitpage";
+    $query.=" ORDER BY ID DESC LIMIT $paging,$limit";
     $sql = $db->send($query);
     if($sql != "fail"){
         while($rows = $sql->fetch_array()){

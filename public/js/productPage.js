@@ -3,10 +3,16 @@ imgResize = () => {
     let size = document.getElementById("wrapper-product-list");
     console.log(size.offsetWidth);
     for (let i = 0; i < c.length; i++) {
-        if (size.offsetWidth >= 768) {
+        if (size.offsetWidth >= 700) {
             c[i].style.width = size.offsetWidth * 0.2 - 10 + "px";
+            c[i].style.height = size.offsetWidth * 0.2 - 10 + 150 + "px";
+            document.getElementsByClassName("img-product-wrapper")[i].style.height = size.offsetWidth * 0.2 - 10 + "px";
+            console.log("mod 1");
         } else {
+            console.log("mod 2");
             c[i].style.width = size.offsetWidth * 0.5 - 10 + "px";
+            c[i].style.height = size.offsetWidth * 0.5 - 10 + 150 + "px";
+            document.getElementsByClassName("img-product-wrapper")[i].style.height = size.offsetWidth * 0.5 - 10 + "px";
         }
     }
 }
@@ -143,7 +149,9 @@ $.get("../../model/productPage/product.php", {
                     n[key].name += "...";
                 }
                 if (n[key].amount == 0) {
-                    a = `<span style="color:red;">${n[key].price} VNĐ<span>`;
+                    a = `<span style="color:red;">${n[key].price} VNĐ<span>
+                        <br>
+                        <span style="color:red;">Đã hết hàng<span>`;
                 } else {
                     a = `<span>${n[key].price} VNĐ<span>`;
                 }
