@@ -105,6 +105,12 @@ body {
     border-right: 1px solid #ccc;
 }
 
+.product_info_warning {
+    color: red;
+    font-size: 2rem;
+    text-align: center;
+}
+
 .rating {
     background-color: #2ada71;
     height: 70px;
@@ -140,6 +146,8 @@ body {
 .comment_title {
     font-weight: 500;
     font-size: 1.1rem;
+    display: flex;
+    align-items: center;
 }
 
 .comment_rating {
@@ -155,6 +163,19 @@ body {
 .comment_list {
     margin-left: 15px;
 }
+
+.comment-action {
+    color: rgb(146, 144, 144);
+    font-size: 0.8rem;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.btnDel {
+    width: 10px;
+    text-align: center;
+}
+
 
 @media only screen and (max-width: 575px) {
     .product_image_inner {
