@@ -263,18 +263,18 @@
 
 }
 
-#info-line {
+.info-line {
     margin: 10px;
     display: flex;
     align-items: center;
 }
 
-#info-line label {
+.info-line label {
     width: 30%;
 }
 
-#info-line input,
-#info-line textarea {
+.info-line input,
+.info-line textarea {
     width: 70%;
     padding: 5px 10px;
     border: 2px solid var(--info-color);
@@ -285,12 +285,12 @@
     color: var(--info-color);
 }
 
-#info-line input:focus,
-#info-line textarea:focus {
+.info-line input:focus,
+.info-line textarea:focus {
     padding: 5px 15px;
 }
 
-#info-line textarea {
+.info-line textarea {
     resize: none;
 }
 

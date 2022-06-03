@@ -22,11 +22,6 @@
     <script src="../../../system/lib/ajax.js"></script>
     <link rel="icon" type="image/x-icon" href="../../../public/img/favicon.png">
     <title>BKStore</title>
-
-
-</head>
-
-<body>
     <style>
         .logo img {
             position: absolute;
@@ -35,6 +30,11 @@
             border-radius: 50%;
             }
     </style>
+
+</head>
+
+<body>
+    
     <?php include "../inc/nav-header.php";?>
     <script src="../../../public/js/nav-bar.js"></script>
 
@@ -76,15 +76,15 @@
                     <i class="fa-solid fa-user"></i>
                     INFO
                 </h2>
-                <div id="info-line">
+                <div class="info-line">
                     <label for="fullname">Tên</label>
                     <input id="fullname" name="fullname" type="text" placeholder="Fullname" required>
                 </div>
-                <div id="info-line">
+                <div class="info-line">
                     <label for="phone_number">SĐT</label>
                     <input id="phone_number" name="phone_number" type="text" placeholder="Phone Number" required>
                 </div>
-                <div id="info-line">
+                <div class="info-line">
                     <label for="address">Địa chỉ</label>
                     <textarea id="address" name="address" required></textarea>
                 </div>
