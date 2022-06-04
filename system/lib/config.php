@@ -6,6 +6,8 @@ define('USERTNAME', 'root');
 define('PASS', '');
 define('DATABASEBNAME', 'data_web');
 
+
+header("Cache-Control: no-cache, must-revalidate");
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Credentials: true ");
 header("Access-Control-Allow-Methods:GET, POST");
