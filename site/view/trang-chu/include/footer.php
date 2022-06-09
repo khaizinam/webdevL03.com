@@ -24,6 +24,9 @@
         <span>May 2022</span>
     </div>
     <script src="../../../public/js/productPage.js"></script>
+    <script>
+        for (var link of document.querySelectorAll("link[rel=stylesheet]")) link.href = link.href.replace(/\?.*|$/, "?" + Date.now())
+    </script>
 </body>
 
 </html>

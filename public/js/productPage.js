@@ -7,12 +7,14 @@ imgResize = () => {
             c[i].style.width = size.offsetWidth * 0.2 - 10 + "px";
             c[i].style.height = size.offsetWidth * 0.2 - 10 + 150 + "px";
             document.getElementsByClassName("img-product-wrapper")[i].style.height = size.offsetWidth * 0.2 - 10 + "px";
-            console.log("mod 1");
-        } else {
-            console.log("mod 2");
+        } else if (size.offsetWidth >= 280 && size.offsetWidth < 700) {
             c[i].style.width = size.offsetWidth * 0.5 - 10 + "px";
             c[i].style.height = size.offsetWidth * 0.5 - 10 + 150 + "px";
             document.getElementsByClassName("img-product-wrapper")[i].style.height = size.offsetWidth * 0.5 - 10 + "px";
+        } else {
+            c[i].style.width = size.offsetWidth * 0.9 - 10 + "px";
+            c[i].style.height = size.offsetWidth * 0.9 - 10 + 150 + "px";
+            document.getElementsByClassName("img-product-wrapper")[i].style.height = size.offsetWidth * 0.9 - 10 + "px";
         }
     }
 }

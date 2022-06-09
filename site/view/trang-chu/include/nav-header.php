@@ -94,7 +94,7 @@
             </div>
             
             <a class="menu-101 no-log" href="../trang-dang-nhap/index.php">Đăng nhập</a>
-            <a class="menu-101 no-log" href="../trang-dang-ki/index.php">Đăng kí</a>
+            <a class="menu-101 no-log" href="../trang-dang-ky/index.php">Đăng kí</a>
             <a class="menu-101 log" href="../trang-ca-nhan/index.php">Tài khoản</a>
             <a class="menu-101 log" href="../../../system/lib/logout.php">Đăng Xuất</a>
         <!-- end slide body -->
