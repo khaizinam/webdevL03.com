@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 03, 2022 lúc 09:10 AM
+-- Thời gian đã tạo: Th6 10, 2022 lúc 10:33 AM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 7.4.29
 
@@ -32,6 +32,13 @@ CREATE TABLE `cate` (
   `href` varchar(255) NOT NULL,
   `name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `cate`
+--
+
+INSERT INTO `cate` (`no`, `href`, `name`) VALUES
+(2, 'giay', 'Giày');
 
 -- --------------------------------------------------------
 
@@ -63,6 +70,14 @@ CREATE TABLE `product` (
   `price` bigint(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Đang đổ dữ liệu cho bảng `product`
+--
+
+INSERT INTO `product` (`ID`, `name`, `cate`, `img`, `amount`, `detail`, `star`, `price`) VALUES
+(141, 'Giày Adidas', 'giay', 'public/img/productimg/Giày Adidas.jpg', 2, '', 0, 210000),
+(142, 'Giày hộp sữa', 'giay', 'public/img/productimg/Giày hộp sữa.jpg', 2, '', 0, 200000);
+
 -- --------------------------------------------------------
 
 --
@@ -75,8 +90,18 @@ CREATE TABLE `transaction` (
   `price` int(20) NOT NULL,
   `quantity` int(20) NOT NULL,
   `customer` int(20) NOT NULL,
-  `time` varchar(25) NOT NULL
+  `time` varchar(25) NOT NULL,
+  `phone_number` varchar(15) DEFAULT NULL,
+  `address` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `transaction`
+--
+
+INSERT INTO `transaction` (`ID`, `product_name`, `price`, `quantity`, `customer`, `time`, `phone_number`, `address`) VALUES
+(142, 'Giày hộp sữa', 200000, 2, 8, '09/06/2022 - 13:28', '0123456789', 'KTX khu A'),
+(141, 'Giày Adidas', 210000, 1, 8, '09/06/2022 - 13:29', '0123456789', 'KTX khu A');
 
 -- --------------------------------------------------------
 
@@ -100,7 +125,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ID`, `username`, `password`, `full_name`, `type`, `p_number`, `address`, `email`) VALUES
-(1, 'khaizinam', '123', 'Nguyễn Hữu Khải', 0, '0846141788', 'ktx khu A', 'khaizinam@gmail.hcmut.edu.vn');
+(1, 'admin', 'admin', 'Nguyễn Hữu Khải', 0, '0846141788', 'ktx khu A', 'khaizinam@gmail.hcmut.edu.vn'),
+(8, 'khanh', '123', '', 1, '', '', ''),
+(9, 'abc', '123', '', 1, '', '', '');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -138,7 +165,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT cho bảng `cate`
 --
 ALTER TABLE `cate`
-  MODIFY `no` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `no` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `comment`
@@ -150,13 +177,13 @@ ALTER TABLE `comment`
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `ID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
+  MODIFY `ID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=143;
 
 --
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
