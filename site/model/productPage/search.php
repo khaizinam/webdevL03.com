@@ -14,6 +14,7 @@
         $data = array();
         while($rows = $res->fetch_array()){
             array_push($data, array('id' => $rows['ID'],
+            'img' => $rows['img'],
             "name" => $rows['name']));
         }
         $json = json_encode($data);

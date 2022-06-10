@@ -47,7 +47,10 @@ document.getElementById("search-wrapper").onkeyup = (e) => {
                                 productName += "...";
                             }
                             mes +=
-                                `<li><a href="../detail/index.php?view=${id}">${productName} | <span style="font-size:12px">id : ${id}</span></a></li>`;
+                                `<li class="d-flex">
+                                    <img src="../../../${item.img}" width="40px" alt="icon">
+                                    <a href="../detail/index.php?view=${id}">${productName} | <span style="font-size:12px">id : ${id}</span></a>
+                                </li>`;
                         }
                         mes += "</ul>"
                         $("#search-result").html(mes);
