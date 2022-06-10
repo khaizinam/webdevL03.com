@@ -151,11 +151,11 @@ $.get("../../model/productPage/product.php", {
                     n[key].name += "...";
                 }
                 if (n[key].amount == 0) {
-                    a = `<span style="color:red;">${n[key].price} VNĐ<span>
+                    a = `<span style="color:red;">${n[key].price.toLocaleString('en-US')} VNĐ<span>
                         <br>
                         <span style="color:red;">Đã hết hàng<span>`;
                 } else {
-                    a = `<span>${n[key].price} VNĐ<span>`;
+                    a = `<span>${n[key].price.toLocaleString('en-US')} VNĐ<span>`;
                 }
                 mes += `<div class="wrapper-product">
                             <a href="../detail/index.php?view=${n[key].id}">
