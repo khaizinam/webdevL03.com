@@ -150,6 +150,7 @@ $.get("../../model/productPage/product.php", {
                     n[key].name = n[key].name.substr(0, 70);
                     n[key].name += "...";
                 }
+                n[key].price = parseInt(n[key].price);
                 if (n[key].amount == 0) {
                     a = `<span style="color:red;">${n[key].price.toLocaleString('en-US')} VNĐ<span>
                         <br>

@@ -23,7 +23,7 @@
         <span>mySQL - </span>
         <span>May 2022</span>
     </div>
-    <script src="../../../public/js/productPage.js"></script>
+    <script src="<?php echo auto_version('../../../public/js/productPage.js');?>"></script>
     <script>
         for (var link of document.querySelectorAll("link[rel=stylesheet]")) link.href = link.href.replace(/\?.*|$/, "?" + Date.now())
     </script>
