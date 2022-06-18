@@ -1,4 +1,6 @@
 <?php 
+    include_once("../../system/lib/config.php");
+    include_once("Baseconnect.php");
 class ProductModel extends DataBase
 {
     public function getProductByCateAndPage($cate,$page,$LimtProduct){
@@ -15,8 +17,8 @@ class ProductModel extends DataBase
             LIMIT $getstart,$LimtProduct";
         }
         //
-        $sql = $this->send($query);
-        $count = $this->num($query);
+        $sql = $this->get($query);
+        $count = $this->getNumRow($query);
         //
         if($count > 0){
             $data = array();
@@ -31,13 +33,12 @@ class ProductModel extends DataBase
                     'amount' => $rows['amount']
                 ));
             }
-            $json = $data;
-            return $json;
+            return $data;
         }else return null;
     }
     public function getOneProductById($id){
         // Check cate and page
-        $result = $this->send("SELECT 
+        $result = $this->get("SELECT 
         product.ID AS ID,
         product.name AS name,
         product.img AS img,
@@ -60,8 +61,8 @@ class ProductModel extends DataBase
             FROM product 
             WHERE name LIKE '%$search%' OR ID LIKE '%$search%'
             ORDER BY ID ASC LIMIT 5"; 
-        $res = $this->send($sql);
-        $count = $this->num($sql);
+        $res = $this->get($sql);
+        $count = $this->getNumRow($sql);
         if($count > 0){
             $data = array();
             while($rows = $res->fetch_array()){

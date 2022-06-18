@@ -1,6 +1,4 @@
 <?php
-    include_once("../../system/lib/config.php");
-    include_once("Baseconnect.php");
     include_once("../model/ProductModel.php");
     class ProductController{
         private $LimtProductOnOnePage = 20;
@@ -148,5 +146,4 @@
             }
         }
     }
-    $ProductController = new ProductController();
 ?>

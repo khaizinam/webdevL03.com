@@ -19,16 +19,16 @@ class DataBase
                     return false;
                 }
         }
-        public function send($query){
+        public function get($query){
             $result = $this->link->query($query) or 
             die($this->link->error.__LINE__);
             return $result;
         }
-        public function send_req($query){
+        public function send($query){
             $this->link->query($query) or 
             die($this->link->error.__LINE__);      
         }
-        public function num($query){
+        public function getNumRow($query){
             $result = $this->link->query($query);
             return mysqli_num_rows($result);
         }

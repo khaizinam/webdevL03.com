@@ -1,4 +1,4 @@
-const ProductURL = "../../controller/ProductController.php";
+const ProductURL = "../../api/mainAPI.php?api=product";
 imgResize = () => {
     let c = document.getElementsByClassName("wrapper-product");
     let size = document.getElementById("wrapper-product-list");
