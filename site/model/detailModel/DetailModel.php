@@ -8,7 +8,8 @@ class DetailModel extends DataBase{
         product.amount AS amount,
         product.detail AS detail,
         product.price AS price,
-        cate.name AS cate
+        cate.name AS cate,
+        product.cate AS cate_code
         FROM product, cate 
         WHERE product.ID=$id AND cate.href = product.cate");
 

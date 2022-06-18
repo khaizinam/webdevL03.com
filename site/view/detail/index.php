@@ -71,7 +71,11 @@
                             <li class="breadcrumb-item"><a href="../trang-chu/"
                                     class="breadcrumb_product text-black">Trang chủ</a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page"><?php echo $res['cate'];?></li>
+                            <li class="breadcrumb-item" aria-current="page">
+                                <a href="../trang-chu/index.php?cate=<?php echo $res['cate_code'];?>"
+                                    class="breadcrumb_product text-black"><?php echo $res['cate'];?></a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page"><?php echo $res['name'];?></li>
                         </ol>
                     </nav>
                     <div class="product_image_details d-flex flex-wrap align-items-center justify-content-center">
