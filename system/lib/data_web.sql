@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2022 at 05:41 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 7.4.27
+-- Generation Time: Jun 18, 2022 at 03:56 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,7 +41,8 @@ INSERT INTO `cate` (`no`, `href`, `name`) VALUES
 (2, 'giay', 'Giày'),
 (3, 'aothethao', 'Áo thể thao'),
 (4, 'aotennis', 'Áo tennis'),
-(5, 'quansortthethao', 'Quần sort thể thao');
+(5, 'quansortthethao', 'Quần sort thể thao'),
+(6, 'quandabong', 'Quần đá bóng');
 
 -- --------------------------------------------------------
 
@@ -148,7 +149,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`ID`, `username`, `password`, `full_name`, `type`, `p_number`, `address`, `email`) VALUES
 (1, 'admin', 'admin', 'Nguyễn Hữu Khải', 0, '0846141788', 'ktx khu A', 'khaizinam@gmail.hcmut.edu.vn'),
 (8, 'khanh', '123', '', 1, '', '', ''),
-(9, 'abc', '123', '', 1, '', '', '');
+(9, 'abc', '123', '', 1, '', '', ''),
+(10, 'khaizinam', '123', '', 1, '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -186,7 +188,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cate`
 --
 ALTER TABLE `cate`
-  MODIFY `no` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `no` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `comment`
@@ -204,7 +206,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
