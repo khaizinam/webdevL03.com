@@ -9,7 +9,6 @@
     $getstart = ($page - 1) * $limit;
     $query = "SELECT * FROM product  LIMIT $getstart,$limit";
     if($cate != "all"){
-        $cate = $cate;
         $query = "SELECT * 
         FROM product 
         WHERE `cate` = '$cate'
