@@ -59,7 +59,7 @@
                 </style>
                 <ul style="list-style: none">
                     <li>Nguyễn Hữu Khải : Tổng hợp , trang chủ</li>
-                    <li>Phạm Hồng Khánh : Giỏ hàng, Thông tin cá nhân</li>
+                    <li>Phạm Hồng Khánh : Giỏ hàng, Thông tin cá nhân, Trang đăng nhập, đăng kí</li>
                     <li>Hà Việt Hoàng : Trang admin</li>
                     <li>Trần Minh Tân : Trang chi tiết sản phẩm</li>
                 </ul>
