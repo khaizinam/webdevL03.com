@@ -1,4 +1,4 @@
-const ProductURL = "../../api/mainAPI.php?api=product";
+const ProductURL = "../../../api/mainAPI.php?api=product";
 imgResize = () => {
     let c = document.getElementsByClassName("wrapper-product");
     let size = document.getElementById("wrapper-product-list");
@@ -39,13 +39,11 @@ document.getElementById("search-wrapper").onkeyup = (e) => {
             },
             function(data, status) {
                 if (status === 'success') {
-                    let getdata = JSON.parse(data);
-                    if (getdata.err === false) {
-                        logger(getdata.data);
-                        if (!!getdata.data) {
-                            let ndata = getdata.data;
+                    if (data.err === false) {
+                        logger(data.data);
+                        if (!!data.data) {
                             let mes = "<ul>";
-                            ndata.forEach((item, index) => {
+                            data.data.forEach((item, index) => {
                                 let productName = item.name;
                                 let id = item.id;
                                 let length = productName.length;
@@ -67,7 +65,6 @@ document.getElementById("search-wrapper").onkeyup = (e) => {
                         }
                     } else $("#search-result").html("Không có kết quả");
                     delete(data);
-                    delete(getdata);
                 }
             });
     }
@@ -134,9 +131,8 @@ $.get(ProductURL, {
     function(data, status) {
 
         if (status === 'success') {
-            let getdata = JSON.parse(data);
-            if (getdata.err === false) {
-                let n = getdata.data;
+            if (data.err === false) {
+                let n = data.data;
                 let mes = ``;
                 for (let key in n) {
                     let length = n[key].name.length;
@@ -182,7 +178,6 @@ $.get(ProductURL, {
                 $("#wrapper-product-list").html(mes);
                 imgResize();
             }
-            delete(getdata);
             delete(data);
         }
     });

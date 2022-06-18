@@ -1,5 +1,5 @@
 <?php
-    include_once("../model/ProductModel.php");
+    include_once("model/ProductModel.php");
     class ProductController{
         private $LimtProductOnOnePage = 20;
         private $model;
