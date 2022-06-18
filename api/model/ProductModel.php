@@ -1,5 +1,4 @@
 <?php 
-    include_once("config/Baseconnect.php");
 class ProductModel extends DataBase
 {
     public function getProductByCateAndPage($cate,$page,$LimtProduct){

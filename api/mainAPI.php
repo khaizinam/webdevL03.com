@@ -7,7 +7,8 @@ header("Content-type: application/json");
 header("Access-Control-Allow-Headers: Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control");
     //
     include_once("config/config.php");
-
+    include_once("config/Baseconnect.php");
+    include_once("model/ProductModel.php");
     if(isset($_GET['api'])){
         switch ($_GET['api']) {
             case 'product':
