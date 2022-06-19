@@ -1,0 +1,20 @@
+table{
+    border-collapse: collapse;
+}
+.row{
+    align-items: center;
+}
+.column{
+    padding: 0px 10px;
+}
+@media only screen and (max-width: 700px) {
+    .action-nav{
+        display: block;
+    }
+    .column{
+        padding: 0px 0px;
+    }
+    span.rphd {
+        display: none;
+    }
+}
